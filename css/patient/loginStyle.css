@@ -1,0 +1,50 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+form {
+    width: 300px;
+    margin: 50px auto;
+}
+
+/* Form Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #4a90e2; /* Blue border */
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+/* Input Fields Focus */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #1e87f0; /* Darker blue when focused */
+}
+
+/* Login Button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+ 
