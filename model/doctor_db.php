@@ -1,12 +1,27 @@
 <?php
+use LDAP\Result;
+set_include_path(dirname(__FILE__)."/../../");
+require 'mongo/vendor/autoload.php';
+
+use MongoDB\Driver\ServerApi;
 class Model
 {
 
     function OpenCon(){
-      $conn= new mysqli("localhost","root","","doctor1");
-     
-      return $conn;
+      $uri = 'mongodb+srv://ashiq:ashiq@cluster0.1vw1o0y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+        $apiVersion = new ServerApi(ServerApi::V1);
+        $conn= new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
+        return $conn;
     }
+    function loginCheck($conn,$email,$pass){
+      
+      $collection = $conn->online_health->doctor;
+        $cursor = $collection->findOne([
+            'email' => $email,
+            'password' => $pass,
+        ]);
+        return $cursor;
+  }
     
     function ProfileInfo($conn,$table,$email)
     {
@@ -14,17 +29,37 @@ class Model
         $result = $conn->query($sql);
         return $result;
     }
-    function AddDocInfo($conn,$table, $fname,$lname, $email,$pnumber,$lnumber,$place, $pass){
-        $sql="INSERT INTO $table (fname,lname,email,pnumber,lnumber,place,pass) VALUES 
-        ('$fname','$lname', '$email', '$pnumber', '$lnumber','$place','$pass')";
-       $result= $conn->query($sql);
-       return $result;
-    }
-    function loginCheck($conn,$table,$email,$pass){
-      $sql = "SELECT email,pass from $table WHERE email='$email' AND pass = '$pass'";
-      $result = $conn->query($sql);
-      return $result;
-  }
+    function AddDocInfo($conn,$name, $email,$gender,$cat,$pnumber,$lnumber,$place, $pass){
+     
+          $collection = $conn->online_health->counter;
+          $cursor = $collection->find();
+          foreach($cursor as $document){
+              $count= (Int)$document["d_id"];
+          }
+          $collection->updateOne([
+              'd_id'=>$count],
+              ['$set' => ["d_id" => $count+1]]
+          );
+          
+          $collection = $conn->online_health->doctor;
+          
+          $result=$collection->insertOne([
+              "d_id" => $count+1,
+              "name"=>$name,
+             
+              "email"=>$email,
+              'gender' => $gender,
+              'cat' => $cat,
+              "pnumber"=> $pnumber,
+              'lnumber' => $lnumber,
+              'place' => $place,
+              'pass' => $pass,
+             
+          ]); 
+          return $result->getInsertedCount();
+      }
+    
+   
 
   function UpdateProfile($conn,$table, $email, $fname, $pnumber, $pass)
     {

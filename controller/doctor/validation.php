@@ -1,7 +1,7 @@
 <?php
-//include '../model/db.php';
+include '../../model/doctor_db.php';
 
-$fname=$lname=$email=$gender=$cat=$pnumber =$lnumber= $place=$pass=$haserror="";
+$fname=$lname=$email=$gender=$cat=$pnumber =$lnumber= $place=$pass=$hasError="";
 $fnameError=$lnameError=$emailError=$genderError=$catError=$pnumberError =$lnumberError= $placeError =$passError="";
 
 if(isset($_REQUEST['SUBMIT'])){
@@ -97,13 +97,26 @@ if (!empty($_REQUEST['place'])) {
     $placeError = "Enter Work address";
 }
 
-if($haserror!=1){
-    echo "php validation done";
+if($hasError!=1)
+    {  
+        
+    $mydb = new Model();
+    $conObj = $mydb->OpenCon();
+    $result = $mydb->AddDocInfo($conObj, $_REQUEST['fname'].$_REQUEST['lname'], $_REQUEST['email'],$_REQUEST['gender'], $_REQUEST['cat'], 
+                                $_REQUEST['pnumber'],$_REQUEST['lnumber'], $_REQUEST['place'],$_REQUEST['pass']);
+    if($result > 0)
+    {
+        echo "success";
+    }
+    else{
+        echo "Please complete the validation ";
+    }
 }
+    
 
-else{
-    echo "Please complete the validation ";
-}
+    
+
+
 
 }
 

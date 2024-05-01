@@ -25,7 +25,7 @@ include '../../controller/doctor/validation.php';
             <tr>
                 <td>
                     <input type="text" name="fname" id="fname">
-                    <td><div class="error"> <p id="fnameError"></p></div></td>
+                    <div class="error"> <p id="fnameError"></p></div>
                 </td>
                 <td>
                     <input type="text" name="lname" id="lname">
@@ -45,18 +45,21 @@ include '../../controller/doctor/validation.php';
             <tr>
                 <td colspan="2"><br></td>
             </tr>
-            <td>Gender: </td>
-            <tr>
-        <td>
-            <input type="radio" name="gender" id="gender" >Male 
-            <input type="radio" name="gender" id="gender" >Female
-            <input type="radio" name="gender" id="gender" >others
-            <td><p id="genderError"></p></td>
             
-           </tr>
-           <tr>
+        <tr>
+            <td>Gender: </td>
+        </tr>
+        <tr>
+        <td>
+        <input type="radio" name="gender" id="male">Male 
+        <input type="radio" name="gender" id="female">Female
+        <input type="radio" name="gender" id="others">Others
+        <td><div class="error"> <p id="genderError"></p></div></td>
+        </td>
+        <tr>
                 <td colspan="2"><br></td>
-            </tr> 
+        </tr>
+  
             <tr>  
             <td>
               Speciality:
@@ -65,10 +68,10 @@ include '../../controller/doctor/validation.php';
             <td><select name="cat" id="cat" >
                 
             <option disabled selected value> Select Category</option>
-                <option value="Neurology">Neurology </option>
-                <option value="Psychiatry">Psychiatry </option>
-                <option value="Pediatrics">Pediatrics</option>
-                <option value="Internal Medicine">Internal Medicine</option>
+                <option value="Neurology">Neurologist </option>
+                <option value="Psychiatry">Psychiatrist </option>
+                <option value="Pediatrics">Pediatrictist</option>
+                <option value="Internal Medicine">Internal Medicinist</option>
             </select>
             </td>
             <td><div class="error"> <p id="catError"></p></div></td>
@@ -117,7 +120,7 @@ include '../../controller/doctor/validation.php';
                 <td colspan="2"><br></td>
             </tr>
             <tr>
-                <td>Agreeing to comply with the healthcare policies and regulations</td>
+                <td colspan="2">Agreeing to comply with the healthcare policies and regulations</td>
                 <td><input type="checkbox" name="agree"></td>
             </tr>
             <tr>
