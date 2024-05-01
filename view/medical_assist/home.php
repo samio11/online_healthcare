@@ -1,8 +1,7 @@
 <?php
-include '../../layouts/header.php';
-include '../controller/process.php';
-include '../JS/myscript.js';
-include '../CSS/mystyle.css';
+include '../../controller/medical_assist/process.php';
+//include '../../JS/medical_assist_myscript.js';
+include '../../css/medical_assist/reg_page.css';
 
 ?>
 <html>
@@ -13,101 +12,92 @@ include '../CSS/mystyle.css';
   <legend>Sign Up Now!:</legend>
   <table>
         <tr>
-            <td>Name:</td><td> <input type="text" name="Name" id="Name"  placeholder ="Name">
+            <td colspan="2">Name:</td><td> <input type="text" name="Name" id="Name"  placeholder ="Type Name">
 <?php echo $nameError; ?>
 <?php echo $name; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Email:</td>
-<td><input type="text" name="Email" placeholder ="Email">
+<td colspan="2">Email:</td>
+<td><input type="text" name="Email" placeholder ="Type Email">
 <?php echo $emailError; ?>
 <?php echo $email; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Password:</td><td> <input type="password" name="Password" >
+<td colspan="2">Password:</td><td> <input type="password" name="Password" >
 <?php echo $passwordError; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Phone Number:</td><td> <input type="text" name="PhoneNumber" id="PhoneNumber">
-<?php echo $phonenumberError; ?>
-<?php echo $phonenumber; ?>
-<td colspan="2">
+<td colspan="2">Phone Number:</td><td> <input type="text" name="Phone" id="Phone">
+<?php echo $phoneError; ?>
+<?php echo $phone; ?>
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Gender:</td>
+<td colspan="2">Gender:</td>
 <td><select name="Gender" id="Gender">
+<option disabled selected value> Select Gender </option>
     <option value="Male">Male</option>
     <option value="Female">Female</option>
     <option value="Others">Others</option>
   </select>
   <?php echo $genderError; ?>
 <?php echo $gender; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Address:</td><td><input type="text" name="Address" >
+<td colspan="2">Address:</td><td><input type="text" name="Address" >
 <?php echo $addressError; ?>
 <?php echo $address; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>License:</td><td><input type="text" name="License">
+<td colspan="2">License:</td><td><input type="text" name="License">
 <?php echo $licenseError; ?>
 <?php echo $license; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
+
 
 <tr>
-<td>Date Of Birth:</td><td><input type="date" name="Date Of Birth" >
-<td colspan="2">
+<td colspan="2">Date Of Birth:</td><td><input type="date" name="dob" id="dob">
+<?php echo $dobError; ?>
+<?php echo $dob; ?>
 </td>
 </tr>
-<br>
 
 <tr>
-<td>Nationality:</td>
-<td><select name="Nationality">
+<td colspan="2">Nationality:</td>
+<td><select name="Nationality" id="Nationality">
+<option disabled selected value> Select Nationality </option>
     <option value="Bangladeshi">Bangladeshi</option>
     <option value="Others">Others</option>
   </select>
   <?php echo $nationselectError; ?>
 <?php echo $nationselect; ?>
-<td colspan="2">
 </td>
 </tr>
-<br>
-  
-<tr>
-<td><input type="submit" name="Submit" value="SUBMIT"><td colspan="2"></td>
+
+ <tr> 
+<td><input type="submit" name="Submit" value="SUBMIT"></td>
+<td><input type="reset" name="Reset" value="RESET"></td>
 </tr>
-<br>
-<tr>
-<td><input type="reset" name="Reset" value="RESET"><td colspan="2"></td>
-</tr>
-<br>
+
+
 
 </fieldset>
 </form>

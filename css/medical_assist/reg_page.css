@@ -4,11 +4,11 @@ body{
   background-color: #f7f8f8;
 }
 h1{
-    color:rgba(33, 11, 224, 0.76);
+    color:rgba(114, 105, 192, 0.76);
     margin-left: 20px;
 }
 form {
-  background-color: #4a96d4;
+  background-color: #4075a0;
   width: 40%;
   margin: 20px auto;
   padding: 20px;
@@ -16,7 +16,7 @@ form {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 input[type=text], select {
-    width: 50%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -26,7 +26,7 @@ input[type=text], select {
   }
   
   input[type=submit] {
-    width: 50%;
+    width: 100%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -36,7 +36,7 @@ input[type=text], select {
     cursor: pointer;
   }
   input[type=reset] {
-    width: 50%;
+    width: 100%;
     background-color: #e20606;
     color: white;
     padding: 14px 20px;
