@@ -1,9 +1,9 @@
-<?php include '../controller/patientControl.php'; ?>
+<?php include '../../controller/patient/patientControl.php'; ?>
 <html>
 
 <head>
-    <script src="../js/myscript.js"></script>
-    <link rel="stylesheet" href="../css/mystyle.css">
+    <script src="../../js/patient_myscript.js"></script>
+    <link rel="stylesheet" href="../../css/patient/mystyle.css">
 </head>
 
 <body>

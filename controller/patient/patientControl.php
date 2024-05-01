@@ -1,9 +1,9 @@
 <?php
- include '../models/mydb.php';
+ //include '../models/mydb.php';
 $name = $email = $phone  =$dob=$password=$address=$city=$postal= "";
 $nameError = $emailError = $phoneError =$dobError=$passwordError=$hasError="";
 if(isset($_REQUEST['login'])){
-    header("Location: ../view/login.php");
+    header("Location: ../../view/patient/login.php");
 }
 if (isset($_REQUEST['submit'])) {
     $email = $_REQUEST['email'];
