@@ -1,7 +1,7 @@
 <?php
-//include '../models/mydb.php';
-$name = $email = $password = $phonenumber = $gender = $address = $nationselect = $license = $dob = "";
-$haserror = $nameError = $emailError = $passwordError = $phonenumberError = $addressError = $licenseError = $nationselectError = $genderError = $dobError = "";
+include '../../model/medical_assist_db.php';
+$name = $email = $password = $phone = $gender = $address = $nationselect = $license = $dob = "";
+$haserror = $nameError = $emailError = $passwordError = $phoneError = $addressError = $licenseError = $nationselectError = $genderError = $dobError = "";
 
 if (isset($_REQUEST['Submit'])) {
     $password = $_REQUEST['Password'];
@@ -13,8 +13,8 @@ if (isset($_REQUEST['Submit'])) {
         $name = $_REQUEST['Name'];
     }
     if (!empty($_REQUEST['Email'])) {
-        if (!preg_match('/aiub.edu/', $_REQUEST["Email"])) {
-            $emailError = "Please enter a valid email address with aiub.edu";
+        if (!preg_match('/gmail.com/', $_REQUEST["Email"])) {
+            $emailError = "Please enter a valid email address with gmail.com";
             $haserror = 1;
 
         } else {
@@ -34,10 +34,10 @@ if (isset($_REQUEST['Submit'])) {
         $passwordError = " Password must be at least 6 characters and an uppercase";
         $haserror = 1;
     }
-    if (is_numeric($_REQUEST['PhoneNumber'])) {
-        $phonenumber = $_REQUEST['PhoneNumber'];
+    if (is_numeric($_REQUEST['Phone'])) {
+        $phone= $_REQUEST['Phone'];
     } else {
-        $phonenumberError = "Phone Number invalid";
+        $phoneError = "Phone Number invalid";
         $haserror = 1;
 
     }
@@ -56,39 +56,37 @@ if (isset($_REQUEST['Submit'])) {
 
     if (!empty($_REQUEST["Nationality"])) {
         $nationselect = $_REQUEST['Nationality'];
-        #echo $_REQUEST['Nationality'];
+        
     } else {
         $nationselectError = "Select nation";
         $haserror = 1;
     }
-    if (!empty($_REQUEST["DOB"])) {
-        $dob = $_REQUEST['DOB'];
+    if (!empty($_REQUEST["dob"])) {
+        $dob = $_REQUEST['dob'];
 
     } else {
         $dobError = "Select Date of Birth";
         $haserror = 1;
     }
     if (!empty($_REQUEST["Gender"])) {
-        $nationselect = $_REQUEST['Gender'];
+        $gender= $_REQUEST['Gender'];
 
     } else {
-        $nationselectError = "Select gender";
+        $genderError = "Select gender";
         $haserror = 1;
     }
 
-
-
-    if ($haserror != 1) {
+    
+    if($haserror!=1){ 
         $mydb = new Model();
-        $conobj = $mydb->OpenCon();
-        $result = $mydb->AddStudent($conobj, "ma_register", $_REQUEST["Name"], $_REQUEST["Email"], $_REQUEST["Password"], $_REQUEST["PhoneNumber"], $nationselect, $gender);
-        if ($result === TRUE) {
-            echo "Successfully Added";
-        } else {
-            echo "Please complete the validation ";
+        $conObj = $mydb->OpenCon();
+        $result = $mydb->AddMedical_assist($conObj,$name,$email,$password,$phone,$gender,$address,$license,$dob,$nationselect);
+        if($result < 0)
+        {
+            echo "Invalid Registration";
         }
-
-
-    }
+            else echo "Successful";
+    
+}
 }
 ?>

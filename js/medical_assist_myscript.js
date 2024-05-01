@@ -1,51 +1,45 @@
 
-    function validateForm() {
-        var name = document.getElementById("Name").value;
-        if(name == "")
-        {
-            alert("Please fill Name (JS validation)");
-            return false;
-
-        }
-        var phonenumber = document.getElementById("PhoneNumber").value;
-        if (isNaN(phonenumber))
-        {
-            alert("Please fill Phone number with only numbers(JS validation)");
-            return false;
-
-        }
-
-        var city = document.getElementById("Gender").value;
-        if(city == "")
-        {
-            alert("Please fill City (JS validation)");
-            return false;
-
-        }
-    
-        var occupation = document.getElementById("Occupation").value;
-       if(!occupation)
-       {
-        alert("Occupation must be selected");
+function validateForm() {
+    var name = document.getElementById("Name").value;
+    if (name == "") {
+        document.getElementById("nameError").innerHTML = "Name must be filled";
         return false;
-       }
 
-      
-      
     }
-    function loadUser()
-        {
-        const xhttp = new XMLHttpRequest();
-        var str = document.getElementById("Name").value;
-        xhttp.onload = function() {
+    var phone = document.getElementById("Phone").value;
+    if (isNaN(phone)) {
+        document.getElementById("phoneError").innerHTML = "Phone number must be filled";
+        return false;
+
+    }
+
+    var gender = document.getElementById("Gender").value;
+    if (!gender) {
+        document.getElementById("genderError").innerHTML = "Gender must be selected";
+        return false;
+    }
+
+    var dob = document.getElementById("dob").value;
+    if (!dob) {
+        document.getElementById("dobError").innerHTML = "Date of Birth must be selected";
+        return false;
+    }
+
+
+
+}
+/*function loadUser() {
+    const xhttp = new XMLHttpRequest();
+    var str = document.getElementById("Name").value;
+    xhttp.onload = function () {
         document.getElementById("txt").innerHTML = this.responseText;
-        }
-        
-        xhttp.open("GET", "../controller/searchUser.php?name="+str);
-        xhttp.send();
-      } 
+    }
+
+    xhttp.open("GET", "../controller/searchUser.php?name=" + str);
+    xhttp.send();
+}
+*/
 
 
 
-    
 
