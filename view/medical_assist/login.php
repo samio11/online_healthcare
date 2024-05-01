@@ -1,5 +1,6 @@
 <?php
-include '../controller/logincontrol.php';
+//include '../../controller/medical_assist/logincontrol.php
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

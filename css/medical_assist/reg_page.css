@@ -4,12 +4,12 @@ body{
   background-color: #f7f8f8;
 }
 h1{
-    color:rgba(33, 11, 224, 0.76);
+    color:rgba(114, 105, 192, 0.76);
     margin-left: 20px;
 }
 form {
-  background-color: #4a96d4;
-  width: 40%;
+  background-color: #4075a0;
+  width: 50%;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
