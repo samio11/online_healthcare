@@ -1,5 +1,5 @@
 <?php
-include '../control/loginControl.php';
+include '../../controller/doctor/loginControl.php';
 ?>
 
 
@@ -14,13 +14,14 @@ include '../control/loginControl.php';
 <body>
     <form method="POST" action="">
         <div class="error"><?php echo $emailError; ?></div>
-        <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" />
+        <input type="email" name="email"  value="<?php echo $email; ?>" />
         <div class="error"><?php echo $passError; ?></div>
-        <input type="password" name="pass" id="pass" placeholder="Password" value="<?php echo $pass; ?>" />
+        <input type="password" name="pass" id="pass"  value="<?php echo $pass; ?>" />
         <input type="submit" name="Submit" value="Login" />
     </form>
 </body>
 </html>
+
 
 
 
