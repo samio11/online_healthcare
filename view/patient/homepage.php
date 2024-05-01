@@ -1,4 +1,7 @@
 <html>
+<head>
+    <link rel="stylesheet" href="../../css/patient/homepageStyle.css">
+    </head>
     <body>
         <form method="POST" action="">
             <table>
@@ -14,4 +17,4 @@
         </form>
     </body>
 </html>
-<?php include '../controller/homepageControl.php'; ?>
+<?php include '../../controller/patient/homepageControl.php'; ?>

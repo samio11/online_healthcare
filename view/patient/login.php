@@ -1,6 +1,6 @@
 <html>
     <head>
-    <link rel="stylesheet" href="../css/loginStyle.css">
+    <link rel="stylesheet" href="../../css/patient/loginStyle.css">
     </head>
     <body>
         <form method="POST" action="">
@@ -12,4 +12,4 @@
         </form>
     </body>
 </html>
-<?php include '../controller/loginControl.php'; ?>
+<?php include '../../controller/patient/loginControl.php'; ?>
