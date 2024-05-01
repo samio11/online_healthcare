@@ -1,8 +1,8 @@
 <?php
-include '../model/db.php';
+//include '../model/db.php';
 
-$fname=$lname=$email=$pnumber =$lnumber= $place=$pass=$haserror="";
-$fnameError=$lnameError=$emailError=$pnumberError =$lnumberError= $placeError =$passError="";
+$fname=$lname=$email=$gender=$cat=$pnumber =$lnumber= $place=$pass=$haserror="";
+$fnameError=$lnameError=$emailError=$genderError=$catError=$pnumberError =$lnumberError= $placeError =$passError="";
 
 if(isset($_REQUEST['SUBMIT'])){
 
@@ -98,23 +98,12 @@ if (!empty($_REQUEST['place'])) {
 }
 
 if($haserror!=1){
-
-    $db= new Model();
-    $conobj= $db->OpenCon();
-    $result=$db->AddDocInfo($conobj,"doctable",$_REQUEST["fname"],$_REQUEST["lname"],
-    $_REQUEST["email"], $_REQUEST["pnumber"], $_REQUEST["lnumber"],$_REQUEST["place"],$_REQUEST["pass"]);
-    if($result===TRUE)
-    {
-        echo "Successfully Added";
-    }
-    else{
-        echo "Error Occurred".$conobj->error;
-    }
+    echo "php validation done";
 }
+
 else{
     echo "Please complete the validation ";
 }
-
 
 }
 

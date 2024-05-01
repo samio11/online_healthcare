@@ -1,5 +1,5 @@
 <?php
-include '../control/validation.php';
+include '../../controller/doctor/validation.php';
 
 ?>
 
@@ -9,8 +9,8 @@ include '../control/validation.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Registration Form</title>
-    <script src="../js/script.js"></script>
-    <link rel="stylesheet" href="../css/regstyle.css">
+    <script src="../../js/doctor_myscript.js"></script>
+    <link rel="stylesheet" href="../../css/doctor/regstyle.css">
 
     
 </head>
@@ -25,11 +25,11 @@ include '../control/validation.php';
             <tr>
                 <td>
                     <input type="text" name="fname" id="fname">
-                    <div class="error"><?php echo $fnameError; ?></div>
+                    <td><div class="error"> <p id="fnameError"></p></div></td>
                 </td>
                 <td>
                     <input type="text" name="lname" id="lname">
-                    <div class="error"><?php echo $lnameError; ?></div>
+                    <td><div class="error"> <p id="lnameError"></p></div></td>
                 </td>
             </tr>
             <tr>
@@ -45,6 +45,37 @@ include '../control/validation.php';
             <tr>
                 <td colspan="2"><br></td>
             </tr>
+            <td>Gender: </td>
+            <tr>
+        <td>
+            <input type="radio" name="gender" id="gender" >Male 
+            <input type="radio" name="gender" id="gender" >Female
+            <input type="radio" name="gender" id="gender" >others
+            <td><p id="genderError"></p></td>
+            
+           </tr>
+           <tr>
+                <td colspan="2"><br></td>
+            </tr> 
+            <tr>  
+            <td>
+              Speciality:
+            </td>
+        
+            <td><select name="cat" id="cat" >
+                
+            <option disabled selected value> Select Category</option>
+                <option value="Neurology">Neurology </option>
+                <option value="Psychiatry">Psychiatry </option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Internal Medicine">Internal Medicine</option>
+            </select>
+            </td>
+            <td><div class="error"> <p id="catError"></p></div></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr> 
             <tr>
                 <td>Phone number:</td>
                 <td>
@@ -100,3 +131,4 @@ include '../control/validation.php';
     </form>
 </body>
 </html>
+
