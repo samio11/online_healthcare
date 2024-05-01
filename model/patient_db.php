@@ -1,5 +1,7 @@
 <?php
-        require '../mongodbphp/vendor/autoload.php';
+set_include_path(dirname(__FILE__)."/../");
+        require 'mongodbphp/vendor/autoload.php';
+        
         use MongoDB\Driver\ServerApi;
 /*
 // Connection string
@@ -71,8 +73,11 @@ class Model{
     }
     function ShowProfile($conn, $email)
     {
-        $sql = "SELECT *  FROM patient WHERE email='$email'";
-        return $conn->query($sql);
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->findOne([
+            'email' => $email,
+        ]);
+        return $cursor;
     }
     function UpdateUser($conn, $email, $name, $phone, $password)
     {
@@ -96,5 +101,4 @@ class Model{
 
     
 }
-?>
 ?>
