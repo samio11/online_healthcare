@@ -1,14 +1,18 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    <link rel="stylesheet" href="../css/loginStyle.css">
-    </head>
-    <body>
-        <form method="POST" action="">
-            <table>
-                <tr><td>Enter Email:</td><td><input type="text" name="email" ></td></tr>
-               <tr ><td><input type='submit' name='send' value='Send Code'></td></tr>
-            </table>
+<head>
+    <title>GeeksforGeeks Registration</title>
+    <link rel="stylesheet" href="../../css/patient/forgetPasswordStyle.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Reset Password</h1>
+        <form action="" method="POST">
+            <label for="first">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email" required>           
+            <div class="wrap"><input type="submit" value="Submit" name="email_submit"></div>
         </form>
-    </body>
+    </div>
+</body>
 </html>
-<?php include '../controller/loginControl.php'; ?>
+<?php include '../../controller/patient/forgetPasswordControl.php'; ?>
