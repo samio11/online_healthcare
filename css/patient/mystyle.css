@@ -1,0 +1,75 @@
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Form Container */
+fieldset {
+    width: 60%;
+    margin: 50px auto;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Table */
+table {
+    width: 100%;
+}
+
+td {
+    padding: 10px 0;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: #5b9aff;
+}
+
+input[type="submit"] {
+    padding: 15px 250px;
+    background-color: #5b9aff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #4a87d7;
+}
+
+/* Error Messages */
+.error {
+    color: #ff3333;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
