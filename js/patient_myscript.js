@@ -23,14 +23,7 @@ function validateForm() {
   if (isNaN(postal) || postal.length != 4) {
     document.getElementById("postalError").innerHTML = "Postal code must be 4 digit number";
     return false;
-  }
-  var age = document.getElementById("age").value;
-  age = parseInt(age);
-  if (age < 18 || age > 100) {
-    alert("Age must be between 18 to 100");
-    return false;
-  }
-  
+  } 
 }
 function loadDoc() {
   var str = document.getElementById("name").value;
