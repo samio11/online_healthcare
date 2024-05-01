@@ -1,5 +1,5 @@
 <?php
- //include '../models/mydb.php';
+ include '../../model/patient_db.php';
 $name = $email = $phone  =$dob=$password=$address=$city=$postal= "";
 $nameError = $emailError = $phoneError =$dobError=$passwordError=$hasError="";
 if(isset($_REQUEST['login'])){
@@ -44,9 +44,17 @@ if (isset($_REQUEST['submit'])) {
     }
 
     if($hasError!=1){
-        echo "php Validation done";
+        {  
+        $mydb = new Model();
+        $conObj = $mydb->OpenCon();
+        $result = $mydb->AddPatient($conObj, $_REQUEST['name'], $_REQUEST['email'],$_REQUEST['password'], $_REQUEST['gender'], 
+                                    $_REQUEST['phone'],$_REQUEST['dob'], $_REQUEST['marital'],$_REQUEST['street'].$_REQUEST['city']."Postal: ".$_REQUEST['postal']);
+        if($result > 0)
+        {
+            echo "success";
+        }
+            else echo "not valid";
     }
-    else echo "validation failed";
 
-
+}
 }

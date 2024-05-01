@@ -3,21 +3,23 @@ set_include_path(dirname(__FILE__)."/../");
         require 'mongodbphp/vendor/autoload.php';
         
         use MongoDB\Driver\ServerApi;
+       /* $uri = 'mongodb+srv://ashiq:ashiq@cluster0.1vw1o0y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+        $apiVersion = new ServerApi(ServerApi::V1);
+        $conn= new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
+
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach($cursor as $document){
+            $count= (Int)$document["p_id"];
+            echo $count+1;
+        }
+        $collection->updateOne([
+            'p_id'=>$count],
+            ['$set' => ["p_id" => $count+1]]
+        );*/
+        
+        
 /*
-// Connection string
-$uri = 'mongodb+srv://ashiq:ashiq@cluster0.1vw1o0y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-// Set the version of the Stable API on the client
-$apiVersion = new ServerApi(ServerApi::V1);
-// Create a new client and connect to the server
-$client = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
-
-
-$collection = $client->online_health->patient;
-
-$cursor = $collection->find();
-foreach($cursor as $document){
-    echo "Inretest rate: ".$document["interest_rate"]."  "."Loan: ".$document['Loan']."<br>";
-}
 $collection->insertOne([
     'Borrower'=>35,
     "Loan"=>45000,
@@ -32,24 +34,6 @@ $collection->deleteOne([
     ['$set' => ["Loan" => 69]]
 );*/
 
-//var_dump($document);
-
-// connect to mongodb
- /*  $m = new MongoDB\Client();
-	
-   echo "Connection to database successfully";
-   // select a database
-   $db = $m->sample_guides;
-	
-   echo "Database sample_guides selected";
-   $collection = $db->planets;
-   echo "Collection selected succsessfully";
-   $cursor = $collection->find();
-   // iterate cursor to display title of documents
-	
-   foreach ($cursor as $document) {
-      echo $document["name"] . "\n";
-   }*/
 class Model{
     function OpenCon(){
         $uri = 'mongodb+srv://ashiq:ashiq@cluster0.1vw1o0y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
@@ -57,10 +41,37 @@ class Model{
         $conn= new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
     }
-    function AddPatient($conn,$name,$dob,$phone,$email,$password)
+    function autoIncrement($conn){
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        $count = $cursor['p_id'];
+
+    }
+
+    function AddPatient($conn,$name,$email,$password,$gender,$phone,$dob,$martial,$address)
     {
-        $sql ="INSERT INTO patient (name, dob, phone, email, password) VALUES ('$name','$dob','$phone','$email','$password')";
-        return $conn->query($sql);   
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach($cursor as $document){
+            $count= (Int)$document["p_id"];
+        }
+        $collection->updateOne([
+            'p_id'=>$count],
+            ['$set' => ["p_id" => $count+1]]
+        );
+        
+        $collection = $conn->online_health->patient;
+        $collection->insertOne([
+            'p_id' => $count+1,
+            'name'=>$name,
+            "email"=>$email,
+            "password"=> $password,
+            'gender' => $gender,
+            'phone' => $phone,
+            'dob' => $dob,
+            'marital' => $martial,
+            'address' => $address
+        ]); 
     }
     function login($conn, $email, $password)
     {

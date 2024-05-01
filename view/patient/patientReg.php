@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form method="POST" action="" "onsubmit="return validateForm()">
+    <form method="POST" action="" onsubmit="return validateForm()">
         <fieldset>
             <legend>Patient Registration</legend>
             <table>
@@ -24,7 +24,7 @@
                         <?php echo $dobError; ?></td>
 
                     <td>Gender:</td>
-                    <td><select id="gender">
+                    <td><select name="gender" id="gender">
                             <option disabled selected value> Select gender </option>
                             <option name="male">Male</option>
                             <option name="female">Female</option>
@@ -40,7 +40,7 @@
                         <?php echo $phone; ?></td>
 
                     <td>Marital Status:</td>
-                    <td><select id="marital">
+                    <td><select name ="marital" id="marital">
                             <option disabled selected value> Select gender </option>
                             <option name="married">Married</option>
                             <option name="single">Single</option>
@@ -60,7 +60,7 @@
 
                 <tr>
                     <td>Street Address</td>
-                    <td colspan=3><input type="text" name="city" id="address"></td>
+                    <td colspan=3><input type="text" name="street" id="address"></td>
                     <td>
                         <p id="add"></p>
                     </td>
