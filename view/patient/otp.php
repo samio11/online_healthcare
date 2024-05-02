@@ -11,7 +11,7 @@
         <form action="" method="POST">
             <label for="otp">OTP:</label>
             <input type="text" id="otp" name="otp" placeholder="Enter your OTP" required>
-            
+            <p class="wrap"><?php echo $otpError ?></p>
             <div class="wrap"><input type="submit" value="Submit" name="otp_submit"></div>
         </form>
     </div>
