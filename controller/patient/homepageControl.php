@@ -4,7 +4,7 @@ session_start();
       
   
 if(isset($_REQUEST['showProfile'])){
-  header("Location: ../../controller/patient/updateProfileControl.php");
+  header("Location: ../../controller/patient/viewProfileControl.php");
 }
 if(isset($_REQUEST['updateProfile'])){
     header("Location: ../controller/updateControl.php");
