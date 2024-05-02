@@ -1,75 +1,67 @@
-/* Body */
+/*style.css*/
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
 }
-
-/* Form Container */
-fieldset {
-    width: 60%;
-    margin: 50px auto;
-    padding: 30px;
-    border: none;
-    border-radius: 10px;
+  
+.main {
     background-color: #fff;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
+    text-align: center;
 }
 
-legend {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+
+h1 {
+    color: #5b9aff;
 }
 
-/* Form Table */
-table {
+label {
+    display: block;
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
 }
 
-td {
-    padding: 10px 0;
-}
 
-input[type="text"],
-input[type="date"],
-select {
-    width: calc(100% - 20px);
-    padding: 12px;
-    margin: 8px 0;
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus {
-    outline: none;
-    border-color: #5b9aff;
-}
-
-input[type="submit"] {
-    padding: 15px 250px;
-    background-color: #5b9aff;
-    color: #fff;
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: none;
-    border-radius: 5px;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #5b9aff;
+    width: 100%;
+    font-size: 16px;
 }
 
-input[type="submit"]:hover {
-    background-color: #4a87d7;
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-/* Error Messages */
-.error {
-    color: #ff3333;
-    font-size: 0.9em;
-    margin-top: 5px;
-}
-

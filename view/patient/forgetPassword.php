@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GeeksforGeeks Registration</title>
-    <link rel="stylesheet" href="../../css/patient/forgetPasswordStyle.css">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 <body>
     <div class="main">
@@ -10,7 +10,7 @@
         <form action="" method="POST">
             <label for="first">Email:</label>
             <input type="text" id="email" name="email" placeholder="Enter your Email" required>           
-            <div class="wrap"><input type="submit" value="Submit" name="email_submit"></div>
+            <div class="wrap"> <button type="submit" name="email_submit" id="email_submit">Submit</button></div>
         </form>
     </div>
 </body>

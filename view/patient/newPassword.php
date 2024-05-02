@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Password</title>
-    <link rel="stylesheet" href="../../css/patient/forgetPasswordStyle.css">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 <body>
     <div class="main">

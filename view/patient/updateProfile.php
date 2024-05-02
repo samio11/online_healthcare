@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <html>
     <body>
         <h2>Update Profile Information</h2>

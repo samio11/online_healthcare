@@ -46,7 +46,7 @@ function loadUser() {
   
 }
 
-function loadData(){
+function loadProfile(){
   var str;
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
