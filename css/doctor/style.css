@@ -1,3 +1,5 @@
+
+
 body {
     display: flex;
     align-items: center;
@@ -9,7 +11,7 @@ body {
     flex-direction: column;
     margin: 0;
 }
-  
+
 .main {
     background-color: #fff;
     border-radius: 15px;
@@ -19,7 +21,6 @@ body {
     width: 500px;
     text-align: center;
 }
-
 
 h1 {
     color: #5b9aff;
@@ -35,7 +36,6 @@ label {
     font-weight: bold;
 }
 
-
 input {
     display: block;
     width: 100%;
@@ -46,7 +46,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+button[type="submit"] {
     padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
@@ -54,9 +54,13 @@ button {
     border: none;
     color: white;
     cursor: pointer;
-    background-color: #5b9aff;
+    background-color: #0056b3;
     width: 100%;
     font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5b9aff;
 }
 
 .wrap {

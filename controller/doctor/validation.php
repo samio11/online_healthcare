@@ -119,12 +119,17 @@ if($hasError!=1)
     $conObj = $mydb->OpenCon();
     $result = $mydb->AddDocInfo($conObj, $_REQUEST['fname'].$_REQUEST['lname'], $_REQUEST['email'],$_REQUEST['gender'], $_REQUEST['cat'], 
                                 $_REQUEST['pnumber'],$_REQUEST['lnumber'], $_REQUEST['place'],$_REQUEST['pass']);
-    if($result > 0)
+   /* if($result > 0)
     {
-        echo "success";
+        echo "Successfully Registered done!!";
     }
     else{
         echo "Please complete the validation ";
+    }*/
+    if ($result > 0) {
+        echo '<div id="registrationMessage" style="color: green;">Successfully Registered done!!</div>';
+    } else {
+        echo '<div id="registrationMessage" style="color: red;">Please complete the validation</div>';
     }
 }
     

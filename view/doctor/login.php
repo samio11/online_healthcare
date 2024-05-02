@@ -12,15 +12,16 @@
     <div class="main">
         <h1>Doctor Portal</h1>
         <h3>Enter your login credentials</h3>
-        <form action=""  mathod="POST">
+        <form action=""  method="POST">
             <label for="email">Email: </label>
             <input type="text" id="email" name="email" placeholder="Enter your Email" required>
             <label for="pass"> Password: </label>
             <input type="password" id="pass" name="pass" placeholder="Enter your Password" required>
-            <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
+            <div class="wrap"> <button type="submit" name="submit" id="submit">Login</button></div>
         </form>
-        <a href="forgetPass.php" style="text-decoration: none;"> Forgot password? </a>
-        <p>Not registered?<a href="patientReg.php" style="text-decoration: none;"> Create an account </a></p>
+        <a href="forgetPass.php" style="text-decoration: none; color: red;"> Forgot password? </a>
+
+        <p>Not registered?<a href="docReg.php" style="text-decoration: none;  color: seagreen;"> Create an account </a></p>
 
     </div>
 
