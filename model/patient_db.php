@@ -69,9 +69,16 @@ class Model
         );
         return $cursor->getModifiedCount();
     }
-    function UpdateUser($conn, $email, $name, $phone, $password){
-        $sql = "UPDATE patient SET name='$name', phone='$phone', password='$password'  WHERE email='$email'";
-        return $conn->query($sql);
+    function updateProfile($conn, $email,$password, $name, $phone,$address){
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne([
+            'email' => $email,
+            'password' => $password],
+            ['$set' => ['name' => $name,
+                       'phone' => $phone,
+                       'address' => $address]]
+        );
+        return $cursor;
     }
     function UploadDocument($conn, $email, $photo, $nid, $medical){
         $sql = "INSERT INTO documents (email, photo, nid, medical) VALUES ('$email', '$photo', '$nid', '$medical')";

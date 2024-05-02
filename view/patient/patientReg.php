@@ -3,7 +3,7 @@
 
 <head>
     <script src="../../js/patient_myscript.js"></script>
-    <link rel="stylesheet" href="../../css/patient/mystyle.css">
+    <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 
 <body>
