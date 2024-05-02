@@ -11,6 +11,7 @@ include '../../controller/doctor/validation.php';
     <title>Doctor Registration Form</title>
     <script src="../../js/doctor_myscript.js"></script>
     <link rel="stylesheet" href="../../css/doctor/regstyle.css">
+    
 
     
 </head>

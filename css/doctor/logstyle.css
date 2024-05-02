@@ -1,15 +1,42 @@
-input[type="submit"] {
-    background-color: seagreen; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px; 
-    border-radius: 5px; 
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
 }
 
-input[type="submit"]:hover {
-    background-color: #2E8B57; 
+form {
+    background-color: #fff;
+    width: 400px; 
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: calc(100% - 22px); /* Adjusted width to account for padding and border */
+   padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the total width */
 }
 
 .error {
-    color: red; }
+    color: red;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

@@ -1,34 +1,35 @@
 <?php
-include '../model/db.php';
+include '../../model/doctor_db.php';
 session_start();
-
 
 if(isset($_REQUEST['showProfile'])){
    // $_SESSION["username"] = $_REQUEST['email'];
     if (isset($_SESSION["email"])) {
-        $db = new Model();
-        $conobj = $db->OpenCon();
-        $result = $db->ProfileInfo($conobj, "doctable", $_SESSION["email"]);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        $mydb = new Model();
+        $conObj = $mydb->OpenCon();
+        $result = $mydb->ShowProfile($conObj, $_SESSION["email"]);
+        if ($result) {
                 echo "<table>";
-                echo "<tr><td>First Name:</td><td>".$row["fname"]."</td></tr>";
-                echo "<tr><td>Last Name:</td><td>".$row["lname"]."</td></tr>";
-                echo "<tr><td>Email:</td><td>".$row["email"]."</td></tr>";
-                echo "<tr><td>Phone Number:</td><td>".$row["pnumber"]."</td></tr>";
-                echo "<tr><td>License Number:</td><td>".$row["lnumber"]."</td></tr>";
-                echo "<tr><td>Working Place:</td><td>".$row["place"]."</td></tr>";
+                echo "<tr><td>Full Name:</td><td>".$result["name"]."</td></tr>";
+                echo "<tr><td>email:</td><td>".$result["email"]."</td></tr>";
+                echo "<tr><td>gender:</td><td>".$result["gender"]."</td></tr>";
+                echo "<tr><td>Category:</td><td>".$result["cat"]."</td></tr>";
+                echo "<tr><td>phone number:</td><td>".$result["pnumber"]."</td></tr>";
+                echo "<tr><td>licence Place:</td><td>".$result["lnumber"]."</td></tr>";
+                echo "<tr><td>Working Place:</td><td>".$result["place"]."</td></tr>";
+                echo "<tr><td>password:</td><td>".$result["pass"]."</td></tr>";
                 echo "</table>";
                
-            }
-        } else {
-            echo "No profile information found.";
-        }
+           
+        } 
+    else {echo "No profile information found.";}
+        
     }
     else {
        echo "Session variable 'email' is not set.";
 }
-    }
+}
+    
     if(isset($_REQUEST['updateProfile'])){
         header("Location: ../form_code/updateprof.php");
     }
