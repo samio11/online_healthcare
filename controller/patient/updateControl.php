@@ -7,7 +7,10 @@ if(isset($_REQUEST['update'])){
     $result = $mydb->updateProfile($conObj, $_SESSION['email'],$_REQUEST['password'],$_REQUEST['name'],
                                     $_REQUEST['phone'], $_REQUEST['address']);
     if($result){
+        header("Location: homepage.php");
         echo "updated successfully";
-    }     
+
+    }
+    
 }
  ?>
