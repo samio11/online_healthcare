@@ -31,7 +31,7 @@ if(isset($_REQUEST['showProfile'])){
 }
     
     if(isset($_REQUEST['updateProfile'])){
-        header("Location: ../form_code/updateprof.php");
+        header("Location: ../../view/doctor/updateprof.php");
     }
     if(isset($_REQUEST['documents'])){
         header("Location: ../form_code/document.php");

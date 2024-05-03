@@ -1,56 +1,61 @@
 <?php
-include '../model/db.php';
+include '../../model/doctor_db.php';
 //include '../form_code/updateprof.php';
 session_start();
 //$fname=$lname=$email=$pnumber =$lnumber= $place=$pass=$haserror="";
 $hasError=$updatedPhone=$updatedPass=$phoneError= $passwordError="";
-$db = new Model();
-$conobj = $db->OpenCon();
-$result = $db->ProfileInfo($conobj,"doctable", $_SESSION['email']);
-if($result->num_rows>0)
+$mydb = new Model();
+$conObj = $mydb->OpenCon();
+$result = $mydb->ShowProfile($conObj, $_SESSION["email"]);
+if($result)
 {
-    while($row = $result->fetch_assoc()){
             
-        $_SESSION['fname'] = $row['fname'];
-        $_SESSION['pnumber'] = $row['pnumber'];
-        $_SESSION['pass'] = $row['pass'];
-      }
-//header("Location: ../view/updateProfile.php");
+        $_SESSION["name"] = $result["name"];
+       
+        $_SESSION['pnumber'] = $result['pnumber'];
+        $_SESSION['pass'] = $result['pass'];
 }
+//header("Location: ../../view/doctor/updateprof.php");
+
+
 
 if(isset($_REQUEST['cancel'])){
-  header('Location: ../form_code/homepage.php');
+  header('Location: ../../view/doctor/homepage.php');
 }
 
 if(isset($_REQUEST['confirm'])){
+ 
+  $updatedName = $_REQUEST['updatedName'];
+  $updatedPhone = $_REQUEST['updatedPhone'];
+  $updatedPass = $_REQUEST['updatedPass'];
+
   if  (!preg_match("/^0/", $_REQUEST['updatedPhone'])) {
-    $haserror=1;
+    $hasError=1;
         $phoneError = "Phone number must start with 0";
-} else {
-    $updatedPhone = $_REQUEST['updatedPhone'];
-}
+} 
+//else {    $updatedPhone = $_REQUEST['updatedPhone'];}
+
 if(strlen($updatedPass) < 6 && !preg_match("/[a-z]/",$_REQUEST['updatedPass']))
   {
-    $haserror=1;
+    $hasError=1;
     $passwordError = "Password must be at least 6 characters long and contain at least one lowercase character";
-} else {
-  $updatedPass = $_REQUEST['updatedPass'];
-}
+} 
+//else {$updatedPass = $_REQUEST['updatedPass'];}
+
+
 
 if ($hasError != 1) {
-  $result = $db->UpdateProfile($conobj, "doctable", $_SESSION['email'], $_REQUEST['updatedName'], $_REQUEST['updatedPhone'], $_REQUEST['updatedPass']);
-  if ($result === TRUE) {
+  $result = $mydb->UpdateProfile($conObj, $_SESSION['email'], $updatedName, $updatedPhone, $updatedPass);
+  if ($result) {
       echo "Successfully Updated";
   } else {
-      echo "Check for errors";
+      echo "Error updating profile";
   }
-  header('Location: ../form_code/homepage.php');
+  header('Location: ../../view/doctor/homepage.php');
   exit; // Stop further execution
-
-}else {
-  echo "Please complete the validation ";
+} else {
+  echo "Please correct the validation errors.";
 }
 }
-
 
 ?>
