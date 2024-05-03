@@ -11,6 +11,7 @@ include '../../controller/doctor/validation.php';
     <title>Doctor Registration Form</title>
     <script src="../../js/doctor_myscript.js"></script>
     <link rel="stylesheet" href="../../css/doctor/regstyle.css">
+    
 
     
 </head>
@@ -29,7 +30,7 @@ include '../../controller/doctor/validation.php';
                 </td>
                 <td>
                     <input type="text" name="lname" id="lname">
-                    <td><div class="error"> <p id="lnameError"></p></div></td>
+                    <div class="error"> <p id="lnameError"></p></div>
                 </td>
             </tr>
             <tr>
@@ -48,14 +49,16 @@ include '../../controller/doctor/validation.php';
             
         <tr>
             <td>Gender: </td>
-        </tr>
-        <tr>
-        <td>
+            <td>
         <input type="radio" name="gender" id="male">Male 
         <input type="radio" name="gender" id="female">Female
         <input type="radio" name="gender" id="others">Others
-        <td><div class="error"> <p id="genderError"></p></div></td>
         </td>
+        </tr>
+        <tr>
+        <td><div class="error"> <p id="genderError"></p></div></td>
+        </tr>
+        
         <tr>
                 <td colspan="2"><br></td>
         </tr>

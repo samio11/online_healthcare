@@ -5,7 +5,7 @@ $email=$pass="";
 $emailError=$passError="";
 
 
-if(isset($_REQUEST['Submit'])){
+if(isset($_REQUEST['submit'])){
     $_SESSION['email'] = $_REQUEST['email'];
    if(empty($_REQUEST['email'])){
         $emailError= "please enter a valid email address";

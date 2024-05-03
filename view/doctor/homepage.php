@@ -1,6 +1,7 @@
 <?php
 
-include '../control/homevalidation.php';
+//include '../control/homevalidation.php';
+include '../../controller/doctor/homevalidation.php'; 
 
 
 ?>

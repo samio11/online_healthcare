@@ -18,17 +18,12 @@ class Model
       $collection = $conn->online_health->doctor;
         $cursor = $collection->findOne([
             'email' => $email,
-            'password' => $pass,
+            'pass' => $pass,
         ]);
         return $cursor;
   }
     
-    function ProfileInfo($conn,$table,$email)
-    {
-        $sql = "SELECT *  FROM $table WHERE email='$email'";
-        $result = $conn->query($sql);
-        return $result;
-    }
+  
     function AddDocInfo($conn,$name, $email,$gender,$cat,$pnumber,$lnumber,$place, $pass){
      
           $collection = $conn->online_health->counter;
@@ -48,7 +43,7 @@ class Model
               "name"=>$name,
              
               "email"=>$email,
-              'gender' => $gender,
+              "gender" => $gender,
               'cat' => $cat,
               "pnumber"=> $pnumber,
               'lnumber' => $lnumber,
@@ -59,7 +54,32 @@ class Model
           return $result->getInsertedCount();
       }
     
-   
+      function checkEmail($conn, $email){
+        return $this->ShowProfile($conn, $email);   
+            
+    }
+    function ShowProfile($conn, $email)
+    {
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->findOne([
+            'email' => $email,
+        ]);
+        return $cursor;
+    }
+    function updatePassword($conn, $email, $pass){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            ['$set' => ['pass' => $pass]]
+        );
+        return $cursor->getModifiedCount();
+    }
+   /* function ProfileInfo($conn,$table,$email)
+    {
+        $sql = "SELECT *  FROM $table WHERE email='$email'";
+        $result = $conn->query($sql);
+        return $result;
+    }*/
 
   function UpdateProfile($conn,$table, $email, $fname, $pnumber, $pass)
     {

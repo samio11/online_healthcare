@@ -11,7 +11,7 @@ if(isset($_REQUEST['SUBMIT'])){
   if (!empty($_REQUEST['lname'])) {
 
     if (!preg_match("/^[A-Za-z ]{1,50}$/", $_REQUEST['lname'])) {
-        $haserror=1;
+        $hasError=1;
         $lnameError = "Please enter a valid name with at least 50 alphabetic characters";
     }
     else{
@@ -26,7 +26,7 @@ else {
   if (!empty($_REQUEST['fname'])) {
 
     if (!preg_match("/^[A-Za-z ]{1,50}$/", $_REQUEST['fname'])) {
-        $haserror=1;
+        $hasError=1;
         $fnameError = "Please enter a valid name with at least 50 alphabetic characters";
     }
     else{
@@ -38,7 +38,7 @@ else {
    
     $fnameError = "First Name is required";
 }
- if(!empty($_REQUEST['email']))
+ /*if(!empty($_REQUEST['email']))
 {
    if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix",$_REQUEST['email']))
 { 
@@ -54,11 +54,26 @@ else{
 else{
    
     $emailError= "Email is Required";
+}*/
+if (!filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL)){
+    $emailError = "Enter a valid email address ";
+    $hasError=1;
+} else {
+    $email = $_REQUEST['email'];
+    $mydb = new Model();
+    $conObj = $mydb->OpenCon();
+    $result = $mydb->checkEmail($conObj, $email);
+    if($result)
+        {
+         
+            $emailError = "Enter already in use ";
+            $hasError=1;   
+        }  
 }
 if (!empty($_REQUEST['pass'])) {
 
     if (strlen($pass) < 6 && !preg_match("/[a-z]/",$_REQUEST['pass'])) {
-        $haserror=1;
+        $hasError=1;
         $passError = "Password must be at least 6 characters long and contain at least one lowercase character";
     } 
     else{
@@ -71,7 +86,7 @@ if (!empty($_REQUEST['pass'])) {
 if (!empty($_REQUEST['pnumber'])) {
 
     if (!preg_match("/^0/", $_REQUEST['pnumber'])) {
-        $haserror=1;
+        $hasError=1;
         $pnumberError = "Phone number must start with 0";
     } else {
         $pnumber= $_REQUEST['pnumber'];
@@ -86,14 +101,14 @@ if (!empty($_REQUEST['pnumber'])) {
 if (!empty($_REQUEST['lnumber'])) {
     $lnumber = $_REQUEST['lnumber'];
 } else {
-    $haserror=1;
+    $hasError=1;
     $lnumberError = "Enter Licence number";
 }
 
 if (!empty($_REQUEST['place'])) {
     $place = $_REQUEST['place'];
 } else {
-    $haserror=1;
+    $hasError=1;
     $placeError = "Enter Work address";
 }
 
@@ -104,12 +119,17 @@ if($hasError!=1)
     $conObj = $mydb->OpenCon();
     $result = $mydb->AddDocInfo($conObj, $_REQUEST['fname'].$_REQUEST['lname'], $_REQUEST['email'],$_REQUEST['gender'], $_REQUEST['cat'], 
                                 $_REQUEST['pnumber'],$_REQUEST['lnumber'], $_REQUEST['place'],$_REQUEST['pass']);
-    if($result > 0)
+   /* if($result > 0)
     {
-        echo "success";
+        echo "Successfully Registered done!!";
     }
     else{
         echo "Please complete the validation ";
+    }*/
+    if ($result > 0) {
+        echo '<div id="registrationMessage" style="color: green;">Successfully Registered done!!</div>';
+    } else {
+        echo '<div id="registrationMessage" style="color: red;">Please complete the validation</div>';
     }
 }
     

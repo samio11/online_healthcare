@@ -1,25 +1,32 @@
-<?php
-include '../../controller/doctor/loginControl.php';
-?>
-
-
+<?php include '../../controller/doctor/loginControl.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/logstyle.css">
+    <title>Doctor Portal Login</title>
+    <link rel="stylesheet" href="../../css/doctor/style.css">
 </head>
+
 <body>
-    <form method="POST" action="">
-        <div class="error"><?php echo $emailError; ?></div>
-        <input type="email" name="email"  value="<?php echo $email; ?>" />
-        <div class="error"><?php echo $passError; ?></div>
-        <input type="password" name="pass" id="pass"  value="<?php echo $pass; ?>" />
-        <input type="submit" name="Submit" value="Login" />
-    </form>
+    
+    <div class="main">
+        <h1>Doctor Portal</h1>
+        <h3>Enter your login credentials</h3>
+        <form action=""  method="POST">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email" required>
+            <label for="pass"> Password: </label>
+            <input type="password" id="pass" name="pass" placeholder="Enter your Password" required>
+            <div class="wrap"> <button type="submit" name="submit" id="submit">Login</button></div>
+        </form>
+        <a href="forgetPass.php" style="text-decoration: none; color: red;"> Forgot password? </a>
+
+        <p>Not registered?<a href="docReg.php" style="text-decoration: none;  color: seagreen;"> Create an account </a></p>
+
+    </div>
+
 </body>
+
 </html>
 
 
