@@ -1,6 +1,6 @@
 <?php
 set_include_path(dirname(__FILE__) . "/../");
-require '/../mongodbphp/vendor/autoload.php';
+require '../../vendor/autoload.php';
 use MongoDB\Driver\ServerApi;
 /*
 $collection->deleteOne([
