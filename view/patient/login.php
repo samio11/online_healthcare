@@ -20,7 +20,7 @@
             <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
         </form>
         <a href="forgetPassword.php" style="text-decoration: none;"> Forgot password? </a>
-        <p>Not registered?<a href="patientReg.php" style="text-decoration: none;"> Create an account </a></p>
+        <p>Not registered?<a href="docReg.php" style="text-decoration: none;"> Create an account </a></p>
 
     </div>
 

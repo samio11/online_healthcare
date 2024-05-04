@@ -3,6 +3,7 @@ use LDAP\Result;
 set_include_path(dirname(__FILE__)."/../../");
 require 'mongo/vendor/autoload.php';
 
+
 use MongoDB\Driver\ServerApi;
 class Model
 {
@@ -81,11 +82,24 @@ class Model
         return $result;
     }*/
 
-  function UpdateProfile($conn,$table, $email, $fname, $pnumber, $pass)
+  /*function UpdateProfile($conn,$table, $email, $fname, $pnumber, $pass)
     {
         $sql = "UPDATE $table SET fname='$fname', pnumber='$pnumber', pass='$pass'  WHERE email='$email'";
         $result = $conn->query($sql);
         return $result;
+    }*/
+    function UpdateProfile($conn, $email,$name, $pnumber, $pass){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email,
+           // 'pass' => $pass
+        ],
+            ['$set' => ['name' => $name,
+                       'pnumber' => $pnumber,
+                       'pass' => $pass
+                       ]]
+        );
+        return $cursor;
     }
     
 function UploadDocument($conn,$table, $email, $photo, $nid, $medical)
