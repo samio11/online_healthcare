@@ -25,6 +25,16 @@ function validateForm() {
     return false;
   } 
 }
+function validateEmail(){
+  var email = document.getElementById('email').value;
+  alert(email);
+  var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if(regex.test(email)){
+     alert("Please Enter a valid email address");
+    return false;
+  }
+}
+/*
 function loadDoc() {
   var str = document.getElementById("name").value;
   const xhttp = new XMLHttpRequest();
@@ -60,10 +70,6 @@ function loadProfile(){
   }
   xhttp.send();
 
-}
-
-function write(){
-  
 }
 
 
