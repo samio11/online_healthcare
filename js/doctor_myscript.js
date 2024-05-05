@@ -29,7 +29,14 @@ function validateForm() {
     }
 
     
-  
- 
 }
+
+function validateEmail(){
+    var email = document.getElementById('submit_email').value;
+    var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(!regex.test(email)){
+      document.getElementById('email_error').innerHTML = "Please Enter a valid email address";
+      return false;
+    }
+  }
 
