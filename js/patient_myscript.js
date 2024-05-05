@@ -23,14 +23,13 @@ function validateForm() {
   if (isNaN(postal) || postal.length != 4) {
     document.getElementById("postalError").innerHTML = "Postal code must be 4 digit number";
     return false;
-  } 
-}
+  }
+} 
 function validateEmail(){
-  var email = document.getElementById('email').value;
-  alert(email);
+  var email = document.getElementById('submit_email').value;
   var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if(regex.test(email)){
-     alert("Please Enter a valid email address");
+  if(!regex.test(email)){
+    document.getElementById('email_error').innerHTML = "Please Enter a valid email address";
     return false;
   }
 }
@@ -73,5 +72,5 @@ function loadProfile(){
 }
 
 
-
+*/
 
