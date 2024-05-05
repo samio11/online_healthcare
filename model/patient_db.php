@@ -82,8 +82,12 @@ class Model
         );
         return $cursor;
     }
-    function UploadDocument($conn, $email, $photo, $nid, $medical){
-        $sql = "INSERT INTO documents (email, photo, nid, medical) VALUES ('$email', '$photo', '$nid', '$medical')";
-        return $conn->query($sql);
+    function UploadDocument($conn, $email, $photo){
+        $collection = $conn->online_health->document;
+        $cursor = $collection->insertOne([
+            "email" => $email,
+            "picture" => $photo
+        ]);
+        return $cursor->getInsertedCount();
     }
 }

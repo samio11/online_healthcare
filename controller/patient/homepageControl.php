@@ -10,7 +10,7 @@ if(isset($_REQUEST['updateProfile'])){
     header("Location: ../controller/updateControl.php");
 }
 if(isset($_REQUEST['documents'])){
-  header("Location: ../controller/documentsControl.php");
+  header("Location: ../../controller/patient/documentsControl.php");
 }
 if(isset($_REQUEST['logout'])){
   session_destroy();
