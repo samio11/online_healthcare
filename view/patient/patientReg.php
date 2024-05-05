@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form method="POST" action="" "onsubmit="return validateForm()">
+    <form method="POST" action="" onsubmit="return validateForm()">
         <fieldset>
             <legend>Patient Registration</legend>
             <table>
