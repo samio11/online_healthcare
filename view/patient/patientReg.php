@@ -10,11 +10,12 @@
     <form method="POST" action="" onsubmit="return validateForm()">
         <fieldset>
             <legend>Patient Registration</legend>
+            <div class="main">
             <table>
                 <tr>
-                    <td>Full Name</td>
-                    <td colspan="3"><input type="text" class="error" name="name" id="name" placeholder="<?php echo $nameError; ?>"></td>
-                    <p class="error"> </p>
+                   <label> <td>Full Name</td></label>
+                    <label><td colspan="3"><input type="text" class="error" name="name" id="name" placeholder="<?php echo $nameError; ?>"></td></label>
+                    <label><p class="error"> </p></label>
                 </tr>
                 <tr>
                     <td>Date of Birth: </td>
@@ -87,10 +88,11 @@
                     <td><br> </td>
                 </tr>
                 <tr>
-                    <td colspan=2><input type="submit" value="Login" name="login"></td>
-                    <td colspan=2><input type="submit" value="Submit" name="submit"></td>
+                    <td colspan=2><input type="submit" id="login" value="Login" name="login"></td>
+                    <td colspan=2><input type="submit" id="submit" value="Submit" name="submit"></td>
                 </tr>
             </table>
+            </div>
         </fieldset>
     </form>
 </body>
