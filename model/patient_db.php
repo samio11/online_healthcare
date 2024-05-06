@@ -5,9 +5,7 @@ use MongoDB\Driver\ServerApi;
 
 
 /*
-$collection->deleteOne([
-    'Borrower'=>34,
-]);*/
+*/
 class Model
 {
     function OpenCon(){
@@ -90,6 +88,14 @@ class Model
             'email' => $email],
             
             ['$set' => ['photo' => $photo]]
+        );
+        return $cursor;
+    }
+    function removePicture($conn, $email){
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            ['$set' => ['photo' => ""]]
         );
         return $cursor;
     }

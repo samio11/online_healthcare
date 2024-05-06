@@ -8,22 +8,25 @@
 
 <body>
     <form method="POST" action="" onsubmit="return validateForm()">
-        <fieldset>
-            <legend>Patient Registration</legend>
+
+
             <div class="main">
+            <h1>Patient Registrarion</h1>
+        <h3>Enter your informartion</h3>
             <table>
                 <tr>
-                   <label> <td>Full Name</td></label>
+                   <label> <td colspan="2">Full Name</td></label>
                     <label><td colspan="3"><input type="text" class="error" name="name" id="name" placeholder="<?php echo $nameError; ?>"></td></label>
                     <label><p class="error"> </p></label>
                 </tr>
                 <tr>
-                    <td>Date of Birth: </td>
-                    <td><input type="date" name="dob">
+                    <td colspan="2">Date of Birth: </td>
+                    <td colspan="3"><input type="date" name="dob">
                         <?php echo $dobError; ?></td>
-
-                    <td>Gender:</td>
-                    <td><select name="gender" id="gender">
+                </tr>
+            <tr>
+                    <td colspan="2">Gender:</td>
+                    <td colspan="2"><select name="gender" id="gender">
                             <option disabled selected value> Select gender </option>
                             <option name="male">Male</option>
                             <option name="female">Female</option>
@@ -35,11 +38,13 @@
                 </tr>
 
                 <tr>
-                    <td>Contact Number:</td>
-                    <td><input type="text" name="phone">
-                        <?php echo $phoneError; ?>
+                    <td colspan="2">Contact Number:</td>
+                    <td colspan="3"><input type="text" name="phone">
+                        <?php echo $phoneError; ?></td>
+                </tr>
+                <tr>
 
-                    <td>Marital Status:</td>
+                    <td colspan="2">Marital Status:</td>
                     <td><select name="marital" id="marital">
                             <option disabled selected value> Select gender </option>
                             <option name="married">Married</option>
@@ -50,33 +55,35 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <td colspan="2">Email:</td>
                     <td><input type="text" name="email">
                         <?php echo $emailError; ?>
                         <?php echo $email; ?></td>
-
-                    <td>Password:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Password:</td>
                     <td><input type="text" name="password">
                         <?php echo $passwordError; ?></td>
                 </tr>
 
                 <tr>
-                    <td>Street Address</td>
+                    <td colspan="2">Street Address</td>
                     <td colspan=3><input type="text" name="street" id="address"></td>
                     <td>
                         <p id="add"></p>
                     </td>
                 </tr>
                 <tr>
-                    <td>City</td>
+                    <td colspan="2">City</td>
                     <td><input type="text" name="city" id="city"></td>
-
-                    <td>Postal Code</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Postal Code</td>
                     <td><input type="text" name="postal" id="postal"></td>
 
                 </tr>
                 <tr>
-                    <td colspan=2>
+                    <td colspan=2">
                         <p id="cityError"></p>
                     </td>
                     <td></td>
@@ -88,12 +95,12 @@
                     <td><br> </td>
                 </tr>
                 <tr>
-                    <td colspan=2><input type="submit" id="login" value="Login" name="login"></td>
-                    <td colspan=2><input type="submit" id="submit" value="Submit" name="submit"></td>
+                    <td colspan=2><button type="submit" id="login"  name="login">Login</button></td>
+                    <td colspan=2><button type="submit" id="submit" name="submit">Submit</button></td>
                 </tr>
             </table>
             </div>
-        </fieldset>
+
     </form>
 </body>
 
