@@ -33,6 +33,12 @@ function validateEmail(){
     return false;
   }
 }
+function openDiag(){
+  document.getElementById('file').click();
+}
+function random(){
+  alert("hello");
+}
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;

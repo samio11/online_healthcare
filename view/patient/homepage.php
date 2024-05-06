@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../../css/patient/myStyle.css">
+    <link rel="stylesheet" href="../../css/patient/navbar.css">
     </head>
     <body>
         <form method="POST" action="">
@@ -13,6 +13,12 @@
             <div class="wrap"> <button type="submit" name="documents" id="documents">Documents</button></div>
             <div class="wrap"> <button type="submit" name="logout" id="logout">Logout</button></div>
         </form>
+        <div class="topnav">
+  <a class="active" href="profile.php">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
     </body>
 </html>
-<?php include '../../controller/patient/homepageControl.php'; ?>
+<?php  include '../../controller/patient/homepageControl.php'; ?>

@@ -5,14 +5,23 @@ include "../../controller/patient/updateControl.php";
 <html>
 <head>
     <title>View Profile</title>
+    <script src="../../js/patient_myscript.js"></script>
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 
 <body>
     <div class="main">
         <h1>Profile Information</h1>
-        <form action=""  method="POST">
-      
+        <form action=""  method="POST" enctype="multipart/form-data">
+            <div class="wrap">
+                <img src="../../upload/patientphotom.ashiqfida@gmail.comdemo.png"  width="300" height="300" id="photo" name="photo">
+                </div>
+                <input type="file" id="file" onclick="random()">
+                <div class="wrap"
+                <table><tr><td><button type="button" id="remove" onclick="openDiag()">Remove Picture</button></td>
+                <td></td>
+                <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button></td></tr>
+                </table> </div>         
             <label for="name">Name:<input type="text" id="name" name="name" value="<?php echo $_SESSION['name'] ?>" ></label>
             <label for="email">email:<input type="text" id="email" name="email" value="<?php echo $_SESSION['email'] ?>" disabled></label>
             <label for="phone">Phone:<input type="text" id="phone" name="phone" value="<?php echo $_SESSION['phone'] ?>" ></label>

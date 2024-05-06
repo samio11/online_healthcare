@@ -1,5 +1,5 @@
 <?php
-include '../../model/patient_db.php';
+//include '../../model/patient_db.php';
 session_start();
       
   

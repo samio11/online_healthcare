@@ -13,4 +13,9 @@ if(isset($_REQUEST['update'])){
     }
     
 }
+if( empty($_FILES['file']['name'])){
+}
+else{
+    echo "hello";
+}
  ?>
