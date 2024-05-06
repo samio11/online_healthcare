@@ -11,7 +11,7 @@ if(empty( $_FILES['photo']['name']))
 }
 else{
     $photo="";
-    $photo="../../upload/patient"."photo".$_SESSION['email'].$_FILES['photo']['name'];
+    $photo="../../upload/patient"."_photo_".$_SESSION['email']."_".$_FILES['photo']['name'];
 
     move_uploaded_file($_FILES['photo']['tmp_name'],$photo);
 }

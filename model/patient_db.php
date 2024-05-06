@@ -83,11 +83,14 @@ class Model
         return $cursor;
     }
     function UploadDocument($conn, $email, $photo){
-        $collection = $conn->online_health->document;
-        $cursor = $collection->insertOne([
-            "email" => $email,
-            "picture" => $photo
-        ]);
-        return $cursor->getInsertedCount();
+        
+
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            
+            ['$set' => ['photo' => $photo]]
+        );
+        return $cursor;
     }
 }

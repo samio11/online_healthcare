@@ -34,10 +34,13 @@ function validateEmail(){
   }
 }
 function openDiag(){
-  document.getElementById('file').click();
+  document.getElementById('uploadphoto').click();
 }
 function random(){
   alert("hello");
+}
+function photoUpload(){
+
 }
 /*
 function loadDoc() {

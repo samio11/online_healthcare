@@ -14,11 +14,12 @@ include "../../controller/patient/updateControl.php";
         <h1>Profile Information</h1>
         <form action=""  method="POST" enctype="multipart/form-data">
             <div class="wrap">
-                <img src="../../upload/patientphotom.ashiqfida@gmail.comdemo.png"  width="300" height="300" id="photo" name="photo">
+            
+                <img src="<?php echo $_SESSION['url']; ?>"  width="300" height="300" id="photo" name="photo">
                 </div>
-                <input type="file" id="file" onclick="random()">
+                <input type="file" id="uploadphoto" name="uploadphoto" onchange="this.form.submit()" style="display: none;">
                 <div class="wrap"
-                <table><tr><td><button type="button" id="remove" onclick="openDiag()">Remove Picture</button></td>
+                <table><tr><td><button type="submit" id="remove" >Remove Picture</button></td>
                 <td></td>
                 <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button></td></tr>
                 </table> </div>         
@@ -28,7 +29,7 @@ include "../../controller/patient/updateControl.php";
             <label for="gender">Gender:<input type="text" id="gender" name="gender" value="<?php echo $_SESSION['gender'] ?>" disabled></label>
             <label for="address">Address:<input type="text" id="address" name="address" value="<?php echo $_SESSION['address'] ?>" ></label>
             <label for="dob">Date of Birth:<input type="text" id="dob" name="dob" value="<?php echo $_SESSION['dob'] ?>" disabled></label>            
-            <label for="password"> Password:<input type="password" id="password" name="password" placeholder="Enter your Password" required></label>
+            <label for="password"> Password:<input type="password" id="password" name="password" placeholder="Enter your Password" ></label>
             <div class="wrap"> <button type="submit" name="update" id="update">Update Information</button></div>
         </form>
     </div>

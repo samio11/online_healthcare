@@ -12,6 +12,7 @@ if($result)
     $_SESSION['gender']= $result['gender'];
     $_SESSION['address']= $result['address'];
     $_SESSION['dob']= $result['dob'];
+    $_SESSION['url']= $result['photo'];
 }
 header("Location: ../../view/patient/profile.php");
 ?>
