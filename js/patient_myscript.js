@@ -77,22 +77,16 @@ xhttp.send();
 }
 function liveSearch(value){
   $(document).ready(function(){
-
       var input  =value;
-      //alert(input);
-      if(input != ""){
+      
         $.ajax({
-          url:"http://localhost/online_healthcare/controller/patient/livesearchControl.php",
+          url:"http://localhost/online_healthcare/controller/patient/doctorListControl.php",
           method:"POST",
           data:{input:input},
           success:function(data){
             $("#searchresult").html(data);
           }
-        });
-      }
-      else{
-          $("searchresult").css("display","none");
-      }
+        });  
   });
 }
 /*

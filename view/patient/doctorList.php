@@ -1,5 +1,5 @@
 <?php include "homepage.php"  ?>
-
+<?php include "../../controller/patient/doctorListControl.php" ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +13,16 @@
         <h1>Doctor's List</h1>
         <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
         
-        <table>
-            
-        
+        <table>       
         <tr>
                 <th>Name</th>
                 <th>Speciality</th>
                 <th>License</th>
                 <th>Workplace</th>
                 </tr>
-            
-                <div id="searchresult"></div>
-        <?php include "../../controller/patient/doctorListControl.php" ?>
+           <tbody id="searchresult">
+           <?php echo $str ?>
+           </tbody> 
         </table>
         
     </div>

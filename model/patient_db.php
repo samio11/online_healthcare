@@ -4,9 +4,6 @@ require '../../mongodbphp/vendor/autoload.php';
 use MongoDB\Driver\ServerApi;
 use MongoDB\BSON\Regex;
 
-
-/*
-*/
 class Model
 {
     function OpenCon(){
@@ -27,7 +24,6 @@ class Model
         );
         return $count;
     }
-
     function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address){
         $count = $this->autoIncrement($conn);
         $collection = $conn->online_health->patient;
@@ -109,10 +105,10 @@ class Model
         $collection = $conn->online_health->doctor;
         $cursor = $collection->find([
             '$or' => [
-                    ["name"=> new Regex($input)],
-                    ["place"=> new Regex($input)],
-                    ["lnumber"=> new Regex($input)],
-                    ["cat"=> new Regex($input)]
+                    ["name"=> new Regex($input,"i")],
+                    ["place"=> new Regex($input,"i")],
+                    ["lnumber"=> new Regex($input,"i")],
+                    ["cat"=> new Regex($input,"i")]
                     ]
         ]);
         return $cursor;
