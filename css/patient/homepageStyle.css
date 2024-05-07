@@ -1,47 +1,67 @@
-/* styles.css */
-
-/* Style for the body */
+/*style.css*/
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: #f3f3f3;
+    flex-direction: column;
     margin: 0;
-    padding: 0;
 }
-
-/* Style for the form */
-form {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-}
-
-/* Style for the table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-/* Style for table cells */
-td {
-    padding: 10px;
-}
-
-/* Style for input buttons */
-input[type="submit"] {
-    background-color: #3498db;
-    border: none;
-    color: white;
+  
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 500px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+}
+
+
+h1 {
+    color: #5b9aff;
+}
+
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-/* Style for input buttons when hovered */
-input[type="submit"]:hover {
-    background-color: #2980b9;
+button {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #5b9aff;
+    width: 100%;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

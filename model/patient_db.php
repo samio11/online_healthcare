@@ -2,12 +2,8 @@
 //set_include_path(dirname(__FILE__) . "/../");
 require '../../mongodbphp/vendor/autoload.php';
 use MongoDB\Driver\ServerApi;
+use MongoDB\BSON\Regex;
 
-
-/*
-$collection->deleteOne([
-    'Borrower'=>34,
-]);*/
 class Model
 {
     function OpenCon(){
@@ -23,12 +19,11 @@ class Model
             $count = (int)$document["p_id"];
         }
         $collection->updateOne(
-            [ 'p_id' => $count ],
+            [ 'p_id' => (string)$count ],
             ['$set' => ["p_id" => $count + 1]]
         );
         return $count;
     }
-
     function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address){
         $count = $this->autoIncrement($conn);
         $collection = $conn->online_health->patient;
@@ -82,8 +77,48 @@ class Model
         );
         return $cursor;
     }
-    function UploadDocument($conn, $email, $photo, $nid, $medical){
-        $sql = "INSERT INTO documents (email, photo, nid, medical) VALUES ('$email', '$photo', '$nid', '$medical')";
-        return $conn->query($sql);
+    function UploadDocument($conn, $email, $photo){
+        
+
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            
+            ['$set' => ['photo' => $photo]]
+        );
+        return $cursor;
+    }
+    function removePicture($conn, $email){
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            ['$set' => ['photo' => ""]]
+        );
+        return $cursor;
+    }
+    function docList($conn){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    function liveSearch($conn, $input){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find([
+            '$or' => [
+                    ["name"=> new Regex($input,"i")],
+                    ["place"=> new Regex($input,"i")],
+                    ["lnumber"=> new Regex($input,"i")],
+                    ["cat"=> new Regex($input,"i")]
+                    ]
+        ]);
+        return $cursor;
+    }
+    function doctor($conn, $d_id){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->findOne([
+            'd_id' => $d_id,
+        ]);
+        return $cursor;
+
     }
 }
