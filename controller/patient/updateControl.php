@@ -1,6 +1,6 @@
 <?php
 include '../../model/patient_db.php';
-session_start();
+//session_start();
 
 $hasError='';
 if(isset($_REQUEST['update'])){

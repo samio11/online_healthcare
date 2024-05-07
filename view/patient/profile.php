@@ -1,6 +1,5 @@
-<?php 
-include "../../controller/patient/updateControl.php";
-?>
+<?php include "homepage.php"  ?>
+<?php include "../../controller/patient/updateControl.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +9,7 @@ include "../../controller/patient/updateControl.php";
 </head>
 
 <body>
+    
     <div class="main">
         <h1>Profile Information</h1>
         <form action=""  method="POST" enctype="multipart/form-data" onsubmit="return updateProfileValidate()">

@@ -8,7 +8,7 @@
             <table>
                 <tr>
                     <td><button type="submit" name="showProfile" id="showProfile">View Profile</button></td>
-                    <td><button type="submit" name="reqAppointment" id="reqAppointment">Appointments</button></td>
+                    <td><button type="submit" name="docList" id="docList">Doctors</button></td>
                     <td><button type="submit" name="reqAppointment" id="reqAppointment">Appointments</button></td>
                     <td><button type="submit" name="history" id="history">Medical History</button></td>
                     <td><button type="submit" name="med" id="med">Medicines</button></div></td>

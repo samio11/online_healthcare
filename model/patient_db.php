@@ -99,4 +99,9 @@ class Model
         );
         return $cursor;
     }
+    function docList($conn){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find();
+        return $cursor;
+    }
 }
