@@ -8,7 +8,8 @@ if(isset($_REQUEST['login'])){
     $result = $mydb->login($conObj, $_REQUEST['email'], $_REQUEST['password']);
     if($result > 0)
     {
-       header("Location: ../../view/patient/homepage.php");
+       $_SESSION['p_id'] = $result['p_id'];
+        header("Location: ../../view/patient/homepage.php");
     }
     else echo "not valid";
 }

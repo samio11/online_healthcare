@@ -11,7 +11,7 @@ foreach($result as $document)
        $str = $str . "<td>".$document['cat']."</td>";
        $str = $str . "<td>".$document['lnumber']."</td>";
        $str = $str . "<td>".$document['place']."</td>";
-       $str = $str . "<td><button type='button' id='".$document['d_id']."'>Take Appointment</button></td></tr>";
+       $str = $str . "<td><button type='button' id='".$document['d_id']."' onclick='demo(this.id)' >Take Appointment</button></td></tr>";
     }
 }
    if(isset($_POST['input'])){
@@ -27,7 +27,7 @@ foreach($result as $document)
            $str = $str . "<td>".$document['cat']."</td>";
            $str = $str . "<td>".$document['lnumber']."</td>";
            $str = $str . "<td>".$document['place']."</td>";
-           $str = $str . "<td><button type='button' id='".$document['d_id']."'>Take Appointment</button></td></tr>";
+           $str = $str . "<td><button type='button' id='".$document['d_id']."' onclick='demo(this.id)' >Take Appointment</button></td></tr>";
         }
       echo $str;  
     }

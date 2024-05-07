@@ -89,6 +89,9 @@ function liveSearch(value){
         });  
   });
 }
+function demo(d_id){
+  document.location.href= 'appointment.php?d_id='+d_id;
+}
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;

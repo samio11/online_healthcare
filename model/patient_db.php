@@ -19,7 +19,7 @@ class Model
             $count = (int)$document["p_id"];
         }
         $collection->updateOne(
-            [ 'p_id' => $count ],
+            [ 'p_id' => (string)$count ],
             ['$set' => ["p_id" => $count + 1]]
         );
         return $count;
@@ -112,5 +112,13 @@ class Model
                     ]
         ]);
         return $cursor;
+    }
+    function doctor($conn, $d_id){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->findOne([
+            'd_id' => $d_id,
+        ]);
+        return $cursor;
+
     }
 }
