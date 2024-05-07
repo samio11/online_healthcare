@@ -75,6 +75,26 @@ xhttp.onload = function () {
 xhttp.open("GET", "http://localhost/online_healthcare/controller/patient/test.php?email=" + email, true);
 xhttp.send();
 }
+function liveSearch(value){
+  $(document).ready(function(){
+
+      var input  =value;
+      //alert(input);
+      if(input != ""){
+        $.ajax({
+          url:"http://localhost/online_healthcare/controller/patient/livesearchControl.php",
+          method:"POST",
+          data:{input:input},
+          success:function(data){
+            $("#searchresult").html(data);
+          }
+        });
+      }
+      else{
+          $("searchresult").css("display","none");
+      }
+  });
+}
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;

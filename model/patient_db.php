@@ -2,6 +2,7 @@
 //set_include_path(dirname(__FILE__) . "/../");
 require '../../mongodbphp/vendor/autoload.php';
 use MongoDB\Driver\ServerApi;
+use MongoDB\BSON\Regex;
 
 
 /*
@@ -102,6 +103,18 @@ class Model
     function docList($conn){
         $collection = $conn->online_health->doctor;
         $cursor = $collection->find();
+        return $cursor;
+    }
+    function liveSearch($conn, $input){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find([
+            '$or' => [
+                    ["name"=> new Regex($input)],
+                    ["place"=> new Regex($input)],
+                    ["lnumber"=> new Regex($input)],
+                    ["cat"=> new Regex($input)]
+                    ]
+        ]);
         return $cursor;
     }
 }
