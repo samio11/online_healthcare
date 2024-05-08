@@ -9,7 +9,7 @@ foreach($result as $document)
     {
        $str = $str . "<tr><td>".$document['name']."</td>";
        $str = $str . "<td>".$document['cat']."</td>";
-       $str = $str . "<td>".$document['lnumber']."</td>";
+       $str = $str . "<td>".$document['gender']."</td>";
        $str = $str . "<td>".$document['place']."</td>";
        $str = $str . "<td><button type='button' id='".$document['d_id']."' onclick='demo(this.id)' >Take Appointment</button></td></tr>";
     }
@@ -25,7 +25,7 @@ foreach($result as $document)
         {
            $str = $str . "<tr><td>".$document['name']."</td>";
            $str = $str . "<td>".$document['cat']."</td>";
-           $str = $str . "<td>".$document['lnumber']."</td>";
+           $str = $str . "<td>".$document['gender']."</td>";
            $str = $str . "<td>".$document['place']."</td>";
            $str = $str . "<td><button type='button' id='".$document['d_id']."' onclick='demo(this.id)' >Take Appointment</button></td></tr>";
         }

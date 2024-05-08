@@ -1,15 +1,15 @@
 <html>
 <head>
-    <link rel="stylesheet" href="../../css/patient/navbar.css">
+    <link rel="stylesheet" href="../../css/patient/myStyle.css">
     </head>
-    <body>
+    <body class="homebody">
         <form method="POST" action="">
-            <div >
-            <table>
+            <div class="homemain">
+            <table >
                 <tr>
                     <td><button type="submit" name="showProfile" id="showProfile">View Profile</button></td>
                     <td><button type="submit" name="docList" id="docList">Doctors</button></td>
-                    <td><button type="submit" name="reqAppointment" id="reqAppointment">Appointments</button></td>
+                    <td><button type="submit" name="appointment" id="appointment">Appointments</button></td>
                     <td><button type="submit" name="history" id="history">Medical History</button></td>
                     <td><button type="submit" name="med" id="med">Medicines</button></div></td>
                     <td><button type="submit" name="message" id="message">Messages</button></td>
