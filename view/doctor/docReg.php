@@ -50,9 +50,12 @@ include '../../controller/doctor/validation.php';
         <tr>
             <td>Gender: </td>
             <td>
-        <input type="radio" name="gender" id="male">Male 
-        <input type="radio" name="gender" id="female">Female
-        <input type="radio" name="gender" id="others">Others
+            
+    <input type="radio" name="gender" id="male" value="Male">Male 
+    <input type="radio" name="gender" id="female" value="Female">Female
+    <input type="radio" name="gender" id="others" value="Others">Others
+
+
         </td>
         </tr>
         <tr>
