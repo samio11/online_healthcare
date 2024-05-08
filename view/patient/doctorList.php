@@ -9,21 +9,22 @@
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 <body>
-    <div class="main">
+    <div class="docmain">
         <h1>Doctor's List</h1>
         <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
         
-        <table>       
+        <table class="text">       
         <tr>
                 <th>Name</th>
                 <th>Speciality</th>
-                <th>License</th>
+                <th>Gender</th>
                 <th>Workplace</th>
                 </tr>
            <tbody id="searchresult">
            <?php echo $str ?>
            </tbody> 
         </table>
-        
+
     </div>
+    
 </body>

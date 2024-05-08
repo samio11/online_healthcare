@@ -22,13 +22,13 @@ class Model
             [ 'p_id' => (string)$count ],
             ['$set' => ["p_id" => $count + 1]]
         );
-        return $count;
+        return $count+1;
     }
     function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address){
         $count = $this->autoIncrement($conn);
         $collection = $conn->online_health->patient;
         $cursor = $collection->insertOne([
-            'p_id' => $count + 1,
+            'p_id' =>(string) $count,
             'name' => $name,
             "email" => $email,
             "password" => $password,
@@ -107,7 +107,7 @@ class Model
             '$or' => [
                     ["name"=> new Regex($input,"i")],
                     ["place"=> new Regex($input,"i")],
-                    ["lnumber"=> new Regex($input,"i")],
+                    ["gender"=> new Regex($input,"i")],
                     ["cat"=> new Regex($input,"i")]
                     ]
         ]);
@@ -120,5 +120,33 @@ class Model
         ]);
         return $cursor;
 
+    }
+    function reqAppointment($conn, $pid, $did, $time,$note){
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach ($cursor as $document) {
+            $count = (int)$document["app_id"];
+        }
+        $collection->updateOne(
+            [ 'app_id' => $count ],
+            ['$set' => ["app_id" => $count + 1]]
+        );
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->insertOne([
+            'app_id' =>(string) ($count+1),
+            'p_id' => $pid,
+            "d_id" => $did,
+            "time" => $time,
+            'note' => $note,
+            'status' => 'pending'
+        ]);
+        return $cursor->getInsertedCount();
+    }
+    function viewAppointment($conn, $pid){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'p_id' => $pid
+        ]);
+        return $cursor;
     }
 }
