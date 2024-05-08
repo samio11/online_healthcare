@@ -9,8 +9,10 @@ include '../../controller/doctor/profilecontrol.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../../js/doctor_myscript.js"></script>
+    <link rel="stylesheet" href="../../css/doctor/profileDesign.css">
 </head>
 <body>
+<div class="container">
 <form action="" enctype="multipart/form-data" method="POST" >
 <table>
     <tr>
@@ -19,14 +21,13 @@ include '../../controller/doctor/profilecontrol.php';
        <input type="file" id="uploadphoto" name="uploadphoto" onchange="this.form.submit()" style="display: none;">
         <table>
         <tr>
-           
-        
-        <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button></td>
-        <td><button type="button" id="remove" onclick="removePicture('<?php  echo $_SESSION['email']; ?>')">Remove Picture</button></td>
-        </table> 
-    </tr>
+    <td colspan="2" class="button-container">
+        <button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button>
+        <button type="button" id="remove" onclick="removePicture('<?php echo $_SESSION['email']; ?>')">Remove Picture</button>
+    </td>
+</tr>
 
-
+ 
             <td>Full Name:</td>
             <td><?php echo $result['name']; ?></td>
         </tr>
@@ -89,6 +90,7 @@ include '../../controller/doctor/profilecontrol.php';
 
 </table>
 </form>
+</div>
     
    
         
