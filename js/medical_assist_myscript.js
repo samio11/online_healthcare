@@ -24,7 +24,11 @@ function validateForm() {
         document.getElementById("dobError").innerHTML = "Date of Birth must be selected";
         return false;
     }
-
+    var postal = document.getElementById("license").value;
+    if (license == "") {
+        document.getElementById("licenseError").innerHTML = "License must be included";
+        return false;
+    }
 
 
 }

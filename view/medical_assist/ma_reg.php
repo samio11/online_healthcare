@@ -1,18 +1,20 @@
 <?php
 include '../../controller/medical_assist/process.php';
-//include '../../JS/medical_assist_myscript.js';
 include '../../css/medical_assist/reg_page.css';
 
 ?>
 <html>
+<head>
+    <script src="../../js/medical_assist_myscript.js"></script>
+</head>
 <body>
 <form method="POST" action="" onsubmit="return validateForm()">
 
 <fieldset>
-  <legend>Sign Up Now!:</legend>
+  <legend>Sign Up Now!</legend>
   <table>
         <tr>
-            <td colspan="2">Name:</td><td> <input type="text" name="Name" id="Name"  placeholder ="Type Name">
+            <td colspan="2">Name:</td><td> <input type="text" name="Name" id="Name"  placeholder ="Hey! What's Your Name?">
 <?php echo $nameError; ?>
 <?php echo $name; ?>
 </td>
@@ -21,7 +23,7 @@ include '../../css/medical_assist/reg_page.css';
 
 <tr>
 <td colspan="2">Email:</td>
-<td><input type="text" name="Email" placeholder ="Type Email">
+<td><input type="text" name="Email">
 <?php echo $emailError; ?>
 <?php echo $email; ?>
 </td>
@@ -66,7 +68,7 @@ include '../../css/medical_assist/reg_page.css';
 
 
 <tr>
-<td colspan="2">License:</td><td><input type="text" name="License">
+<td colspan="2">License:</td><td><input type="text" name="License" id ="license">
 <?php echo $licenseError; ?>
 <?php echo $license; ?>
 </td>
@@ -93,8 +95,8 @@ include '../../css/medical_assist/reg_page.css';
 </tr>
 
  <tr> 
-<td><input type="submit" name="Submit" value="SUBMIT"></td>
-<td><input type="reset" name="Reset" value="RESET"></td>
+<td><input type="submit" name="Submit" value="Submit"></td>
+<td><input type="reset" name="Reset" value="Reset"></td>
 </tr>
 
 
@@ -105,6 +107,4 @@ include '../../css/medical_assist/reg_page.css';
 </body>
 </html>
 
-<?php
-include '../../layouts/footer.php';
-?>
+

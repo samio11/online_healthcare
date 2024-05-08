@@ -49,7 +49,42 @@ class Model
             'nationselect' => $nationselect
            
         ]); 
-    }
+        return $cursor->getInsertedCount();
+      }
+        function login($conn, $email, $password){
+          $collection = $conn->online_health->medical_assist;
+          $cursor = $collection->findOne([
+              'email' => $email,
+              'password' => $password,
+          ]);
+          return $cursor;
+      }
+      function ViewProfile($conn, $email){
+        $collection = $conn->online_health->medical_assist;
+        $cursor = $collection->findOne([
+            'email' => $email,
+        ]);
+        return $cursor;
+    } 
+    function UploadDocument($conn, $email, $photo){
+        
+
+      $collection = $conn->online_health->patient;
+      $cursor = $collection->updateOne([
+          'email' => $email],
+          
+          ['$set' => ['photo' => $photo]]
+      );
+      return $cursor;
+  }
+  function removePicture($conn, $email){
+      $collection = $conn->online_health->patient;
+      $cursor = $collection->updateOne([
+          'email' => $email],
+          ['$set' => ['photo' => ""]]
+      );
+      return $cursor;
+  }
 
 }
-?>
+
