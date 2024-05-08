@@ -39,4 +39,20 @@ function validateEmail(){
       return false;
     }
   }
-
+  function openDiag(){
+    document.getElementById('uploadphoto').click();
+  }
+  function random(){
+    alert("hello");
+  }
+  function photoUpload(){
+  
+  }
+  function removePicture(email){
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    document.getElementById('imgsrc').getAttribute('src').innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "http://localhost/online_healthcare/controller/doctor/removephoto.php?email=" + email, true);
+  xhttp.send();
+  }

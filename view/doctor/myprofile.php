@@ -8,11 +8,25 @@ include '../../controller/doctor/profilecontrol.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../../js/doctor_myscript.js"></script>
 </head>
 <body>
-<form action=""  method="POST" >
+<form action="" enctype="multipart/form-data" method="POST" >
 <table>
-<tr>
+    <tr>
+    <img src="<?php echo $_SESSION['url']; ?>"  width="300" height="300" id="imgsrc" name="imgsrc">
+            
+       <input type="file" id="uploadphoto" name="uploadphoto" onchange="this.form.submit()" style="display: none;">
+        <table>
+        <tr>
+           
+        
+        <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button></td>
+        <td><button type="button" id="remove" onclick="removePicture('<?php  echo $_SESSION['email']; ?>')">Remove Picture</button></td>
+        </table> 
+    </tr>
+
+
             <td>Full Name:</td>
             <td><?php echo $result['name']; ?></td>
         </tr>
@@ -70,6 +84,7 @@ include '../../controller/doctor/profilecontrol.php';
             </tr>
         <tr><td><input type="submit" name="updateProfile" value="Update Profile"></td>
         <td><input type="submit" name="cancel" value="Cancel"></td></tr>
+       
    
 
 </table>

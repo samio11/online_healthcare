@@ -75,6 +75,25 @@ class Model
         );
         return $cursor->getModifiedCount();
     }
+    function UploadPic($conn, $email, $photo){
+        
+
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            
+            ['$set' => ['photo' => $photo]]
+        );
+        return $cursor;
+    }
+    function removePicture($conn, $email){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            ['$set' => ['photo' => ""]]
+        );
+        return $cursor;
+    }
    /* function ProfileInfo($conn,$table,$email)
     {
         $sql = "SELECT *  FROM $table WHERE email='$email'";
