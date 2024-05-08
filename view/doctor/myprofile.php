@@ -1,5 +1,5 @@
 <?php
-include '../control/profilecontrol.php';
+include '../../controller/doctor/profilecontrol.php';
 
 ?>
 <!DOCTYPE html>
@@ -10,17 +10,73 @@ include '../control/profilecontrol.php';
     <title>Document</title>
 </head>
 <body>
-<?php echo "<table>"; ?>
-    <tr><td>First Name:</td><td><?php echo $fname; ?></td></tr>
-    <tr><td>Last Name:</td><td><?php echo $lname; ?></td></tr>
-    <tr><td>Email:</td><td><?php echo $email; ?></td></tr>
-    <tr><td>Phone Number:</td><td><?php echo $pnumber; ?></td></tr>
-    <tr><td>License Number:</td><td><?php echo $lnumber; ?></td></tr>
-    <tr><td>Working Place:</td><td><?php echo $place; ?></td></tr>
-    <?php echo "</table>"; ?>
+<form action=""  method="POST" >
+<table>
+<tr>
+            <td>Full Name:</td>
+            <td><?php echo $result['name']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td><?php echo $result['email']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>Gender:</td>
+            <td><?php echo $result['gender']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>cat:</td>
+            <td><?php echo $result['cat']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>pnumber:</td>
+            <td><?php echo $result['pnumber']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>lnumber:</td>
+            <td><?php echo $result['lnumber']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>place:</td>
+            <td><?php echo $result['place']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr>
+            <td>pass:</td>
+            <td><?php echo $result['pass']; ?></td>
+        </tr>
+        <tr>
+                <td colspan="2"><br></td>
+            </tr>
+        <tr><td><input type="submit" name="updateProfile" value="Update Profile"></td>
+        <td><input type="submit" name="cancel" value="Cancel"></td></tr>
+   
 
-</body>
-</html>
+</table>
+</form>
+    
+   
+        
           
   
        

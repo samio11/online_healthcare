@@ -36,11 +36,11 @@ class Model
               'd_id'=>$count],
               ['$set' => ["d_id" => $count+1]]
           );
-          
+          $count++;
           $collection = $conn->online_health->doctor;
           
           $result=$collection->insertOne([
-              "d_id" => $count+1,
+              "d_id" => (string)$count,
               "name"=>$name,
              
               "email"=>$email,
