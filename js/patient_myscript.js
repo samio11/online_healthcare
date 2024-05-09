@@ -95,6 +95,11 @@ function demo(d_id) {
 function payment(app_id) {
   document.location.href = '../../controller/patient/paymentControl.php?app_id=' + app_id + '&token=1';
 }
+function donwloadReceipt(){
+  const element = document.getElementById('receipt');
+
+  html2pdf().from(element).save();
+}
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;
