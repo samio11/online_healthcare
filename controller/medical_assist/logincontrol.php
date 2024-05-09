@@ -1,37 +1,19 @@
 <?php
-include '../models/mydb.php';
+include '../../model/medical_assist_db.php';
 session_start();
 
 
-if(isset($_REQUEST['Submit'])){
-    if(empty($_REQUEST['Email'])){
-        echo "enter valid email <br>";
-    }
-    
-    else{
-        echo $_REQUEST['Email'];
-        $_SESSION['Email'] = $_REQUEST['Email'];
-    }
-     if(empty($_REQUEST['Password'])){
-        echo "enter valid password<br><br>";
-        
-    }
-    else{
-        echo $_REQUEST['Password'];
-    }
-
+if(isset($_REQUEST['Login'])){
+    $_SESSION['email'] = $_REQUEST['email'];
     $mydb = new Model();
-        $conobj = $mydb->OpenCon();
-        $result=$mydb->CheckLoginCredentials($conobj,$_REQUEST["Email"], $_REQUEST["Password"]);
-        if($result->num_rows<1)
-        {
-            echo "Invalid access";
-        }
-        else{
-          header("Location:../view/profile.php");
-
-        }
-       
+    $conObj = $mydb->OpenCon();
+    $result = $mydb->login($conObj, $_REQUEST['email'], $_REQUEST['password']);
+    if($result > 0)
+    {
+       $_SESSION['ma_id'] = $result['ma_id'];
+        header("Location: ../../view/medical_assist/homepage.php");
+    }
+    else echo "Invalid Login";
 }
         
 ?>

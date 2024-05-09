@@ -117,7 +117,7 @@ if($hasError!=1)
         
     $mydb = new Model();
     $conObj = $mydb->OpenCon();
-    $result = $mydb->AddDocInfo($conObj, $_REQUEST['fname'].$_REQUEST['lname'], $_REQUEST['email'],$_REQUEST['gender'], $_REQUEST['cat'], 
+    $result = $mydb->AddDocInfo($conObj, $_REQUEST['fname']."".$_REQUEST['lname'], $_REQUEST['email'],$_REQUEST['gender'], $_REQUEST['cat'], 
                                 $_REQUEST['pnumber'],$_REQUEST['lnumber'], $_REQUEST['place'],$_REQUEST['pass']);
    /* if($result > 0)
     {

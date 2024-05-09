@@ -1,67 +1,84 @@
 <style>
-body{
+body {
   font-family: Arial, sans-serif;
-  background-color: #f7f8f8;
+  background-color: #f2f2f2;
 }
-h1{
-    color:rgba(114, 105, 192, 0.76);
-    margin-left: 20px;
-}
+
 form {
-  background-color: #4075a0;
-  width: 40%;
-  margin: 20px auto;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
+  background-color: #fff;
+  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select {
+  width: calc(100% - 20px); /* Adjust width to fit within the fieldset */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  width: 100%; /* Make buttons 100% width */
+  padding: 15px; /* Increased padding for larger buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  background-color: #28a745; /* Green color for submit button */
+  color: #fff;
+}
+
+input[type="reset"] {
+  background-color: #dc3545; /* Red color for reset button */
+  color: #fff;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  filter: brightness(90%); /* Dimming effect on hover */
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  padding: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+}
+
+/* Optional: Add styles for responsive design */
+@media screen and (max-width: 600px) {
+  form {
+      width: 90%;
   }
-  
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  input[type=reset] {
-    width: 100%;
-    background-color: #e20606;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  input[type=reset]:hover {
-    background-color: #d31608;
-  }
-  
-  div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  ::-ms-input-placeholder { /* Edge 12-18 */
-    color: rgb(148, 11, 86);
-  }
-  
-  ::placeholder {
-    color: rgb(148, 11, 86);
-  }
+}
+
+
 </style>

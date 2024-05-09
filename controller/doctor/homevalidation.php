@@ -3,8 +3,9 @@ include '../../model/doctor_db.php';
 session_start();
 
 if(isset($_REQUEST['showProfile'])){
+  header("Location: ../../view/doctor/myprofile.php");
    // $_SESSION["username"] = $_REQUEST['email'];
-    if (isset($_SESSION["email"])) {
+   /* if (isset($_SESSION["email"])) {
         $mydb = new Model();
         $conObj = $mydb->OpenCon();
         $result = $mydb->ShowProfile($conObj, $_SESSION["email"]);
@@ -27,11 +28,13 @@ if(isset($_REQUEST['showProfile'])){
     }
     else {
        echo "Session variable 'email' is not set.";
-}
+}*/
 }
     
     if(isset($_REQUEST['updateProfile'])){
-        header("Location: ../../view/doctor/updateprof.php");
+       header("Location: ../../view/doctor/updateprof.php");
+     //  header("Location: ../controller/updatecontrol.php");
+      
     }
     if(isset($_REQUEST['documents'])){
         header("Location: ../form_code/document.php");

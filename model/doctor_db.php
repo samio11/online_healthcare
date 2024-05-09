@@ -36,11 +36,11 @@ class Model
               'd_id'=>$count],
               ['$set' => ["d_id" => $count+1]]
           );
-          
+          $count++;
           $collection = $conn->online_health->doctor;
           
           $result=$collection->insertOne([
-              "d_id" => $count+1,
+              "d_id" => (string)$count,
               "name"=>$name,
              
               "email"=>$email,
@@ -74,6 +74,25 @@ class Model
             ['$set' => ['pass' => $pass]]
         );
         return $cursor->getModifiedCount();
+    }
+    function UploadPic($conn, $email, $photo){
+        
+
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            
+            ['$set' => ['photo' => $photo]]
+        );
+        return $cursor;
+    }
+    function removePicture($conn, $email){
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->updateOne([
+            'email' => $email],
+            ['$set' => ['photo' => ""]]
+        );
+        return $cursor;
     }
    /* function ProfileInfo($conn,$table,$email)
     {
