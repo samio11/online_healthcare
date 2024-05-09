@@ -7,6 +7,9 @@ include '../../controller/doctor/homevalidation.php';
 ?>
 
 <html>
+<head>
+
+</head>
     <body>
         <form method="POST" action="">
             <table>

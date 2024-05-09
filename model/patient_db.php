@@ -1,34 +1,38 @@
 <?php
 //set_include_path(dirname(__FILE__) . "/../");
 require '../../mongodbphp/vendor/autoload.php';
+
 use MongoDB\Driver\ServerApi;
 use MongoDB\BSON\Regex;
 
 class Model
 {
-    function OpenCon(){
+    function OpenCon()
+    {
         $uri = 'mongodb+srv://ashiq:ashiq@cluster0.1vw1o0y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
         $apiVersion = new ServerApi(ServerApi::V1);
         $conn = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
     }
-    function autoIncrement($conn){
+    function autoIncrement($conn)
+    {
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
         foreach ($cursor as $document) {
             $count = (int)$document["p_id"];
         }
         $collection->updateOne(
-            [ 'p_id' => (string)$count ],
+            ['p_id' => (string)$count],
             ['$set' => ["p_id" => $count + 1]]
         );
-        return $count+1;
+        return $count + 1;
     }
-    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address){
+    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address)
+    {
         $count = $this->autoIncrement($conn);
         $collection = $conn->online_health->patient;
         $cursor = $collection->insertOne([
-            'p_id' =>(string) $count,
+            'p_id' => (string) $count,
             'name' => $name,
             "email" => $email,
             "password" => $password,
@@ -40,7 +44,8 @@ class Model
         ]);
         return $cursor->getInsertedCount();
     }
-    function login($conn, $email, $password){
+    function login($conn, $email, $password)
+    {
         $collection = $conn->online_health->patient;
         $cursor = $collection->findOne([
             'email' => $email,
@@ -48,101 +53,128 @@ class Model
         ]);
         return $cursor;
     }
-    function ShowProfile($conn, $email){
+    function ShowProfile($conn, $email)
+    {
         $collection = $conn->online_health->patient;
         $cursor = $collection->findOne([
             'email' => $email,
         ]);
         return $cursor;
     }
-    function checkEmail($conn, $email){
-        return $this->ShowProfile($conn, $email);       
+    function checkEmail($conn, $email)
+    {
+        return $this->ShowProfile($conn, $email);
     }
-    function updatePassword($conn, $email, $password){
+    function updatePassword($conn, $email, $password)
+    {
         $collection = $conn->online_health->patient;
-        $cursor = $collection->updateOne([
-            'email' => $email],
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email
+            ],
             ['$set' => ['password' => $password]]
         );
         return $cursor->getModifiedCount();
     }
-    function updateProfile($conn, $email,$password, $name, $phone,$address){
+    function updateProfile($conn, $email, $password, $name, $phone, $address)
+    {
         $collection = $conn->online_health->patient;
-        $cursor = $collection->updateOne([
-            'email' => $email,
-            'password' => $password],
-            ['$set' => ['name' => $name,
-                       'phone' => $phone,
-                       'address' => $address]]
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email,
+                'password' => $password
+            ],
+            ['$set' => [
+                'name' => $name,
+                'phone' => $phone,
+                'address' => $address
+            ]]
         );
         return $cursor;
     }
-    function UploadDocument($conn, $email, $photo){
-        
+    function UploadDocument($conn, $email, $photo)
+    {
+
 
         $collection = $conn->online_health->patient;
-        $cursor = $collection->updateOne([
-            'email' => $email],
-            
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email
+            ],
+
             ['$set' => ['photo' => $photo]]
         );
         return $cursor;
     }
-    function removePicture($conn, $email){
+    function removePicture($conn, $email)
+    {
         $collection = $conn->online_health->patient;
-        $cursor = $collection->updateOne([
-            'email' => $email],
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email
+            ],
             ['$set' => ['photo' => ""]]
         );
         return $cursor;
     }
-    function docList($conn){
+    function docList($conn)
+    {
         $collection = $conn->online_health->doctor;
         $cursor = $collection->find();
         return $cursor;
     }
-    function liveSearch($conn, $input){
+    function liveSearch($conn, $input)
+    {
         $collection = $conn->online_health->doctor;
         $cursor = $collection->find([
             '$or' => [
-                    ["name"=> new Regex($input,"i")],
-                    ["place"=> new Regex($input,"i")],
-                    ["gender"=> new Regex($input,"i")],
-                    ["cat"=> new Regex($input,"i")]
-                    ]
+                ["name" => new Regex($input, "i")],
+                ["place" => new Regex($input, "i")],
+                ["gender" => new Regex($input, "i")],
+                ["cat" => new Regex($input, "i")]
+            ]
         ]);
         return $cursor;
     }
-    function doctor($conn, $d_id){
+    function doctor($conn, $d_id)
+    {
         $collection = $conn->online_health->doctor;
         $cursor = $collection->findOne([
             'd_id' => $d_id,
         ]);
         return $cursor;
-
     }
-    function reqAppointment($conn, $pid, $did, $time,$note){
+    function reqAppointment($conn, $pid, $pname, $pgender, $paddress, $did, $dname, $dcat, $dgender, $time, $note)
+    {
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
         foreach ($cursor as $document) {
             $count = (int)$document["app_id"];
         }
         $collection->updateOne(
-            [ 'app_id' => $count ],
+            ['app_id' => $count],
             ['$set' => ["app_id" => $count + 1]]
         );
         $collection = $conn->online_health->appointment;
         $cursor = $collection->insertOne([
-            'app_id' =>(string) ($count+1),
+            'app_id' => (string) ($count + 1),
             'p_id' => $pid,
+            'p_name' => $pname,
+            'p_gender' => $pgender,
+            'p_address' => $paddress,
             "d_id" => $did,
+            'd_name' => $dname,
+            'd_gender' => $dgender,
+            'd_cat' => $dcat,
             "time" => $time,
             'note' => $note,
-            'status' => 'pending'
+            'status' => 'pending',
+            'payment' => 'unpaid'
         ]);
         return $cursor->getInsertedCount();
     }
-    function viewAppointment($conn, $pid){
+    function viewAppointment($conn, $pid)
+    {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->find([
             'p_id' => $pid

@@ -24,12 +24,12 @@ if(!empty($_FILES['uploadphoto']['name']))
 {
     $hasError=1;
     $photo="";
-    $photo="../../upload/patient"."photo".$_SESSION['email'].$_FILES['uploadphoto']['name'];
+    $photo="../../upload/doctor"."photo".$_SESSION['email'].$_FILES['uploadphoto']['name'];
 
     move_uploaded_file($_FILES['uploadphoto']['tmp_name'],$photo);
 }
 else{
- echo"already attached!!!!!!!!!!!";
+ echo"Enter your photo!";
 }
 
 if($hasError==1)
@@ -39,7 +39,8 @@ if($hasError==1)
     $result=$mydb->UploadPic($conobj,$_SESSION['email'], $photo);
     if($result)
     {
-        header("Location: ../../view/doctor/homepage.php");
+       header("Location: ../../view/doctor/myprofile.php");
+       echo "added successfully";
     }
     else{
         echo "Error Occurred";

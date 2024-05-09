@@ -10,6 +10,7 @@ body {
     flex-direction: column;
     margin: 0;
 }
+
 .homebody {
     display: flex;
     align-items: center;
@@ -21,7 +22,7 @@ body {
     flex-direction: column;
     margin: 0;
 }
-  
+
 .main {
     background-color: #fff;
     border-radius: 15px;
@@ -31,6 +32,7 @@ body {
     width: 500px;
     text-align: center;
 }
+
 .homemain {
     background-color: #fff;
     border-radius: 15px;
@@ -39,7 +41,9 @@ body {
     transition: transform 0.2s;
     width: 900px;
     text-align: center;
+
 }
+
 .docmain {
     background-color: #fff;
     border-radius: 15px;
@@ -49,7 +53,8 @@ body {
     width: 700px;
     text-align: center;
 }
-.text{
+
+.text {
     text-align: center;
 }
 
