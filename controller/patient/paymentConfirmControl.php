@@ -1,5 +1,15 @@
 <?php
-//require("../../controller/patient/paymentControl.php");
+
+
+/*$mydb = new Model();
+$conObj = $mydb->OpenCon();
+$result = $mydb->ShowProfile($conObj, $_SESSION['email']);
+$pname = $result['name'];
+$padd = $result['address'];
+echo $_SESSION['dname'];*/
+
+
+
 $val_id = urlencode($_POST['val_id']);
 $store_id = urlencode("onlin663c67129cd1e");
 $store_passwd = urlencode("onlin663c67129cd1e@ssl");
@@ -52,14 +62,7 @@ if ($code == 200 && !(curl_errno($handle))) {
 	$validated_on = $result->validated_on;
 	$gw_version = $result->gw_version;
 
-	echo $status . '<br>';
-	echo $tran_date . '<br>';
-	echo $tran_id . '<br>';
-	echo $val_id . '<br>';
-	echo $amount . '<br>';
-	echo $bank_tran_id . '<br>';
-	echo $card_type . '<br>';
-	echo $card_issuer;
+
 } else {
 
 	echo "Failed to connect with SSLCOMMERZ";

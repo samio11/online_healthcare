@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <?php include '../../controller/patient/appointmentControl.php' ?>
     <title>Apointments</title>

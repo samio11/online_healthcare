@@ -93,7 +93,7 @@ function demo(d_id) {
   document.location.href = 'appointment.php?d_id=' + d_id;
 }
 function payment(app_id) {
-  document.location.href = '../../controller/patient/paymentControl.php?app_id=' + app_id;
+  document.location.href = '../../controller/patient/paymentControl.php?app_id=' + app_id + '&token=1';
 }
 /*
 function loadDoc() {
