@@ -121,7 +121,7 @@ class Model
         return $cursor;
 
     }
-    function reqAppointment($conn, $pid, $did, $time,$note){
+    function reqAppointment($conn, $pid,$pname,$pgender, $paddress, $did,$dname,$dcat, $dgender, $time,$note){
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
         foreach ($cursor as $document) {
@@ -135,7 +135,13 @@ class Model
         $cursor = $collection->insertOne([
             'app_id' =>(string) ($count+1),
             'p_id' => $pid,
+            'p_name' => $pname,
+            'p_gender' => $pgender,
+            'p_address' => $paddress,
             "d_id" => $did,
+            'd_name' => $dname,
+            'd_gender' => $dgender,
+            'd_cat' => $dcat,
             "time" => $time,
             'note' => $note,
             'status' => 'pending'

@@ -12,8 +12,8 @@ if(isset($_REQUEST['updateProfile'])){
 if(isset($_REQUEST['appointment'])){
   header("Location: ../../view/patient/viewAppointment.php");
 }
-if(isset($_REQUEST['documents'])){
-  header("Location: ../../controller/patient/documentsControl.php");
+if(isset($_REQUEST['docList'])){
+  header("Location: ../../view/patient/doctorList.php");
 }
 if(isset($_REQUEST['logout'])){
   session_destroy();

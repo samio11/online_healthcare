@@ -7,7 +7,7 @@
     if($result)
     {
         //header("Location: ../../view/patient/login.php");
-        echo "";
-       
+        echo "";       
     }
+
 ?>
