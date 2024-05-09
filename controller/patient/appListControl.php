@@ -6,10 +6,6 @@ $str = '';
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
 $result = $mydb->viewAppointment($conObj, $pid);
-
-
-
-
 foreach ($result as $document) {
     $str .= "<tr><td>" . $document['d_name'] . "</td>";
     $str .= "<td>" . $document['d_gender'] . "</td>";

@@ -1,16 +1,35 @@
-<?php include '../../controller/patient/paymentControl.php' ?>
+<?php
+include 'homepage.php';
+include '../../controller/patient/billingControl.php'
+?>
+<!DOCTYPE html>
+<html>
 
-<form action="submit.php" method="post">
-	<script
-		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		data-key="<?php echo $publishableKey?>"
-		data-amount="1000"
-		data-name="Online Healthcare"
-		data-description="Doctor's Fee"
-		data-image="https://www.logostack.com/wp-content/uploads/designers/eclipse42/small-panda-01-600x420.jpg"
-		data-currency="usd"
-		data-email="demo@gmail.com"
-	>
-	</script>
+<head>
+	<title>Apointments</title>
+	<script type="text/javascript" src="../../js/patient_myscript.js"></script>
+	<link rel="stylesheet" href="../../css/patient/myStyle.css">
+</head>
 
-</form>
+<body>
+	<div class="docmain">
+		<table class="text" cellpadding="10" align="center">
+
+			<thead>
+				<td>Doctor's Name</td>
+				<td>Gender</td>
+				<td>Speciality</td>
+				<td>Time</td>
+				<td>Note</td>
+				<td>Status</td>
+				<td>Payment</td>
+			</thead>
+			<tbody><?php echo $str ?></tbody>
+
+
+
+		</table>
+	</div>
+
+
+</body>
