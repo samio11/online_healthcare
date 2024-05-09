@@ -1,5 +1,5 @@
 <?php
-//include '../../model/medical_assist_db.php';
+include '../../model/medical_assist_db.php';
 session_start();
       
   
@@ -19,7 +19,7 @@ if(isset($_REQUEST['portfolio'])){
     header("Location: ../../view/medical_assist/portfolio.php");
 }
 if(isset($_REQUEST['logout'])){
-    header("Location: ../../view/medical_assist/logout.php");
+    header("Location: ../../view/medical_assist/login.php");
 }
 
 ?>

@@ -3,30 +3,28 @@ include '../../controller/medical_assist/logincontrol.php';
 include '../../css/medical_assist/login_page.css';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <title>Medical Assist Portal Login</title>
 </head>
+
 <body>
-    <form method="POST" action="">
-    <fieldset>
-  <legend>Login to your Account:</legend>
-        <tr>
-            <td>Email: <input type="text" name = "email" /></td>
-            
-        </tr>
-        <br>
-        <tr>
-            <td>Password: <input type="password" name = "password" /></td>
-        </tr>
-        <br>
     
-    <tr>
-        <td><input type="submit" name = "Login" value="Login" /></td>
-    </tr>
-    
-    </form>
+    <div class="main">
+        <h1>Medical Assist Portal</h1>
+        <form action=""  mathod="POST">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email" placeholder="Enter your Email" required>
+            <label for="password"> Password: </label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+            <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
+        </form>
+        <a href="forgetPassword.php" style="text-decoration: none;"> Forgot password? </a>
+        <p>Not Registered?<a href="ma_reg.php" style="text-decoration: none;"> Register Now! </a></p>
+
+    </div>
+
 </body>
+
 </html>

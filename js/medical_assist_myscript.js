@@ -29,20 +29,35 @@ function validateForm() {
         document.getElementById("licenseError").innerHTML = "License must be included";
         return false;
     }
+    function validateEmail(){
+        var email = document.getElementById('submit_email').value;
+        var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(!regex.test(email)){
+          document.getElementById('email_error').innerHTML = "Please Enter a valid email address";
+          return false;
+        }
+      }
 
+      function openDiag(){
+        document.getElementById('uploadphoto').click();
+      }
+      function random(){
+        alert("hello");
+      }
+      function photoUpload(){
+      
+      }
+      function removePicture(email){
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        document.getElementById('imgsrc').getAttribute('src').innerHTML = this.responseText;
+      }
+      xhttp.open("GET", "http://localhost/online_healthcare/controller/medical_assist/test.php?email=" + email, true);
+      xhttp.send();
+      }
 
 }
-/*function loadUser() {
-    const xhttp = new XMLHttpRequest();
-    var str = document.getElementById("Name").value;
-    xhttp.onload = function () {
-        document.getElementById("txt").innerHTML = this.responseText;
-    }
 
-    xhttp.open("GET", "../controller/searchUser.php?name=" + str);
-    xhttp.send();
-}
-*/
 
 
 

@@ -3,7 +3,7 @@ include '../../model/medical_assist_db.php';
 session_start();
 
 
-if(isset($_REQUEST['Login'])){
+if(isset($_REQUEST['login'])){
     $_SESSION['email'] = $_REQUEST['email'];
     $mydb = new Model();
     $conObj = $mydb->OpenCon();
