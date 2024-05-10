@@ -88,26 +88,13 @@ if(isset($_REQUEST['set_time'])){
 }
 
 if(isset($_REQUEST['decline'])){
-   echo"hi";
+  
+  
     $mydb = new Model();
     $conObj = $mydb->OpenCon();
   
-    $declined = $mydb->declineApp($conObj, $_SESSION['d_id']);
-    $declineData = []; 
-      
-      if ($declined) {
-          foreach ($declined as $decline) {
-              $declineData[] = [
-                  'app_id' => $approve['app_id'],
-                  'p_id' => $approve['p_id'],
-                  'p_name' => $approve['p_name'],
-                  'p_gender' => $approve['p_gender'],
-                  'stime' => $approve['stime'],
-                  'note' => $approve['note']
-              ];
-          }
-      } else {
-          $approvedData = []; }
+    $declined = $mydb->declineApp($conObj, $_REQUEST['decline']);
+    header("Location: ../../view/doctor/app.php");
 
 
 }
