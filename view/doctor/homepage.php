@@ -19,6 +19,7 @@ include '../../controller/doctor/homevalidation.php';
                 <td><input type="submit" name="list" value="Check Appointment List"></td>
                 <td><input type="submit" name= "documents" value="Documents"></td>
                 <td><input type="submit" name= "logout" value="Logout"></td>
+                <td><input type="submit" name= "assist" value="Medical Assistant"></td>
                
             </table>
            
