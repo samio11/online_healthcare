@@ -13,15 +13,13 @@
                     <td><button type="submit" name="docList" id="docList">Doctors</button></td>
                     <td><button type="submit" name="appointment" id="appointment">Appointments</button></td>
                     <td><button type="submit" name="history" id="history">Medical History</button></td>
-                    <td><button type="submit" name="med" id="med">Medicines</button>
-        </div>
-        </td>
-        <td><button type="submit" name="message" id="message">Messages</button></td>
-        <td><button type="submit" name="documents" id="documents">Documents</button></td>
-        <td><button type="submit" name="logout" id="logout">Logout</button></td>
-        </tr>
+                    <td><button type="submit" name="med" id="med">Medicines</button></td>
+                    <td><button type="submit" name="message" id="message">Messages</button></td>
+                    <td><button type="submit" name="billing" id="billing">Billing</button></td>
+                    <td><button type="submit" name="logout" id="logout">Logout</button></td>
+                </tr>
 
-        </table>
+            </table>
         </div>
     </form>
 

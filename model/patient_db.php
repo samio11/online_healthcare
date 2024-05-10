@@ -181,4 +181,22 @@ class Model
         ]);
         return $cursor;
     }
+    function duePayment($conn, $pid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'p_id' => $pid,
+            'payment' => 'unpaid'
+
+        ]);
+        return $cursor;
+    }
+    function viewDueAppointment($conn, $appid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $appid
+        ]);
+        return $cursor;
+    }
 }
