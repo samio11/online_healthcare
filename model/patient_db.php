@@ -209,7 +209,6 @@ class Model
         $cursor = $collection->find([
             'p_id' => $pid,
             'payment' => 'unpaid'
-
         ]);
         return $cursor;
     }
