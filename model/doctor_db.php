@@ -1,7 +1,8 @@
 <?php
 use LDAP\Result;
-set_include_path(dirname(__FILE__)."/../../");
-require 'mongo/vendor/autoload.php';
+//set_include_path(dirname(__FILE__)."/../../");
+//require 'mongo/vendor/autoload.php';
+require '../../mongodbphp/vendor/autoload.php';
 
 
 use MongoDB\Driver\ServerApi;
@@ -13,6 +14,24 @@ class Model
         $apiVersion = new ServerApi(ServerApi::V1);
         $conn= new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
+    }
+    function ShowAppointment($conn, $d_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'd_id' => $d_id,
+            'status'=> 'pending'
+        ]);
+        return $cursor;
+    }
+    function approvedApp($conn, $d_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'd_id' => $d_id,
+            'status'=> 'approved'
+        ]);
+        return $cursor;
     }
     function loginCheck($conn,$email,$pass){
       
@@ -54,6 +73,30 @@ class Model
           ]); 
           return $result->getInsertedCount();
       }
+      function setTime($conn, $app_id,$stime){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->updateOne([
+            'app_id' => $app_id,
+            //'p_id' => $p_id
+        ],
+            ['$set' => ['stime' => $stime,
+            'status' => 'approved'
+            ]]
+        );
+        return $cursor->getModifiedCount();
+    }
+  /*  function showTime($conn, $time){
+        $collection = $conn->online_health->time;
+        $cursor = $collection->findOne(
+           [ 
+            
+            'time' => $time,
+       
+       
+        ]);
+        return $cursor;
+       
+    }*/
     
       function checkEmail($conn, $email){
         return $this->ShowProfile($conn, $email);   
@@ -67,6 +110,8 @@ class Model
         ]);
         return $cursor;
     }
+   
+    
     function updatePassword($conn, $email, $pass){
         $collection = $conn->online_health->doctor;
         $cursor = $collection->updateOne([
