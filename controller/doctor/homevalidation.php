@@ -42,6 +42,9 @@ if(isset($_REQUEST['showProfile'])){
       if(isset($_REQUEST['list'])){
         header("Location: ../../view/doctor/app.php");
       }
+      if(isset($_REQUEST['assist'])){
+        header("Location: ../../view/doctor/assistantList.php");
+      }
       
 ?>
 
