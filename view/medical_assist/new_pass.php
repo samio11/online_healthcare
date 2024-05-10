@@ -1,6 +1,6 @@
 <?php 
-include '../../controller/medical_assist/forget_passcontrol.php'; 
-include '../../css/medical_assist/new_pass_page.css';
+//include '../../controller/medical_assist/forget_passcontrol.php'; 
+//include '../../css/medical_assist/new_pass_page.css';
 ?>
 <!DOCTYPE html>
 <html>

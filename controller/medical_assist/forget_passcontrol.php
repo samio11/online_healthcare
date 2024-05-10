@@ -1,5 +1,5 @@
 <?php
- include '../../model/medical_assist_db.php';
+include '../../model/medical_assist_db.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

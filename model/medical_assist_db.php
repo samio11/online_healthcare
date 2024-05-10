@@ -66,6 +66,20 @@ class Model
         ]);
         return $cursor;
     } 
+    function UpdateProfile($conn,$email,$name,$phone,$password,$address){
+      $collection = $conn->online_health->medical_assist;
+      $cursor = $collection->updateOne([
+          'email' => $email,
+        
+      ],
+          ['$set' => ['name' => $name,
+                     'phone' => $phone,
+                     'password' => $password,
+                     'address' => $address
+                     ]]
+      );
+      return $cursor;
+  }
     
     function checkEmail($conn, $email){
       return $this->ViewProfile($conn, $email);       
@@ -90,12 +104,47 @@ class Model
       );
       return $cursor;
   }
+  //Viewing all doctor's list
   function View_docs($conn) {
     $collection = $conn->online_health->doctor;
     $cursor = $collection->find();
     return $cursor;
 }
-
+function View_appointments($conn) {
+  $collection = $conn->online_health->appointment;
+  $cursor = $collection->find();
+  return $cursor;
+}
+function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$dia,$appdate,$d_name,$med,$tests)
+    {
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach($cursor as $document){
+            $count= (Int)$document["pres_id"];
+        }
+        $collection->updateOne([
+            'pres_id'=>$count],
+            ['$set' => ["pres_id" => $count+1]]
+        );
+        
+        $collection = $conn->online_health->presription;
+        $collection->insertOne([
+            'pres_id' => $count+1,
+            'p_name'=>$p_name,
+            "p_email"=>$p_email,
+            'p_gender' => $p_gender,
+            'height' => $height,
+            'weight'=> $weight,
+            'bg' => $bg,
+            'dia' => $dia,
+            'appdate' => $appdate,
+            'd_name' => $d_name,
+            'med' => $med,
+            'tests' => $tests
+           
+        ]); 
+        return $cursor->getInsertedCount();
+      }
 
 }
 
