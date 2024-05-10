@@ -16,7 +16,7 @@ include '../../controller/doctor/appcontrol.php';
 <body>
 <form method="POST" action="" >
 
-<h2>Appointment List</h2>
+<h2 >Pending Appointment List</h2>
     <table border="1">
         <tr>
             <th>Appointment Id</th>
@@ -42,7 +42,7 @@ include '../../controller/doctor/appcontrol.php';
             <button type="submit" name="set_time" id="set_time">Set Time</button>
            
           
-            <button type="button" class="decline-btn">Decline</button>
+            <button type="submit" name="decline" id="<?php echo $appointment['app_id'];?>">Decline</button>
       </tr>
         <?php endforeach; ?>
     </table>
