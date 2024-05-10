@@ -101,17 +101,18 @@ function donwloadReceipt() {
   html2pdf().from(element).save();
 
 }
-function chat(ip) {
+function chat(app_id) {
   var clientmsg = $("#usermsg").val();
-  $.post("../../controller/patient/chatroomControl.php", { text: clientmsg, room: 'demo', ip: ip },
+  $.post("../../controller/patient/chatroomControl.php", { text: clientmsg, room: app_id },
     function (data, status) {
       document.getElementsByClassName('anyclass')[0].innerHTML = data;
     });
   return false;
 }
-function runFunction(){
-  $.post("../../controller/patient/htcont.php", {room: 'demo'},
-    function(data, status){
+function runFunction(app_id) {
+  //alert(app_id);
+  $.post("../../controller/patient/chatRefreshControl.php", { room: app_id },
+    function (data, status) {
       document.getElementsByClassName('anyclass')[0].innerHTML = data;
     }
   )
