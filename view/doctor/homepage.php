@@ -8,9 +8,10 @@ include '../../controller/doctor/homevalidation.php';
 
 <html>
 <head>
-
+<link rel="stylesheet" href="../../css/doctor/style.css">
 </head>
     <body>
+    <div class="main">
         <form method="POST" action="">
             <table>
    
@@ -24,6 +25,7 @@ include '../../controller/doctor/homevalidation.php';
             </table>
            
         </form>
+        </div>
     </body>
 </html>
 
