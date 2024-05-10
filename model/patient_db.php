@@ -199,4 +199,32 @@ class Model
         ]);
         return $cursor;
     }
+    function chatdatabase($conn, $msg, $room, $ip, $time)
+    {
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach ($cursor as $document) {
+            $count = (int)$document["chat"];
+        }
+        $collection->updateOne(
+            ['chat' => $count],
+            ['$set' => ["chat" => $count + 1]]
+        );
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->insertOne([
+            'sno' => (string) ($count + 1),
+            'msg' => $msg,
+            'room' => $room,
+            'ip' => $ip,
+            'time' => $time,
+        ]);
+        return $cursor->getInsertedCount();
+    }
+    function msgdatabase($conn, $room){
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->find([
+            'room' => $room
+        ]);
+        return $cursor;
+    }
 }
