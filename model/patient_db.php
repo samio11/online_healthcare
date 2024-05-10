@@ -173,11 +173,88 @@ class Model
         ]);
         return $cursor->getInsertedCount();
     }
-    function viewAppointment($conn, $pid)
+    function approvedApp($conn, $pid)
     {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->find([
-            'p_id' => $pid
+            'p_id' => $pid,
+            'status' => 'approved'
+
+        ]);
+        return $cursor;
+    }
+    function pendingApp($conn, $pid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'p_id' => $pid,
+            'status' => 'pending'
+
+        ]);
+        return $cursor;
+    }
+    function declinedApp($conn, $pid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'p_id' => $pid,
+            'status' => 'declined'
+
+        ]);
+        return $cursor;
+    }
+    function duePayment($conn, $pid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'p_id' => $pid,
+            'payment' => 'unpaid'
+        ]);
+        return $cursor;
+    }
+    function viewDueAppointment($conn, $appid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $appid
+        ]);
+        return $cursor;
+    }
+    function chatdatabase($conn, $msg, $room,  $time, $pname)
+    {
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach ($cursor as $document) {
+            $count = (int)$document["chat"];
+        }
+        $collection->updateOne(
+            ['chat' => $count],
+            ['$set' => ["chat" => $count + 1]]
+        );
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->insertOne([
+            'sno' => (string) ($count + 1),
+            'msg' => $msg,
+            'room' => $room,
+            'time' => $time,
+            'name' => $pname,
+            'flag' => 'patient'
+        ]);
+        return $cursor->getInsertedCount();
+    }
+    function msgdatabase($conn, $room)
+    {
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->find([
+            'room' => $room
+        ]);
+        return $cursor;
+    }
+    function viewAppById($conn, $app_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $app_id
         ]);
         return $cursor;
     }

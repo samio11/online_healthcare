@@ -40,7 +40,7 @@ if(isset($_REQUEST['showProfile'])){
         header("Location: ../form_code/document.php");
       }
       if(isset($_REQUEST['list'])){
-        header("Location: ../form_code/app.php");
+        header("Location: ../../view/doctor/app.php");
       }
       
 ?>

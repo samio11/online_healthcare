@@ -1,7 +1,8 @@
 <?php
 use LDAP\Result;
-set_include_path(dirname(__FILE__)."/../../");
-require 'mongo/vendor/autoload.php';
+//set_include_path(dirname(__FILE__)."/../../");
+//require 'mongo/vendor/autoload.php';
+require '../../mongodbphp/vendor/autoload.php';
 
 
 use MongoDB\Driver\ServerApi;
@@ -13,6 +14,47 @@ class Model
         $apiVersion = new ServerApi(ServerApi::V1);
         $conn= new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
+    }
+    function ShowAppointment($conn, $d_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'd_id' => $d_id,
+            'status'=> 'pending'
+        ]);
+        return $cursor;
+    }
+       function getId($conn, $d_id){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne(
+           [ 
+            
+            'd_id' => $d_id,
+            'status'=> 'pending'
+       
+       
+        ]);
+        return $cursor;
+       
+    }
+    function approvedApp($conn, $d_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            'd_id' => $d_id,
+            'status'=> 'approved'
+        ]);
+        return $cursor;
+    }
+    function declineApp($conn, $app_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor=$collection->updateOne([
+            'app_id' => $app_id],
+            ['$set' => ['status'=> 'declined']]);
+        return $cursor;
+       
+        
     }
     function loginCheck($conn,$email,$pass){
       
@@ -54,6 +96,19 @@ class Model
           ]); 
           return $result->getInsertedCount();
       }
+      function setTime($conn,$app_id,$stime){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->updateOne([
+            'app_id' => $app_id,
+            //'p_id' => $p_id
+        ],
+            ['$set' => ['stime' => $stime,
+            'status' => 'approved'
+            ]]
+        );
+        return $cursor->getModifiedCount();
+    }
+
     
       function checkEmail($conn, $email){
         return $this->ShowProfile($conn, $email);   
@@ -67,6 +122,8 @@ class Model
         ]);
         return $cursor;
     }
+   
+    
     function updatePassword($conn, $email, $pass){
         $collection = $conn->online_health->doctor;
         $cursor = $collection->updateOne([
@@ -94,6 +151,46 @@ class Model
         );
         return $cursor;
     }
+
+    function chatdatabase($conn, $msg, $room,  $time, $dname)
+    {
+        $collection = $conn->online_health->counter;
+        $cursor = $collection->find();
+        foreach ($cursor as $document) {
+            $count = (int)$document["chat"];
+        }
+        $collection->updateOne(
+            ['chat' => $count],
+            ['$set' => ["chat" => $count + 1]]
+        );
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->insertOne([
+            'sno' => (string) ($count + 1),
+            'msg' => $msg,
+            'room' => $room,
+            'time' => $time,
+            'name' => $dname,
+            'flag' => 'doctor'
+        ]);
+        return $cursor->getInsertedCount();
+    }
+    function msgdatabase($conn, $room)
+    {
+        $collection = $conn->online_health->chat;
+        $cursor = $collection->find([
+            'room' => $room
+        ]);
+        return $cursor;
+    }
+    function viewAppById($conn, $app_id)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $app_id
+        ]);
+        return $cursor;
+    }
+
    /* function ProfileInfo($conn,$table,$email)
     {
         $sql = "SELECT *  FROM $table WHERE email='$email'";

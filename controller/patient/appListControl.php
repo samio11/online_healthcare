@@ -1,20 +1,42 @@
 <?php
 include '../../model/patient_db.php';
 //session_start();
+
 $pid = $_SESSION['p_id'];
-$str = '';
+$astr = $pstr = $dstr = '';
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
-$result = $mydb->viewAppointment($conObj, $pid);
+$result = $mydb->approvedApp($conObj, $pid);
+$approvedApp = [];
+if ($result) {
+    foreach ($result as $appointment) {
+        $approvedApp[] = [
+            'app_id' => $appointment['app_id'],
+            'd_name' => $appointment['d_name'],
+            'd_gender' => $appointment['d_gender'],
+            'd_cat' => $appointment['d_cat'],
+            'stime' => $appointment['stime'],
+            'note' => $appointment['note'],
 
+        ];
+    }
+} else {
+    $appointmentData = [];
+}
 
-
-
+$result = $mydb->pendingApp($conObj, $pid);
 foreach ($result as $document) {
-    $str .= "<tr><td>" . $document['d_name'] . "</td>";
-    $str .= "<td>" . $document['d_gender'] . "</td>";
-    $str .= "<td>" . $document['d_cat'] . "</td>";
-    $str .= "<td>" . $document['time'] . "</td>";
-    $str .= "<td>" . $document['note'] . "</td>";
-    $str .= "<td>" . $document['status'] . "</td></tr>";
+    $pstr .= "<tr><td>" . $document['d_name'] . "</td>";
+    $pstr .= "<td>" . $document['d_gender'] . "</td>";
+    $pstr .= "<td>" . $document['d_cat'] . "</td>";
+    $pstr .= "<td>" . $document['time'] . "</td>";
+    $pstr .= "<td>" . $document['note'] . "</td></th>";
+}
+$result = $mydb->declinedApp($conObj, $pid);
+foreach ($result as $document) {
+    $dstr .= "<tr><td>" . $document['d_name'] . "</td>";
+    $dstr .= "<td>" . $document['d_gender'] . "</td>";
+    $dstr .= "<td>" . $document['d_cat'] . "</td>";
+    $dstr .= "<td>" . $document['time'] . "</td>";
+    $dstr .= "<td>" . $document['note'] . "</td></th>";
 }
