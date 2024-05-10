@@ -1,64 +1,62 @@
 <?php
- include '../../model/medical_assist_db.php';
-
+include '../../model/medical_assist_db.php';
 session_start();
-$updatedName=$updatedPassword=$updatedPhoneNumber=$updatedNation="";
-$passwordError=$phonenumberError=$haserror= "";
+$haserror = $updatedPhone = $updatedPassword = $updatedName = $updatedAddress = $phoneError = $passwordError = $nameError = $addressError = "";
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
-$result = $mydb->getUserInfo($conObj, $_SESSION['Email']);
-if($result->num_rows>0)
-{
-    while($row = $result->fetch_assoc()){
-            
-        $_SESSION['Name'] = $row['name'];
-        $_SESSION['Password'] = $row['password'];
-        $_SESSION['Phonenumber'] = $row['phonenumber'];
-        $_SESSION['Nationality'] = $row['nationselect'];
-        
+$result = $mydb->ViewProfile($conObj, $_SESSION["email"]);
+if ($result) {
+
+    $_SESSION["name"] = $result["name"];
+    $_SESSION['phone'] = $result['phone'];
+    $_SESSION['password'] = $result['password'];
+    $_SESSION['address'] = $result['address'];
+
+
+}
+
+
+if (isset($_REQUEST['cancel'])) {
+    header('Location: ../../view/medical_assist/profile.php');
+}
+
+if (isset($_REQUEST['confirm'])) {
+
+    $updatedName = $_REQUEST['updatedName'];
+    $updatedPhone = $_REQUEST['updatedPhone'];
+    $updatedPassword = $_REQUEST['updatedPassword'];
+    $updatedAddress = $_REQUEST['updatedAddress'];
+
+
+
+    if (strlen($_REQUEST['updatedName']) < 4) {
+        $nameError = " Name should be atleast 4 characeters";
+        $haserror = 1;}
+
+    if (is_numeric($_REQUEST['updatedPhone'])) {
+        $phoneError = "Phone Number invalid";
+        $haserror = 1;}
+       
+    if (strlen($updatedPassword) > 6 || preg_match('/(A-Z)/', $_REQUEST['updatedPassword'])) {
+        $passwordError = " Password must be at least 6 characters and an uppercase";
+        $haserror = 1;}
+
+    if (!empty($_REQUEST['updatedAddress'])) {
+            $addressError = "Enter an address";
+            $haserror = 1;}
+    
+
+        if ($hasError != 1) {
+            $result = $mydb->UpdateProfile($conObj, $_SESSION['email'], $updatedName, $updatedPhone, $updatedPassword,$updatedAddress);
+        if ($result) {
+            echo "Successfully Updated";
+        } else {
+            echo "Error updating profile";
+        }
+        header('Location: ../../view/medical_assist/profile.php');
+        exit; 
+      } else {
+        echo "Please correct the validation errors.";
       }
-
 }
-
-if(isset($_REQUEST['cancel'])){
-    header('Location: ../view/profile.php');
-  }
-  
-if(isset($_REQUEST['confirmChanges'])){
-/*
-  if( is_numeric($_REQUEST['updatedPhoneNumber'])){
-        $updatedPhoneNumber= $_REQUEST['updatedPhoneNumber'] ;
-    }
-     else{
-    $phonenumberError= "Phone Number invalid";
-    $haserror=1;
-     }
-if(strlen($_REQUEST['updatedPassword'])>6 || preg_match('/(A-Z)/',$_REQUEST['updatedPassword']))
-{
-                
-    $updatedPassword= $_REQUEST['updatedPassword'] ;
-               
-}
-else{
-     $passwordError= " Password must be at least 6 characters and an uppercase";
-     $haserror=1;
-    }
-*/    
-
-//if($haserror!=1){
-    $mydb= new Model();
-    $conObj= $mydb->OpenCon();
-    $result = $mydb->UpdateProfile($conObj,$_SESSION["email"], $_REQUEST["updatedName"], $_REQUEST["updatedPhoneNumber"], $_REQUEST["updatedPassword"],$_REQUEST["updatedNation"]);
-    if($result === TRUE)
-    {
-        echo "Successfully Updated";
-        header('Location: ../view/profile.php');
-        
-        
-    }
-    else{
-        echo "Please update with proper informations!";
-    }
-  }
-  
-  ?>
+?>

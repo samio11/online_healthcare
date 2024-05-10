@@ -17,9 +17,9 @@ include '../../css/medical_assist/homepage_page.css';
             <tr>
                 <td><button type="submit" name="viewProfile" id="viewProfile">View Profile</button></td>
                 <td><button type="submit" name="docList" id="docList">View Doctors</button></td>
-                <td><button type="submit" name="patList" id="patList">View Patients</button></td>
-                <td><button type="submit" name="appointment" id="appointment">Create Appointments</button></td>
-                <td><button type="submit" name="portfolio" id="portfolio">Create Portfolio</button></td>
+                <td><button type="submit" name="appoinList" id="appoinList">View Appointments</button></td>
+                <td><button type="submit" name="billing" id="billing">Create Billing</button></td>
+                <td><button type="submit" name="prescription" id="prescription">Create Prescription</button></td>
             </tr>
             </form>
         
