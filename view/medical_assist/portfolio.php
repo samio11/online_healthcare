@@ -68,11 +68,13 @@ include '../controller/portfolioControl.php';
         <?php echo $diabetesError; ?>
         </td>
         </tr>
-        <br>
+        <tr>
         
-            <td>Appointment Time:</td><td><input type="text" name = "AppointmentTime" /></td>
-        </tr>
-        <br>
+<td colspan="2">Date Of Appointment:</td><td><input type="date" name="appointment">
+<?php echo $appointmentError; ?>
+<?php echo $appointment; ?>
+</td>
+</tr>
         <tr>
             <td>Patient Complaint:</td><td><input type="text" name = "PatientComplaint" /></td>
         </tr>

@@ -8,10 +8,10 @@ include '../../css/medical_assist/reg_page.css';
     <script src="../../js/medical_assist_myscript.js"></script>
 </head>
 <body>
+<div class="main">
+<h1>Medical Assistant Register</h1>
 <form method="POST" action="" onsubmit="return validateForm()">
 
-<fieldset>
-  <legend>Sign Up Now!</legend>
   <table>
         <tr>
             <td colspan="2">Name:</td><td> <input type="text" name="Name" id="Name"  placeholder ="Hey! What's Your Name?">
@@ -101,8 +101,9 @@ include '../../css/medical_assist/reg_page.css';
 
 
 
-</fieldset>
 </form>
+<p>Already Have an Account?<a href="login.php" style="text-decoration: none;"> Login Now! </a></p>
+</div>
 </table>
 </body>
 </html>

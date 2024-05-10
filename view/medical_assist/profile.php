@@ -1,5 +1,6 @@
 <?php
 include '../../controller/medical_assist/profilecontrol.php';
+include '../../css/medical_assist/profile_page.css';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +22,8 @@ include '../../controller/medical_assist/profilecontrol.php';
         
         <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Upload Profile Picture</button></td>
         <td><button type="button" id="remove" onclick="removePicture('<?php  echo $_SESSION['email']; ?>')">Remove Picture</button></td>
-        </table> 
-    </tr>
+        
+        </tr>
 
 
             <td>Name:</td>
@@ -81,15 +82,6 @@ include '../../controller/medical_assist/profilecontrol.php';
                 <td colspan="2"><br></td>
             </tr>
         <tr><td><input type="submit" name="updateProfile" value="Update Profile"></td>
-    
-       
-</table>
+        <td><input type="submit" name="gobackHome"  value="Return to Homepage"></td></tr>
+        </table>
 </form>
-    
-
-
-
-
-
-
-

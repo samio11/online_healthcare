@@ -12,19 +12,20 @@ if (isset($_REQUEST['Submit'])) {
     } else {
         $name = $_REQUEST['Name'];
     }
-    if (!empty($_REQUEST['Email'])) {
-        if (!preg_match('/gmail.com/', $_REQUEST["Email"])) {
-            $emailError = "Please enter a valid email address with gmail.com";
-            $haserror = 1;
-
-        } else {
-            $email = $_REQUEST['Email'];
-        }
-
-    } else {
-        $emailError = "Email is Required";
-        $haserror = 1;
-    }
+    if (!filter_var($_REQUEST['Email'], FILTER_VALIDATE_EMAIL)){
+        $emailError = "Enter a valid email address ";
+        $haserror=1;
+} else {
+        $email = $_REQUEST['Email'];
+        $mydb = new Model();
+        $conObj = $mydb->OpenCon();
+        $result = $mydb->checkEmail($conObj, $email);
+        if($result)
+            {
+                $emailError = "This Email is already registered:";
+                $haserror=1;   
+            }  
+}
 
     if (strlen($password) > 6 || preg_match('/(A-Z)/', $password)) {
 

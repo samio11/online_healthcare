@@ -3,7 +3,7 @@ set_include_path(dirname(__FILE__) . "/..//../");
 require 'mongo\vendor/autoload.php';
 
 use MongoDB\Driver\ServerApi;
-
+use MongoDB\BSON\Regex;
 
 
 class Model
@@ -66,25 +66,36 @@ class Model
         ]);
         return $cursor;
     } 
-    function UploadDocument($conn, $email, $photo){
+    
+    function checkEmail($conn, $email){
+      return $this->ViewProfile($conn, $email);       
+  }
+
+    function UploadPhoto($conn, $email, $profilePic){
         
 
-      $collection = $conn->online_health->patient;
+      $collection = $conn->online_health->medical_assist;
       $cursor = $collection->updateOne([
           'email' => $email],
           
-          ['$set' => ['photo' => $photo]]
+          ['$set' => ['profilePic' => $profilePic]]
       );
       return $cursor;
   }
   function removePicture($conn, $email){
-      $collection = $conn->online_health->patient;
+      $collection = $conn->online_health->medical_assist;
       $cursor = $collection->updateOne([
           'email' => $email],
-          ['$set' => ['photo' => ""]]
+          ['$set' => ['profilePic' => ""]]
       );
       return $cursor;
   }
+  function View_docs($conn) {
+    $collection = $conn->online_health->doctor;
+    $cursor = $collection->find();
+    return $cursor;
+}
+
 
 }
 

@@ -1,5 +1,5 @@
 <?php
-include '../models/mydb.php';
+ include '../../model/medical_assist_db.php';
 
 session_start();
 $updatedName=$updatedPassword=$updatedPhoneNumber=$updatedNation="";
