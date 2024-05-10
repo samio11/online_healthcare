@@ -30,6 +30,7 @@ if(isset($_REQUEST['submit'])){
             $result = $mydb->loginCheck($conObj, $_REQUEST['email'], $_REQUEST['pass']);
     
             if ($result>0) {
+                $_SESSION['d_id'] = $result['d_id'];
                 header("Location: ../../view/doctor/homepage.php");
             } else {
                  echo "not valid";
