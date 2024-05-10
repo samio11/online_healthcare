@@ -1,56 +1,83 @@
 <?php
-include '../model/db.php';
+include '../../controller/doctor/appcontrol.php';
 
-// Check if the user is logged in as a doctor
-session_start();
-if (!isset($_SESSION["email"])) {
-    header("Location: login.php");
-    exit();
-}
-
-// Open database connection
-$db = new Model();
-$conobj = $db->OpenCon();
-
-// Execute SQL query to fetch appointment list
-$sql = "SELECT name, age, gender, email FROM patient_app";
-
-$result = $conobj->query($sql);
 ?>
 
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment List</title>
+    <link rel="stylesheet" href="../../css/doctor/appointment.css">
+    <script src="../../js/doctor_myscript.js"></script>
 </head>
 <body>
-    <h2>Appointment List</h2>
+<form method="POST" action="" >
+
+<h2 >Pending Appointment List</h2>
     <table border="1">
         <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Email</th>
+            <th>Appointment Id</th>
+            <th>Patient Id</th>
+            <th>Patient Name</th>
+            <th>Patient Gender</th>
+            <th>Request Time Slot</th>
+            <th>Patient Note</th>
+           
+            <th>Action</th>
         </tr>
-        <input type="submit" name= "update" value="Update">
-        <input type="submit" name= "delete" value="delete">
-    
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["name"] . "</td>";
-                echo "<td>" . $row["age"] . "</td>";
-                echo "<td>" . $row["gender"] . "</td>";
-                echo "<td>" . $row["email"] . "</td>";
-                echo "<td> <input type='text'></td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='4'>No appointments found</td></tr>";
-        }
-        ?>
+        
+        <?php foreach ($appointmentData as $appointment): ?>
+        <tr>
+            <td><?php echo $appointment['app_id']; ?></td>
+            <td><?php echo $appointment['p_id']; ?></td>
+            <td><?php echo $appointment['p_name']; ?></td>
+            <td><?php echo $appointment['p_gender']; ?></td>
+            <td><?php echo $appointment['time']; ?></td>
+            <td><?php echo $appointment['note']; ?></td>
+            <td>
+             
+            <button type="submit" name="set_time" id="set_time">Set Time</button>
+           
+          
+            <button type="submit" name="decline" id="<?php echo $appointment['app_id'];?>">Decline</button>
+      </tr>
+        <?php endforeach; ?>
     </table>
-    <br>
-    <a href="homepage.php">Back to Homepage</a>
+
+
+    <h2>Appointment Approved List</h2>
+    <table border="1">
+        <tr>
+            <th>Appointment Id</th>
+            <th>Patient Id</th>
+            <th>Patient Name</th>
+            <th>Patient Gender</th>
+            <th>Appointed Time </th>
+            <th>Patient Note</th>
+           
+        </tr>
+        
+        <?php foreach ($approvedData as $approve): ?>
+        <tr>
+            <td><?php echo $approve['app_id']; ?></td>
+            <td><?php echo $approve['p_id']; ?></td>
+            <td><?php echo $approve['p_name']; ?></td>
+            <td><?php echo $approve['p_gender']; ?></td>
+            <td><?php echo $approve['stime']; ?></td>
+            <td><?php echo $approve['note']; ?></td>
+            
+             
+           
+      </tr>
+        <?php endforeach; ?>
+    </table>    
+
+</form>
+   
+
 </body>
 </html>
+
