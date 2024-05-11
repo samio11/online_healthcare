@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Password Reset</title>
+   
     <link rel="stylesheet" href="../../css/doctor/style.css">
 </head>
 <body>

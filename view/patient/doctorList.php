@@ -20,9 +20,9 @@
                 <th>Gender</th>
                 <th>Workplace</th>
                 </tr>
-           <tbody id="searchresult">
+                <tbody id="searchresult">
            <?php echo $str ?>
-           </tbody> 
+           </tbody>
         </table>
 
     </div>
