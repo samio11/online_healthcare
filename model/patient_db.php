@@ -45,6 +45,22 @@ class Model
         ]);
         return $cursor->getInsertedCount();
     }
+    function addInfo($conn, $email, $height, $weight, $blood, $diabetes)
+    {
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email
+            ],
+            ['$set' => [
+                'weight' => $weight,
+                'height' => $height,
+                'blood' => $blood,
+                'diabetes' => $diabetes
+            ]]
+        );
+        return $cursor->getModifiedCount();
+    }
     function login($conn, $email, $password)
     {
         $collection = $conn->online_health->patient;
