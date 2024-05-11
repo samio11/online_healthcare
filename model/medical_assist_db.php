@@ -36,7 +36,7 @@ class Model
         );
         
         $collection = $conn->online_health->medical_assist;
-        $collection->insertOne([
+        $cursor= $collection->insertOne([
             'ma_id' => $count+1,
             'name'=>$name,
             "email"=>$email,
@@ -81,8 +81,20 @@ class Model
       return $cursor;
   }
     
-    function checkEmail($conn, $email){
-      return $this->ViewProfile($conn, $email);       
+  function checkEmail($conn, $email)
+  {
+      return $this->ViewProfile($conn, $email);
+  }
+  function updatePassword($conn, $email, $password)
+  {
+      $collection = $conn->online_health->patient;
+      $cursor = $collection->updateOne(
+          [
+              'email' => $email
+          ],
+          ['$set' => ['password' => $password]]
+      );
+      return $cursor->getModifiedCount();
   }
 
     function UploadPhoto($conn, $email, $profilePic){
@@ -104,17 +116,13 @@ class Model
       );
       return $cursor;
   }
-  //Viewing all doctor's list
-  function View_docs($conn) {
-    $collection = $conn->online_health->doctor;
-    $cursor = $collection->find();
-    return $cursor;
-}
+  
 function View_appointments($conn) {
   $collection = $conn->online_health->appointment;
   $cursor = $collection->find();
   return $cursor;
 }
+
 function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$dia,$appdate,$d_name,$med,$tests)
     {
         $collection = $conn->online_health->counter;
@@ -127,9 +135,9 @@ function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$d
             ['$set' => ["pres_id" => $count+1]]
         );
         
-        $collection = $conn->online_health->presription;
-        $collection->insertOne([
-            'pres_id' => $count+1,
+        $collection = $conn->online_health->prescription;
+        $cursor = $collection->insertOne([
+            'pres_id' => (string) ($count + 1),
             'p_name'=>$p_name,
             "p_email"=>$p_email,
             'p_gender' => $p_gender,
@@ -145,6 +153,85 @@ function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$d
         ]); 
         return $cursor->getInsertedCount();
       }
+      function docList($conn)
+    {
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    function liveSearch($conn, $input)
+    {
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->find([
+            '$or' => [
+                ["name" => new Regex($input, "i")],
+                ["email" => new Regex($input, "i")],
+                ["gender" => new Regex($input, "i")],
+                ["cat" => new Regex($input, "i")],
+                ["pnumber" => new Regex($input, "i")],
+                ["lnumber" => new Regex($input, "i")],
+                ["place" => new Regex($input, "i")]
+            ]
+        ]);
+        return $cursor;
+    }
+    /*function doctor($conn, $d_id)
+    {
+        $collection = $conn->online_health->doctor;
+        $cursor = $collection->findOne([
+            'd_id' => $d_id,
+        ]);
+        return $cursor;
+    }
+    */
+    function prescription_List($conn)
+    {
+        $collection = $conn->online_health->prescription;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    function liveSearch1($conn, $input)
+    {
+        $collection = $conn->online_health->prescription;
+        $cursor = $collection->find([
+            '$or' => [
+                ["pres_id" => new Regex($input, "i")],
+                ["p_name" => new Regex($input, "i")],
+                ["p_email" => new Regex($input, "i")],
+                ["p_gender" => new Regex($input, "i")],
+                ["height" => new Regex($input, "i")],
+                ["weight" => new Regex($input, "i")],
+                ["bg" => new Regex($input, "i")],
+                ["dia" => new Regex($input, "i")],
+                ["appdate" => new Regex($input, "i")],
+                ["d_name" => new Regex($input, "i")],
+                ["med" => new Regex($input, "i")],
+                ["tests" => new Regex($input, "i")]
+            ]
+        ]);
+        return $cursor;
+    }
 
+  function ViewPresc($conn, $pres_id){
+      $collection = $conn->online_health->prescription;
+      $cursor = $collection->findOne([
+          'pres_id' => $pres_id,
+      ]);
+      return $cursor;
+  } 
+  function Presc_update($conn,$email,$name,$phone,$password,$address){
+    $collection = $conn->online_health->prescription;
+    $cursor = $collection->updateOne([
+        'email' => $email,
+      
+    ],
+        ['$set' => ['name' => $name,
+                   'phone' => $phone,
+                   'password' => $password,
+                   'address' => $address
+                   ]]
+    );
+    return $cursor;
+}
 }
 

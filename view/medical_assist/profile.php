@@ -1,10 +1,10 @@
 <?php
 include '../../controller/medical_assist/profilecontrol.php';
-include '../../css/medical_assist/profile_page.css';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../../css/medical_assist/profile_page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile:</title>

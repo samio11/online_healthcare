@@ -1,13 +1,13 @@
 <?php
 include '../../controller/medical_assist/homepagecontrol.php';
-include '../../css/medical_assist/homepage_page.css';
 ?>
 
- <html>
+<html>
 <head>
- 
+<link rel="stylesheet" href="../../css/medical_assist/homepage_page.css">
 </head>
 <body class="homebody">
+
     <div class="logout-container">
         <form method="POST" action="">
             <button type="submit" name="logout" id="logout">Logout</button>
@@ -20,6 +20,7 @@ include '../../css/medical_assist/homepage_page.css';
                 <td><button type="submit" name="appoinList" id="appoinList">View Appointments</button></td>
                 <td><button type="submit" name="billing" id="billing">Create Billing</button></td>
                 <td><button type="submit" name="prescription" id="prescription">Create Prescription</button></td>
+                <td><button type="submit" name="view_presc" id="view_presc">View Prescriptions</button></td>
             </tr>
             </form>
         

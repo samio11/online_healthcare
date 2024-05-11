@@ -1,11 +1,11 @@
 <?php
 include '../../controller/medical_assist/logincontrol.php';
-include '../../css/medical_assist/login_page.css';
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <link rel="stylesheet" href="../../css/medical_assist/login_page.css">
     <title>Medical Assist Portal Login</title>
 </head>
 
