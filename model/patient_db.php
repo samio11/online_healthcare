@@ -14,7 +14,7 @@ class Model
         $conn = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
     }
-    function autoIncrement($conn)
+    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address)
     {
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
@@ -22,14 +22,11 @@ class Model
             $count = (int)$document["p_id"];
         }
         $collection->updateOne(
-            ['p_id' => (string)$count],
+            ['p_id' => $count],
             ['$set' => ["p_id" => $count + 1]]
         );
-        return $count + 1;
-    }
-    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address)
-    {
-        $count = $this->autoIncrement($conn);
+        $count++;
+
         $collection = $conn->online_health->patient;
         $cursor = $collection->insertOne([
             'p_id' => (string) $count,
@@ -40,7 +37,11 @@ class Model
             'phone' => $phone,
             'dob' => $dob,
             'marital' => $martial,
-            'address' => $address
+            'address' => $address,
+            'weight' => '',
+            'height' => '',
+            'blood' => '',
+            'diabetes' => ''
         ]);
         return $cursor->getInsertedCount();
     }
@@ -223,7 +224,8 @@ class Model
         ]);
         return $cursor;
     }
-    function viewReceipt($conn, $app_id){
+    function viewReceipt($conn, $app_id)
+    {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->findOne([
             'app_id' => $app_id

@@ -21,10 +21,9 @@
             <input type="file" id="uploadphoto" name="uploadphoto" onchange="this.form.submit()" style="display: none;">
             <div class="wrap" <table>
                 <tr>
-                    <td><button type="button" id="remove" onclick="removePicture('<?php echo $_SESSION['email']; ?>')">Remove Picture</button></td>
-                    <td></td>
+                    <td><button type="button" id="remove" onclick="removePicture('<?php echo $_SESSION['email']; ?>')" class="penButton">Remove Picture</button></td>
                     <p id="demo"></p>
-                    <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add profile picture</button></td>
+                    <td><button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()" class="msgButton">Add profile picture</button></td>
                 </tr>
                 </table>
             </div>

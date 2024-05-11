@@ -10,7 +10,7 @@ if (!isset($_POST['input'])) {
       $str = $str . "<td>" . $document['cat'] . "</td>";
       $str = $str . "<td>" . $document['gender'] . "</td>";
       $str = $str . "<td>" . $document['place'] . "</td>";
-      $str = $str . "<td><button type='button' id='" . $document['d_id'] . "' onclick='demo(this.id)' class='doctorbutton'>Take Appointment</button></td></tr>";
+      $str = $str . "<td><button type='button' id='" . $document['d_id'] . "' onclick='demo(this.id)' class='docButton'>Take Appointment</button></td></tr>";
    }
 }
 if (isset($_POST['input'])) {
@@ -25,7 +25,7 @@ if (isset($_POST['input'])) {
       $str = $str . "<td>" . $document['cat'] . "</td>";
       $str = $str . "<td>" . $document['gender'] . "</td>";
       $str = $str . "<td>" . $document['place'] . "</td>";
-      $str = $str . "<td><button type='button'id='" . $document['d_id'] . "' onclick='demo(this.id)' class='doctorbutton'>Take Appointment</button></td></tr>";
+      $str = $str . "<td><button type='button'id='" . $document['d_id'] . "' onclick='demo(this.id)' class='docButton'>Take Appointment</button></td></tr>";
    }
    echo $str;
 }

@@ -13,12 +13,13 @@
 </head>
 
 <body>
-    <br>
+
     <form action="" method="POST">
+        <br>
         <div class="docmain">
-            <table  class="text"  align="center" width="100%">
-                <h3>Approved Appointments</h3>
-                <tr>
+            <table class="customTable">
+                <h3 style="color:#04aa6de3">Approved Appointments</h3>
+                <tr class="approvedApp">
                     <th>ID</th>
                     <th>Doctor's Name</th>
                     <th>Gender</th>
@@ -35,15 +36,15 @@
                         <td><?php echo $appointment['d_cat']; ?></td>
                         <td><?php echo $appointment['stime']; ?></td>
                         <td><?php echo $appointment['note']; ?></td>
-                        <td><button type="submit" name="message" value="<?php echo $appointment['app_id'] ?>">Message</button></td>
+                        <td><button type="submit" name="message" value="<?php echo $appointment['app_id'] ?>" class="msgButton">Message</button></td>
 
                     <?php endforeach; ?>
                     </tr>
             </table>
 
-            <table  width="100%"   align="center">
-                <h3>Pending Appointments</h3>
-                <tr>
+            <table class="customTable">
+                <h3 style="color:#aa7e04c7">Pending Appointments</h3>
+                <tr class="pendingApp">
                     <th>ID</th>
                     <th>Doctor's Name</th>
                     <th>Gender</th>
@@ -60,14 +61,14 @@
                         <td><?php echo $appointment['d_cat']; ?></td>
                         <td><?php echo $appointment['time']; ?></td>
                         <td><?php echo $appointment['note']; ?></td>
-                        <td><button type="submit" name="cancel" value="<?php echo $appointment['app_id'] ?>">Cancel</button></td>
+                        <td><button type="submit" name="cancel" value="<?php echo $appointment['app_id'] ?>" class="penButton">Cancel</button></td>
 
                     <?php endforeach; ?>
                     </tr>
             </table>
-            <table  width="100%" class="text" cellpadding="10" align="center">
-                <h3>Declined Appointments</h3>
-                <tr>
+            <table class="customTable">
+                <h3 style="color:red">Declined Appointments</h3>
+                <tr class="declinedApp">
                     <th>ID</th>
                     <th>Doctor's Name</th>
                     <th>Gender</th>

@@ -15,12 +15,9 @@
             <h3>Enter your informartion</h3>
             <table width="100%">
                 <tr>
-
                     <td>Full Name</td>
                     <td><input type="text" class="error" name="name" id="name" placeholder="<?php echo $nameError; ?>"></td>
                     <p class="error"> </p>
-
-
                 </tr>
                 <tr>
                     <td>Date of Birth: </td>
@@ -38,18 +35,15 @@
                 </tr>
                 <tr>
                     <td>
-
                         <p id="genderError"></p>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Contact Number:</td>
                     <td><input type="text" name="phone">
                         <?php echo $phoneError; ?></td>
                 </tr>
                 <tr>
-
                     <td>Marital Status:</td>
                     <td><select name="marital" id="marital">
                             <option disabled selected value> Select gender </option>
