@@ -28,4 +28,3 @@ foreach ($result as $document) {
     $dstr .= "<td>" . $document['trx'] . "</td></th>";
     $dstr .= "<td>" . $document['trx_date'] . "</td></th>";
 }
-echo $dstr;

@@ -25,16 +25,25 @@ if ($result) {
 }
 
 $result = $mydb->viewApp($conObj, $pid, 'pending');
-foreach ($result as $document) {
-    $pstr .= "<tr><td>" . $document['d_name'] . "</td>";
-    $pstr .= "<td>" . $document['d_gender'] . "</td>";
-    $pstr .= "<td>" . $document['d_cat'] . "</td>";
-    $pstr .= "<td>" . $document['time'] . "</td>";
-    $pstr .= "<td>" . $document['note'] . "</td></th>";
+$pendingApp = [];
+if ($result) {
+    foreach ($result as $appointment) {
+        $pendingApp[] = [
+            'app_id' => $appointment['app_id'],
+            'd_name' => $appointment['d_name'],
+            'd_gender' => $appointment['d_gender'],
+            'd_cat' => $appointment['d_cat'],
+            'time' => $appointment['time'],
+            'note' => $appointment['note'],
+        ];
+    }
+} else {
+    $pendingApp = [];
 }
 $result = $mydb->viewApp($conObj, $pid, 'declined');
 foreach ($result as $document) {
-    $dstr .= "<tr><td>" . $document['d_name'] . "</td>";
+    $dstr .= "<tr><td>" . $document['app_id'] . "</td>";
+    $dstr .= "<td>" . $document['d_name'] . "</td>";
     $dstr .= "<td>" . $document['d_gender'] . "</td>";
     $dstr .= "<td>" . $document['d_cat'] . "</td>";
     $dstr .= "<td>" . $document['time'] . "</td>";

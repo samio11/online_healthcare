@@ -13,16 +13,17 @@
 <body class="docmain">
 
     <div class="docmain">
-        <h1>Doctor's List</h1>
+        <h1 class="doctorheader">Doctor's List</h1>
         <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
 
-        <table class="text">
-            <tr>
+        <table>
+            <thead class="doctorthead">
                 <th>Name</th>
                 <th>Speciality</th>
                 <th>Gender</th>
                 <th>Workplace</th>
-            </tr>
+                <th>Action</th>
+            </thead>
             <tbody id="searchresult">
                 <?php echo $str ?>
             </tbody>

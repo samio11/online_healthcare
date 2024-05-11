@@ -15,7 +15,7 @@ include '../../controller/patient/paymentControl.php'
 <body>
 	<form action="" method="POST">
 		<div class="docmain">
-			<table class="text" cellpadding="10" align="center" border="1">
+			<table width="100%" class="text" cellpadding="10" align="center" border="1">
 
 				<thead>
 					<h3>Due Payments</h3>
@@ -38,9 +38,10 @@ include '../../controller/patient/paymentControl.php'
 						</tr>
 
 				</tbody>
-
+				
 			</table>
-			<table border="1" class="text" cellpadding="10" align="center">
+			<br>
+			<table width="100%" border="1" class="text" cellpadding="10" align="center">
 				<tr>
 					<h3>Paid</h3>
 					<th>ID</th>
