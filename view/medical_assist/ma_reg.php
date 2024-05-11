@@ -1,11 +1,10 @@
 <?php
 include '../../controller/medical_assist/process.php';
-include '../../css/medical_assist/reg_page.css';
-
 ?>
 <html>
 <head>
     <script src="../../js/medical_assist_myscript.js"></script>
+    <link rel="stylesheet" href="../../css/medical_assist/reg_page.css">
 </head>
 <body>
 <div class="main">

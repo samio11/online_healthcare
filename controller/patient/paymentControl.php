@@ -1,17 +1,18 @@
 <?php
-include '../../model/patient_db.php';
-session_start();
-$mydb = new Model();
-$conObj = $mydb->OpenCon();
-$app_result = $mydb->viewDueAppointment($conObj, $_GET['app_id']);
-$p_result = $mydb->ShowProfile($conObj, $_SESSION['email']);
-$_SESSION['pname'] = $app_result['p_name'];
-$_SESSION['padd'] = $app_result['p_address'];
-$_SESSION['pphone'] = $p_result['phone'];
-$_SESSION['dname'] = $app_result['d_name'];
-$_SESSION['dcat'] = $app_result['d_cat'];
 
-if ($_GET['token'] == 1) {
+
+if (isset($_REQUEST['pay'])) {
+    $mydb = new Model();
+    $conObj = $mydb->OpenCon();
+    $app_result = $mydb->viewDueAppointment($conObj, $_REQUEST['pay']);
+    $_SESSION['app_id'] = $_REQUEST['pay'];
+    $p_result = $mydb->ShowProfile($conObj, $_SESSION['email']);
+    $_SESSION['pname'] = $app_result['p_name'];
+    $_SESSION['padd'] = $app_result['p_address'];
+    $_SESSION['pphone'] = $p_result['phone'];
+    $_SESSION['dname'] = $app_result['d_name'];
+    $_SESSION['dcat'] = $app_result['d_cat'];
+
     // SSLCommerz payment gateway
     $post_data = array();
     $post_data['store_id'] = "onlin663c67129cd1e";
@@ -106,4 +107,5 @@ if ($_GET['token'] == 1) {
     } else {
         echo "JSON Data parsing error!";
     }
+} elseif (isset($_SESSION['token'])) {
 }

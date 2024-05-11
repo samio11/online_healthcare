@@ -12,6 +12,7 @@ session_start();
     <script>
         setInterval(runFunction, 1000, "<?php echo $_SESSION["chat_app_id"] ?>")
     </script>
+
 </head>
 
 <body>
@@ -20,14 +21,12 @@ session_start();
 
     <div class="container">
         <div class="anyclass">
-
-            <p></p>
-            <span class="time-right"></span>
         </div>
     </div>
 
 
-    <input type="textarea" cols="100" rows="5" name="usermsg" id="usermsg" placeholder="Add message">
+    <textarea cols="107" rows="3" name="usermsg" id="usermsg" placeholder="Add message"></textarea>
+    <input type="text" id="test">
     <button type="button" name="sendmsg" id="sendmsg" onclick='chat("<?php echo $_SESSION["chat_app_id"] ?>")'>Send</button>
 
 </body>

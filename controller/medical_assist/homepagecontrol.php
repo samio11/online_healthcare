@@ -18,6 +18,9 @@ if(isset($_REQUEST['billing'])){
 if(isset($_REQUEST['prescription'])){
     header("Location: ../../view/medical_assist/prescription.php");
 }
+if(isset($_REQUEST['view_presc'])){
+    header("Location: ../../view/medical_assist/view_pres.php");
+}
 if(isset($_REQUEST['logout'])){
     header("Location: ../../view/medical_assist/login.php");
 }

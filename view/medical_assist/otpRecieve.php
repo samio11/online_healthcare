@@ -1,12 +1,11 @@
 <?php
 include '../../controller/medical_assist/forget_passcontrol.php';
-//include '../../css/medical_assist/otp_page.css';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Password Reset</title>
-    <link rel="stylesheet" href="../../css/patient/myStyle.css">
+    <link rel="stylesheet" href="../../css/medical_assist/otp_page.css">
 </head>
 <body>
     <div class="main">

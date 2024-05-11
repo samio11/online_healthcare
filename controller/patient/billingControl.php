@@ -2,17 +2,29 @@
 include '../../model/patient_db.php';
 
 $pid = $_SESSION['p_id'];
-$str = '';
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
-$result = $mydb->duePayment($conObj, $pid);
+$result = $mydb->paymentApp($conObj, $pid, 'unpaid');
+$dueApp = [];
+if ($result) {
+    foreach ($result as $appointment) {
+        $dueApp[] = [
+            'app_id' => $appointment['app_id'],
+            'd_name' => $appointment['d_name'],
+            'd_cat' => $appointment['d_cat'],
+            'stime' => $appointment['stime'],
+        ];
+    }
+} else {
+    $appointmentData = [];
+}
+$dstr = '';
+$result = $mydb->paymentApp($conObj, $pid, 'paid');
 foreach ($result as $document) {
-    $str .= "<tr><td>" . $document['d_name'] . "</td>";
-    $str .= "<td>" . $document['d_gender'] . "</td>";
-    $str .= "<td>" . $document['d_cat'] . "</td>";
-    $str .= "<td>" . $document['time'] . "</td>";
-    $str .= "<td>" . $document['note'] . "</td>";
-    $str .= "<td>" . $document['status'] . "</td>";
-    $str .= "<td>" . $document['payment'] . "</td>";
-    $str .= "<td><button type='button'  onclick='payment(" . $document['app_id'] . ")' >Pay</button></td></tr>";
+    $dstr .= "<tr><td>" . $document['app_id'] . "</td>";
+    $dstr .= "<td>" . $document['d_name'] . "</td>";
+    $dstr .= "<td>" . $document['d_cat'] . "</td>";
+    $dstr .= "<td>" . $document['amount'] . "</td>";
+    $dstr .= "<td>" . $document['trx'] . "</td></th>";
+    $dstr .= "<td>" . $document['trx_date'] . "</td></th>";
 }

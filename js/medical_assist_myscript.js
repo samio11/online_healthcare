@@ -39,7 +39,7 @@ function validateForm() {
         }
       }
 
-      function openDiag(){
+    function openDiag(){
         document.getElementById('uploadphoto').click();
       }
       function random(){
@@ -57,7 +57,34 @@ function validateForm() {
       xhttp.send();
       }
 
-}
+    function liveSearch(value) {
+        $(document).ready(function () {
+          var input = value;
+      
+          $.ajax({
+            url: "http://localhost/online_healthcare/controller/medical_assist/doc_Listcontrol.php",
+            method: "POST",
+            data: { input: input },
+            success: function (data) {
+              $("#searchresult").html(data);
+            }
+          });
+        });
+      }
+      function liveSearch1(value) {
+        $(document).ready(function () {
+          var input = value;
+      
+          $.ajax({
+            url: "http://localhost/online_healthcare/controller/medical_assist/presc_Listcontrol.php",
+            method: "POST",
+            data: { input: input },
+            success: function (data) {
+              $("#searchresult").html(data);
+            }
+          });
+        });
+      }
 
 
 

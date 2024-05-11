@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 
-<body>
+<body class="body">
     <div class="main">
         <h1>Apointment Information</h1>
         <form action="" method="POST">

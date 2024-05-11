@@ -169,46 +169,49 @@ class Model
             "time" => $time,
             'note' => $note,
             'status' => 'pending',
-            'payment' => 'unpaid'
+            'payment' => 'unpaid',
+            'trx' => '',
+            'trx_date' => '',
+            'amount' => '',
+            'card' => '',
+            'stime' => '',
         ]);
         return $cursor->getInsertedCount();
     }
-    function approvedApp($conn, $pid)
+    function updatePayment($conn, $app_id, $tran_id, $tran_date, $amount, $card_type)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->updateOne(
+            [
+                'app_id' => $app_id
+            ],
+            ['$set' => [
+                'trx' => $tran_id,
+                'trx_date' => $tran_date,
+                'amount' => $amount,
+                'card' => $card_type,
+                'payment' => 'paid'
+            ]]
+        );
+        return $cursor->getModifiedCount();
+    }
+    function viewApp($conn, $pid, $status)
     {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->find([
             'p_id' => $pid,
-            'status' => 'approved'
+            'status' => $status,
+
 
         ]);
         return $cursor;
     }
-    function pendingApp($conn, $pid)
+    function paymentApp($conn, $pid, $payment)
     {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->find([
             'p_id' => $pid,
-            'status' => 'pending'
-
-        ]);
-        return $cursor;
-    }
-    function declinedApp($conn, $pid)
-    {
-        $collection = $conn->online_health->appointment;
-        $cursor = $collection->find([
-            'p_id' => $pid,
-            'status' => 'declined'
-
-        ]);
-        return $cursor;
-    }
-    function duePayment($conn, $pid)
-    {
-        $collection = $conn->online_health->appointment;
-        $cursor = $collection->find([
-            'p_id' => $pid,
-            'payment' => 'unpaid'
+            'payment' => $payment
         ]);
         return $cursor;
     }
@@ -217,6 +220,13 @@ class Model
         $collection = $conn->online_health->appointment;
         $cursor = $collection->findOne([
             'app_id' => $appid
+        ]);
+        return $cursor;
+    }
+    function viewReceipt($conn, $app_id){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $app_id
         ]);
         return $cursor;
     }

@@ -1,32 +1,29 @@
 <?php
 include '../../model/medical_assist_db.php';
-$name=$email=$gender=$height=$weight=$diabetes=$genderselect=$appoinDoc=$prescMed=$diseasetest="";
-$nameError=$emailError=$haserror=$genderselectError=$heightError=$weightError=$diabetesError=$appoinDocError=$prescMedError=$diseasetestError="";
+$p_name=$p_email=$p_gender=$height=$weight=$bg=$dia=$appdate=$d_name=$med=$tests="";
+$haserror=$p_nameError=$p_emailError=$p_genderError=$heightError=$weightError=$bgError=$diaError=$appdateError=$d_nameError=$medError=$testsError="";
 
 if(isset($_REQUEST['submitPrescription'])){
    
    
  if(strlen($_REQUEST['PatientName'])<2 ){
-        $nameError= " Name should be atleast 2 characeters";
+        $$p_nameError= " Name should be atleast 2 characeters";
         $haserror=1;
        }
         else{
-        $name= $_REQUEST['PatientName'] ;
+        $p_name= $_REQUEST['PatientName'] ;
         }
 
  if(!empty($_REQUEST['PatientEmail']))
 {
-    $emailError= "Please fill up Email";
-    $haserror=1;
-
+  $p_email= $_REQUEST['PatientEmail'];
 }
 else{
-    $email= $_REQUEST['PatientEmail'];
+  $p_emailError= "Please fill up Email";
+  $haserror=1;
 }
 if(!empty($_REQUEST["Height"])){
             $height=$_REQUEST['Height']; 
-            $heightError= "Fill up with a height";
-             $haserror=1;
           }
           else{
             $heightError= "Fill up with a height";
@@ -39,42 +36,55 @@ if(!empty($_REQUEST["Weight"])){
             $weightError= "Fill up with weight";
             $haserror=1;
           }    
-if(!empty($_REQUEST['Diabetes'])){
-            $diabetes=$_REQUEST['Diabetes'];
+if(!empty($_REQUEST["BloodGroup"])){
+            $bg=$_REQUEST['BloodGroup'];
           }
           else{
-            $diabetesError= "Select an option";
+            $bgError= "Fill up with Blood group";
+            $haserror=1;
+          }  
+if(!empty($_REQUEST['Diabetes'])){
+            $dia=$_REQUEST['Diabetes'];
+          }
+          else{
+            $diaError= "Select an option";
             $haserror=1;
           }   
-
+if(!empty($_REQUEST['appointment'])){
+            $appdate=$_REQUEST['appointment'];
+          }
+          else{
+            $appdateError= "Select an option";
+            $haserror=1;
+          }
 if(!empty($_REQUEST["Gender"])){
-            $genderselect=$_REQUEST['Gender'];
+            $p_gender=$_REQUEST['Gender'];
             
           }
           else{
-             $genderselectError= "Select gender";
+             $p_genderError= "Select gender";
              $haserror=1;
           }   
 
 if(!empty($_REQUEST['appointedDoc'])){
-            $appoinDoc=$_REQUEST['appointedDoc'];
+            $d_name=$_REQUEST['appointedDoc'];
           }
           else{
-             $appoinDocError= "Enter doctor's name";
+             $d_nameError= "Enter doctor's name";
              $haserror=1;
           } 
 if(!empty($_REQUEST['PrescribedMed'])){
-            $prescMed=$_REQUEST['PrescribedMed'];
+            $med=$_REQUEST['PrescribedMed'];
           }
           else{
-             $prescMedError= "Enter Prescribed Medicines";
+             $medError= "Enter Prescribed Medicines";
              $haserror=1;
           }   
 if(!empty($_REQUEST['diseaseTest'])){
-            $diseasetest=$_REQUEST['diseaseTest'];
+            $tests=$_REQUEST['diseaseTest'];
           }
           else{
-             $diseasetestError= "Enter Prescribed Tests";
+             $testsError= "Enter Prescribed Tests";
              $haserror=1;
           } 
 

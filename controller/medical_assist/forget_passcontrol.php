@@ -27,7 +27,7 @@ if (isset($_REQUEST['email_submit'])) {
             $mail->addAddress($_SESSION['email']);
             $mail->isHTML(true);
             $mail->Subject = 'Verify';
-            $mail->Body = 'Your otp is: ' . $_SESSION['otp'];
+            $mail->Body = 'Your otp for Online_Healthcare is: ' . $_SESSION['otp'];
             $mail->send();
             header("Location: otpRecieve.php");
     }
