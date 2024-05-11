@@ -6,6 +6,7 @@ require '../../mongodbphp/vendor/autoload.php';
 
 
 use MongoDB\Driver\ServerApi;
+use MongoDB\BSON\Regex;
 class Model
 {
 
@@ -110,6 +111,32 @@ class Model
              
           ]); 
           return $result->getInsertedCount();
+      }
+      function liveSearch($conn, $input)
+      {
+          $collection = $conn->online_health->appointment;
+          $cursor = $collection->find([
+              '$or' => [
+                  ["app_id" => new Regex($input, "i")],
+                  ["p_id" => new Regex($input, "i")],
+                  ["p_name" => new Regex($input, "i")],
+                 // ['status' => new Regex('pending')],
+                  ['status'=> 'pending']
+              ]
+          ]);
+          return $cursor;
+      }
+      function liveSearchAssist($conn, $input)
+      {
+          $collection = $conn->online_health->medical_assist;
+          $cursor = $collection->find([
+              '$or' => [
+                  ["ma_id" => new Regex($input, "i")],
+                  ["name" => new Regex($input, "i")]
+                
+              ]
+          ]);
+          return $cursor;
       }
       function setTime($conn,$app_id,$stime){
         $collection = $conn->online_health->appointment;

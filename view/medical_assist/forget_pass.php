@@ -1,13 +1,13 @@
 <?php 
 include '../../controller/medical_assist/forget_passcontrol.php';
-include '../../css/medical_assist/forg_pass_page.css';
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Forgot Password</title>
+    <title>Password Reset</title>
     <script src="../../js/medical_assist_myscript.js"></script>
+    <link rel="stylesheet" href="../../css/medical_assist/forg_pass_page.css">
 </head>
 <body>
     <div class="main">

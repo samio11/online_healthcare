@@ -1,5 +1,5 @@
 <style>
-/* prescription_page.css */
+
 
 body {
     font-family: Arial, sans-serif;
@@ -14,9 +14,8 @@ h1 {
 
 form {
     margin: 20px auto;
-    width: 50%; /* Adjusted width to 50% */
+    width: 50%; 
 }
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -34,7 +33,7 @@ table th {
 
 input[type="text"],
 select {
-    width: calc(100% - 20px); /* Adjusted width with padding */
+    width: calc(100% - 20px); 
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -44,7 +43,7 @@ select {
 }
 
 textarea {
-    width: calc(100% - 20px); /* Adjusted width with padding */
+    width: calc(100% - 20px); 
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -54,7 +53,7 @@ textarea {
 }
 
 input[type="date"] {
-    width: calc(100% - 20px); /* Adjusted width with padding */
+    width: calc(100% - 20px); 
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

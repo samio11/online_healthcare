@@ -1,11 +1,11 @@
 <?php
 include '../../controller/medical_assist/prescriptioncontrol.php';
-include '../../css/medical_assist/prescription_page.css';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../../css/medical_assist/prescription_page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,14 +19,16 @@ include '../../css/medical_assist/prescription_page.css';
             <tr>
                 <td colspan="2">Patient Name:</td>
                 <td><input type="text" name="PatientName" />
-                    <?php echo $nameError; ?>
+                    <?php echo $p_nameError; ?>
+                    <?php echo $p_name; ?>
                 </td>
             </tr>
 
             <tr>
                 <td colspan="2">Patient Email:</td>
                 <td><input type="text" name="PatientEmail" />
-                    <?php echo $emailError; ?>
+                    <?php echo $p_emailError; ?>
+                    <?php echo $p_email; ?>
                 </td>
             </tr>
 
@@ -37,7 +39,8 @@ include '../../css/medical_assist/prescription_page.css';
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
                     </select>
-                    <?php echo $genderselectError; ?>
+                    <?php echo $p_genderError; ?>
+                    <?php echo $p_gender; ?>
                 </td>
             </tr>
 
@@ -46,6 +49,7 @@ include '../../css/medical_assist/prescription_page.css';
                 <td colspan="2">Height:</td>
                 <td><input type="text" name="Height" />
                     <?php echo $heightError; ?>
+                    <?php echo $height; ?>
                 </td>
 
             </tr>
@@ -54,6 +58,7 @@ include '../../css/medical_assist/prescription_page.css';
                 <td colspan="2">Weight:</td>
                 <td><input type="text" name="Weight" />
                     <?php echo $weightError; ?>
+                    <?php echo $weight; ?>
                 </td>
 
             </tr>
@@ -61,7 +66,8 @@ include '../../css/medical_assist/prescription_page.css';
             <tr>
                 <td colspan="2">Blood Group:</td>
                 <td><input type="text" name="BloodGroup" />
-
+                <?php echo $bgError; ?>
+                <?php echo $bg; ?>
                 </td>
 
             </tr>
@@ -73,29 +79,30 @@ include '../../css/medical_assist/prescription_page.css';
                         <option value="No">No</option>
                         <option value="NotSure">Not Sure</option>
                     </select>
-                    <?php echo $diabetesError; ?>
+                    <?php echo $diaError; ?>
+                    <?php echo $dia; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">Date Of Appointment:</td>
                 <td><input type="date" name="appointment">
-                    <?php echo $appointmentError; ?>
-                    <?php echo $appointment; ?>
+                    <?php echo $appdateError; ?>
+                    <?php echo $appdate; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">Appointed Doctor:</td>
                 <td><input type="text" name="appointedDoc" />
-                    <?php echo $appoinDocError; ?>
-                    <?php echo $appoinDoc; ?>
+                    <?php echo $d_nameError; ?>
+                    <?php echo $d_name; ?>
             </td>
             </tr>
 
             <tr>
                 <td colspan="2">Prescribed Medicines:</td>
-                <td><input type="text" name="PrescribedMed" />
-                    <?php echo $prescMedError; ?>
-                    <?php echo $prescMed; ?>
+                <td><textarea id="PrescribedMed" name="PrescribedMed" rows="4" cols="50"></textarea>
+                    <?php echo $medError; ?>
+                    <?php echo $med; ?>
             </td>
             </tr>
 
@@ -103,8 +110,8 @@ include '../../css/medical_assist/prescription_page.css';
                 <td colspan="2">Tests for Disease:</td>
                
                   <td><textarea id="diseaseTest" name="diseaseTest" rows="4" cols="50"></textarea>
-                    <?php echo $diseasetestError; ?>
-                    <?php echo $diseasetest; ?>
+                    <?php echo $testsError; ?>
+                    <?php echo $tests; ?>
                 </td>
             </tr>
 
