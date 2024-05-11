@@ -1,5 +1,6 @@
 <?php
 include '../../controller/doctor/appcontrol.php';
+include '../../controller/doctor/chatSessionControl.php';
 
 ?>
 
@@ -42,7 +43,7 @@ include '../../controller/doctor/appcontrol.php';
             <button type="submit" name="set_time" id="set_time">Set Time</button>
            
           
-            <button type="submit" name="decline" id="<?php echo $appointment['app_id'];?>">Decline</button>
+            <button type="submit" name="decline" value="<?php echo $appointment['app_id'];?>">Decline</button>
       </tr>
         <?php endforeach; ?>
     </table>
@@ -57,6 +58,7 @@ include '../../controller/doctor/appcontrol.php';
             <th>Patient Gender</th>
             <th>Appointed Time </th>
             <th>Patient Note</th>
+
            
         </tr>
         
@@ -68,6 +70,7 @@ include '../../controller/doctor/appcontrol.php';
             <td><?php echo $approve['p_gender']; ?></td>
             <td><?php echo $approve['stime']; ?></td>
             <td><?php echo $approve['note']; ?></td>
+            <td><button type="submit" name="message" value="<?php echo $approve['app_id'] ?>">Message</button></td>
             
              
            

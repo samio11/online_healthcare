@@ -20,7 +20,7 @@ include '../../css/medical_assist/login_page.css';
             <input type="password" id="password" name="password" placeholder="Enter your Password" required>
             <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
         </form>
-        <a href="forgetPassword.php" style="text-decoration: none;"> Forgot password? </a>
+        <a href="forget_pass.php" style="text-decoration: none;"> Forgot password? </a>
         <p>Not Registered?<a href="ma_reg.php" style="text-decoration: none;"> Register Now! </a></p>
 
     </div>

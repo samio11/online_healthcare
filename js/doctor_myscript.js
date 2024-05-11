@@ -55,4 +55,25 @@ function removePicture(email) {
   xhttp.send();
 }
 
+function chat(app_id) {
+  var clientmsg = $("#usermsg").val();
+  $.post("../../controller/doctor/chatroomControl.php", { text: clientmsg, room: app_id },
+    function (data, status) {
+      document.getElementsByClassName('anyclass')[0].innerHTML = data;
+    });
+  return false;
+}
+function runFunction(app_id) {
+ 
+  $.post("../../controller/doctor/chatRefreshControl.php", { room: app_id },
+    function (data, status) {
+      document.getElementsByClassName('anyclass')[0].innerHTML = data;
+    }
+  )
+}
+
+
+
+
+
 

@@ -1,5 +1,5 @@
 <?php
-include '../../controller/doctor/appcontrol.php';
+include '../../controller/doctor/approvecontrol.php';
 
 ?>
 <!DOCTYPE html>
@@ -16,9 +16,9 @@ include '../../controller/doctor/appcontrol.php';
         <form action="" method="POST" >
             <label for="first">Appointment ID:</label>
            
-            <input type="text" id="app_id" name="app_id" placeholder="Enter doctor id" >  
+            <td><input type="text" name="app_id" value="<?php echo $_SESSION['app_id']; ?>"></td> 
             <label for="first">Patient id:</label>
-            <input type="text" id="p_id" name="p_id" placeholder="Enter patient id" >  
+            <td><input type="text" name="p_id" value="<?php echo $_SESSION['p_id']; ?>"></td> 
             <label for="first">Time:</label>   
             <input type="text" id="stime" name="stime" placeholder="Enter appointment time" >       
             <div class="wrap"> <button type="submit" name="approve" id="approve">Approve</button></div>

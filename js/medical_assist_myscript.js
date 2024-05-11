@@ -29,6 +29,7 @@ function validateForm() {
         document.getElementById("licenseError").innerHTML = "License must be included";
         return false;
     }
+  }
     function validateEmail(){
         var email = document.getElementById('submit_email').value;
         var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
