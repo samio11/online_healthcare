@@ -24,6 +24,21 @@ class Model
         ]);
         return $cursor;
     }
+  /*  function ShowAssistant($conn, $ma_id)
+    {
+        $collection = $conn->online_health->medical_assist;
+        $cursor = $collection->find([
+            'ma_id' => $ma_id,
+            
+        ]);
+        return $cursor;
+    }*/
+    function ShowAssistant($conn) {
+        $collection = $conn->online_health->medical_assist;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    
        function getId($conn, $d_id){
         $collection = $conn->online_health->appointment;
         $cursor = $collection->findOne(

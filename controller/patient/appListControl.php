@@ -6,7 +6,7 @@ $pid = $_SESSION['p_id'];
 $astr = $pstr = $dstr = '';
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
-$result = $mydb->approvedApp($conObj, $pid);
+$result = $mydb->viewApp($conObj, $pid, 'approved',);
 $approvedApp = [];
 if ($result) {
     foreach ($result as $appointment) {
@@ -21,20 +21,29 @@ if ($result) {
         ];
     }
 } else {
-    $appointmentData = [];
+    $approvedApp = [];
 }
 
-$result = $mydb->pendingApp($conObj, $pid);
-foreach ($result as $document) {
-    $pstr .= "<tr><td>" . $document['d_name'] . "</td>";
-    $pstr .= "<td>" . $document['d_gender'] . "</td>";
-    $pstr .= "<td>" . $document['d_cat'] . "</td>";
-    $pstr .= "<td>" . $document['time'] . "</td>";
-    $pstr .= "<td>" . $document['note'] . "</td></th>";
+$result = $mydb->viewApp($conObj, $pid, 'pending');
+$pendingApp = [];
+if ($result) {
+    foreach ($result as $appointment) {
+        $pendingApp[] = [
+            'app_id' => $appointment['app_id'],
+            'd_name' => $appointment['d_name'],
+            'd_gender' => $appointment['d_gender'],
+            'd_cat' => $appointment['d_cat'],
+            'time' => $appointment['time'],
+            'note' => $appointment['note'],
+        ];
+    }
+} else {
+    $pendingApp = [];
 }
-$result = $mydb->declinedApp($conObj, $pid);
+$result = $mydb->viewApp($conObj, $pid, 'declined');
 foreach ($result as $document) {
-    $dstr .= "<tr><td>" . $document['d_name'] . "</td>";
+    $dstr .= "<tr><td>" . $document['app_id'] . "</td>";
+    $dstr .= "<td>" . $document['d_name'] . "</td>";
     $dstr .= "<td>" . $document['d_gender'] . "</td>";
     $dstr .= "<td>" . $document['d_cat'] . "</td>";
     $dstr .= "<td>" . $document['time'] . "</td>";

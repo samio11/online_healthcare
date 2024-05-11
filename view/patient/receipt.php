@@ -1,7 +1,7 @@
 <?php
 include 'homepage.php';
 include '../../controller/patient/paymentConfirmControl.php';
-//include '../../controller/patient/paymentControl.php';
+include '../../controller/patient/paymentControl.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,11 +63,11 @@ include '../../controller/patient/paymentConfirmControl.php';
                     </tr>
                     <tr>
                         <td><label for="id"> TRX ID: </td>
-                        <td colspan=""><?php echo $tran_id ?></label></td>
+                        <td colspan=""><?php echo $trx ?></label></td>
                     </tr>
                     <tr>
                         <td><label for="date"> TRX Date: </td>
-                        <td colspan=""><?php echo $tran_date ?></label></td>
+                        <td colspan=""><?php echo $trx_date ?></label></td>
                     </tr>
                     <tr>
                         <td><label for="amount"> Amount: </td>
@@ -76,11 +76,7 @@ include '../../controller/patient/paymentConfirmControl.php';
 
                     <tr>
                         <td><label for="type"> Card Type: </td>
-                        <td colspan=""><?php echo $card_type ?></label></td>
-                    </tr>
-                    <tr>
-                        <td><label for="status"> Status: </td>
-                        <td colspan=""><?php echo $status ?></label></td>
+                        <td colspan=""><?php echo $card ?></label></td>
                     </tr>
 
 
