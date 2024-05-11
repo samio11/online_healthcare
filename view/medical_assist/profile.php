@@ -10,6 +10,7 @@ include '../../controller/medical_assist/profilecontrol.php';
     <title>My Profile:</title>
 </head>
 <body>
+ <div class="container"> 
 <form action="" enctype="multipart/form-data" method="POST" >
 <table>
     <tr>
@@ -85,3 +86,4 @@ include '../../controller/medical_assist/profilecontrol.php';
         <td><input type="submit" name="gobackHome"  value="Return to Homepage"></td></tr>
         </table>
 </form>
+</div>

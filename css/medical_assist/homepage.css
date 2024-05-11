@@ -1,0 +1,80 @@
+<style>
+
+.homebody {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.homemain {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.title-container {
+    text-align: center;
+}
+
+.title-container h1 {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #36578b;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-container {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+
+#logout {
+    background-color: #f44336;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+td button {
+    width: 100%;
+}
+
+
+button:hover {
+    background-color: #464ea5;
+}
+
+
+button:active {
+    background-color: #464ea5;
+}
+
+
+</style>

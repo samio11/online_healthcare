@@ -13,7 +13,7 @@ include '../../controller/medical_assist/prescriptioncontrol.php';
 
 <body>
     <form method="POST" action="">
-        <h1> Portfolio Data Entry:</h1><br>
+        <h1> Prescription Data Entry:</h1><br>
 
         <table>
             <tr>

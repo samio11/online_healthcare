@@ -28,16 +28,17 @@ class Model
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
         foreach($cursor as $document){
-            $count= (Int)$document["ma_id"];
+            $count= (int)$document["ma_id"];
         }
         $collection->updateOne([
             'ma_id'=>$count],
             ['$set' => ["ma_id" => $count+1]]
         );
+        $count++;
         
         $collection = $conn->online_health->medical_assist;
         $cursor= $collection->insertOne([
-            'ma_id' => $count+1,
+            'ma_id' => (string) $count,
             'name'=>$name,
             "email"=>$email,
             "password"=> $password,
@@ -97,17 +98,17 @@ class Model
       return $cursor->getModifiedCount();
   }
 
-    function UploadPhoto($conn, $email, $profilePic){
+  function UploadPic($conn, $email, $profilePic){
         
 
-      $collection = $conn->online_health->medical_assist;
-      $cursor = $collection->updateOne([
-          'email' => $email],
-          
-          ['$set' => ['profilePic' => $profilePic]]
-      );
-      return $cursor;
-  }
+    $collection = $conn->online_health->medical_assist;
+    $cursor = $collection->updateOne([
+        'email' => $email],
+        
+        ['$set' => ['profilePic' => $profilePic]]
+    );
+    return $cursor;
+}
   function removePicture($conn, $email){
       $collection = $conn->online_health->medical_assist;
       $cursor = $collection->updateOne([
@@ -128,16 +129,17 @@ function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$d
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
         foreach($cursor as $document){
-            $count= (Int)$document["pres_id"];
+            $count= (int)$document["pres_id"];
         }
         $collection->updateOne([
             'pres_id'=>$count],
             ['$set' => ["pres_id" => $count+1]]
         );
-        
+        $count++;
+
         $collection = $conn->online_health->prescription;
         $cursor = $collection->insertOne([
-            'pres_id' => (string) ($count + 1),
+            'pres_id' => (string) $count,
             'p_name'=>$p_name,
             "p_email"=>$p_email,
             'p_gender' => $p_gender,
@@ -211,27 +213,6 @@ function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$d
         ]);
         return $cursor;
     }
-
-  function ViewPresc($conn, $pres_id){
-      $collection = $conn->online_health->prescription;
-      $cursor = $collection->findOne([
-          'pres_id' => $pres_id,
-      ]);
-      return $cursor;
   } 
-  function Presc_update($conn,$email,$name,$phone,$password,$address){
-    $collection = $conn->online_health->prescription;
-    $cursor = $collection->updateOne([
-        'email' => $email,
-      
-    ],
-        ['$set' => ['name' => $name,
-                   'phone' => $phone,
-                   'password' => $password,
-                   'address' => $address
-                   ]]
-    );
-    return $cursor;
-}
-}
+    
 
