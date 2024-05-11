@@ -54,7 +54,35 @@ function removePicture(email) {
   xhttp.open("GET", "http://localhost/online_healthcare/controller/doctor/removephoto.php?email=" + email, true);
   xhttp.send();
 }
+function liveSearch(value) {
+  $(document).ready(function () {
+    var input = value;
 
+    $.ajax({
+      url: "http://localhost/online_healthcare/controller/doctor/appcontrol.php",
+      method: "POST",
+      data: { input: input },
+      success: function (data) {
+        $("#searchresult").html(data);
+      }
+    });
+  });
+}
+function liveSearchAssist(value) {
+  $(document).ready(function () {
+    var input = value;
+   
+
+    $.ajax({
+      url: "http://localhost/online_healthcare/controller/doctor/assistControl.php",
+      method: "POST",
+      data: { input: input },
+      success: function (data) {
+        $("#searchresult").html(data);
+      }
+    });
+  });
+}
 function chat(app_id) {
   var clientmsg = $("#usermsg").val();
   $.post("../../controller/doctor/chatroomControl.php", { text: clientmsg, room: app_id },

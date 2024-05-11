@@ -1,4 +1,5 @@
-<?php include "../../controller/patient/doctorListControl.php" ?>
+<?php include "../../controller/patient/doctorListControl.php";
+ include "homepage.php"  ?>
 <!DOCTYPE html>
 <html>
 
@@ -8,16 +9,18 @@
     <script type="text/javascript" src="../../js/patient_myscript.js"></script>
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
-<?php include "homepage.php"  ?>
 
-<body class="docmain">
 
+<body class="body">
+    
+<br>
     <div class="docmain">
-        <h1 class="doctorheader">Doctor's List</h1>
+        <h1 style="color:#5b9aff">Doctor's List</h1>
         <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
 
-        <table>
-            <thead class="doctorthead">
+        <table class="customTable">
+
+            <thead class="doctor">
                 <th>Name</th>
                 <th>Speciality</th>
                 <th>Gender</th>

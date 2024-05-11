@@ -1,4 +1,4 @@
-<?php include '../../controller/doctor/forget_passcontrol.php'; ?>
+<?php include '../../controller/doctor/forget_password.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>

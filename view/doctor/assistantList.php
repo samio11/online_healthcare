@@ -8,8 +8,9 @@ include '../../controller/doctor/assistControl.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment List</title>
-    <link rel="stylesheet" href="../../css/doctor/senddoc.css">
-   
+    <link rel="stylesheet" href="../../css/doctor/Senddoc.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/doctor_myscript.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -17,6 +18,7 @@ include '../../controller/doctor/assistControl.php';
 <form method="POST" action="" >
 
 <h2 >Assistant List</h2>
+<input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearchAssist(this.value)">
     <table border="1">
         <tr>
             <th>Assistant Id</th>
@@ -26,6 +28,9 @@ include '../../controller/doctor/assistControl.php';
            
             <th>Action</th>
         </tr>
+        <tbody id="searchresult">
+           <?php echo $str ?>
+           </tbody>
         
         <?php foreach ($assistData as $assist): ?>
         <tr>

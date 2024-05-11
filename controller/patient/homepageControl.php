@@ -18,6 +18,9 @@ if (isset($_REQUEST['docList'])) {
 if (isset($_REQUEST['billing'])) {
   header("Location: ../../view/patient/payment.php");
 }
+if (isset($_REQUEST['addinfo'])) {
+  header("Location: ../../view/patient/addInfo.php");
+}
 if (isset($_REQUEST['logout'])) {
   session_destroy();
   header("Location: ../../view/patient/login.php");

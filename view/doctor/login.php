@@ -11,6 +11,7 @@
     
     <div class="main">
         <h1>Doctor Portal</h1>
+        
         <h3>Enter your login credentials</h3>
         <form action=""  method="POST">
             <label for="email">Email: </label>

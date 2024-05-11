@@ -39,7 +39,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     transition: transform 0.2s;
-    width: 900px;
+    width: 950px;
     text-align: center;
 
 }
@@ -50,7 +50,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     transition: transform 0.2s;
-    width: 700px;
+    width: 750px;
     text-align: center;
 }
 
@@ -95,10 +95,10 @@ select {
 }
 
 button {
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: none;
     color: white;
     cursor: pointer;
@@ -113,11 +113,59 @@ button {
     align-items: center;
 }
 
-.doctorheader {
-    color: #04aa6dab
+.customTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+
+    td,
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
 }
 
-.doctorbutton {
+.doctor {
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #5b9aff;
+        ;
+        color: white;
+    }
+}
+
+.approvedApp {
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #04aa6de3;
+        color: white;
+    }
+}
+
+.pendingApp {
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #aa7e04c7;
+        color: white;
+    }
+}
+
+.docButton {
     padding: 10px;
     border-radius: 10px;
     margin-top: 5px;
@@ -125,35 +173,45 @@ button {
     border: none;
     color: rgb(255, 255, 255);
     cursor: pointer;
-    background-color: #04aa6dab;
+    background-color: #5b9aff;
     width: 100%;
     font-size: 14px;
 }
 
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+
+
+.msgButton {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: #04aa6de3;
     width: 100%;
+    font-size: 14px;
 }
 
-td,
-th {
-    border: 1px solid #ddd;
-    padding: 8px;
+.penButton {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: #e11313e3;
+    width: 100%;
+    font-size: 14px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-.doctorthead {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04aa6dab;
-    color: white;
+.declinedApp {
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #db1919c7;
+        color: white;
+    }
 }
