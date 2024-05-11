@@ -17,7 +17,7 @@ foreach($result as $document)
    if(isset($_POST['input'])){
         $str="";
         $input = $_POST['input'];
-        echo $input;
+        //echo $input;
         $mydb = new Model();
         $conObj = $mydb->OpenCon();
         $result = $mydb->liveSearch($conObj, $input);

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
 </head>
 
-<body>
-    
+<body class="body">
+
     <div class="main">
         <h1>Patient Portal</h1>
         <h3>Enter your login credentials</h3>
-        <form action=""  mathod="POST">
+        <form action="" mathod="POST">
             <label for="email">Email: </label>
             <input type="text" id="email" name="email" placeholder="Enter your Email" required>
             <label for="password"> Password: </label>
@@ -20,7 +20,7 @@
             <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
         </form>
         <a href="forgetPassword.php" style="text-decoration: none;"> Forgot password? </a>
-        <p>Not registered?<a href="docReg.php" style="text-decoration: none;"> Create an account </a></p>
+        <p>Not registered?<a href="PatientReg.php" style="text-decoration: none;"> Create an account </a></p>
 
     </div>
 

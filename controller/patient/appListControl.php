@@ -6,7 +6,7 @@ $pid = $_SESSION['p_id'];
 $astr = $pstr = $dstr = '';
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
-$result = $mydb->approvedApp($conObj, $pid);
+$result = $mydb->viewApp($conObj, $pid, 'approved',);
 $approvedApp = [];
 if ($result) {
     foreach ($result as $appointment) {
@@ -21,10 +21,10 @@ if ($result) {
         ];
     }
 } else {
-    $appointmentData = [];
+    $approvedApp = [];
 }
 
-$result = $mydb->pendingApp($conObj, $pid);
+$result = $mydb->viewApp($conObj, $pid, 'pending');
 foreach ($result as $document) {
     $pstr .= "<tr><td>" . $document['d_name'] . "</td>";
     $pstr .= "<td>" . $document['d_gender'] . "</td>";
@@ -32,7 +32,7 @@ foreach ($result as $document) {
     $pstr .= "<td>" . $document['time'] . "</td>";
     $pstr .= "<td>" . $document['note'] . "</td></th>";
 }
-$result = $mydb->declinedApp($conObj, $pid);
+$result = $mydb->viewApp($conObj, $pid, 'declined');
 foreach ($result as $document) {
     $dstr .= "<tr><td>" . $document['d_name'] . "</td>";
     $dstr .= "<td>" . $document['d_gender'] . "</td>";

@@ -1,5 +1,5 @@
 /*style.css*/
-body {
+.body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,6 +84,16 @@ input {
     border-radius: 5px;
 }
 
+select {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 button {
     padding: 15px;
     border-radius: 10px;
@@ -96,6 +106,7 @@ button {
     width: 100%;
     font-size: 16px;
 }
+
 
 .wrap {
     display: flex;

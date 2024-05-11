@@ -2,6 +2,7 @@ function validateForm() {
   var gender = document.getElementById("gender").value;
   if (!gender) {
     document.getElementById("genderError").innerHTML = "Gender must be selected";
+
     return false;
   }
   var marital = document.getElementById("marital").value;
