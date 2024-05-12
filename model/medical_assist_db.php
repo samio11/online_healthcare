@@ -150,7 +150,7 @@ function updatePresc($conn,$pres_id,$app_id,$p_id,$p_name,$p_email,$p_gender, $h
                        'd_name'=> $d_name
                      ]]
       );
-      return $cursor->getModifiedCount();
+      return $cursor;
   }
       function docList($conn)
     {

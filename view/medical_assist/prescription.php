@@ -34,12 +34,16 @@ include '../../controller/medical_assist/update_prescontrol.php';
             <tr>
                 <td colspan="2">Patient Name:</td>
                 <td><input type="text" name="patientName" />
+                <?php echo $p_nameError; ?>
+                <?php echo $p_name; ?>
                 </td>
             </tr>
 
             <tr>
                 <td colspan="2">Patient Email:</td>
                 <td><input type="text" name="PatientEmail" />
+                <?php echo $p_emailError; ?>
+                <?php echo $p_email; ?>
                 </td>
             </tr>
 
@@ -50,6 +54,8 @@ include '../../controller/medical_assist/update_prescontrol.php';
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
                     </select>
+                    <?php echo $p_genderError; ?>
+                    <?php echo $p_gender; ?>
                 </td>
             </tr>
 
@@ -57,6 +63,8 @@ include '../../controller/medical_assist/update_prescontrol.php';
             <tr>
                 <td colspan="2">Height:</td>
                 <td><input type="text" name="Height" />
+                <?php echo $heightError; ?>
+                <?php echo $height; ?>
                 </td>
 
             </tr>
@@ -64,6 +72,8 @@ include '../../controller/medical_assist/update_prescontrol.php';
             <tr>
                 <td colspan="2">Weight:</td>
                 <td><input type="text" name="Weight" />
+                <?php echo $weightError; ?>
+                <?php echo $weight; ?>
                 </td>
 
             </tr>
@@ -71,6 +81,8 @@ include '../../controller/medical_assist/update_prescontrol.php';
             <tr>
                 <td colspan="2">Blood Group:</td>
                 <td><input type="text" name="BloodGroup" />
+                <?php echo $bgError; ?>
+                <?php echo $bg; ?>
                 </td>
 
             </tr>
@@ -82,21 +94,29 @@ include '../../controller/medical_assist/update_prescontrol.php';
                         <option value="Type A ">Type A </option>
                         <option value="Type B">Type B</option>
                     </select>
+                <?php echo $diaError; ?>
+                <?php echo $dia; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">Date Of Appointment:</td>
                 <td><input type="date" name="appointment">
+                <?php echo $appdateError; ?>
+                <?php echo $appdate; ?>
                 </td>
             </tr>
             <tr>
             <td colspan="2">Time slot:</td>
-            <td><input type="text" name="Timeslot" />        
+            <td><input type="text" name="Timeslot" /> 
+            <?php echo $stimeError; ?>
+            <?php echo $stime; ?>       
              </td>
             </tr>
             <tr>
                 <td colspan="2">Appointed Doctor:</td>
                 <td><input type="text" name="appointedDoc" />
+                <?php echo $d_nameError; ?>
+                <?php echo $d_name; ?>
             </td>
             </tr>
 
@@ -108,12 +128,12 @@ include '../../controller/medical_assist/update_prescontrol.php';
 
             <tr>
                 <td colspan="2">Tests for Disease:</td>
-                <td><input type="text" name="presMed" value="<?php echo $_SESSION['test']; ?>"></td>
+                <td><input type="text" name="Tests" value="<?php echo $_SESSION['test']; ?>"></td>
                 </td>
             </tr>
 
             <tr>
-                <td><input type="submit" name="submitPrescription" value="Submit Prescription" /> <br>
+                <td><input type="submit" name="submitPrescription" value="Submit Prescription" /> <br><br>
                 <input type="submit" name="return" value="Homepage" /></td>
             </tr>
         </table>

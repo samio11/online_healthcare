@@ -1,66 +1,70 @@
 <style>
-
-body, html, h1, table, th, td, input, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 .docmain {
-    max-width: 800px;
+    background-color: #fff;
+    width: 60%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
 }
+
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    text-align: left;
+    color: rgb(58, 48, 130);
+    margin-top: 20px; 
 }
 
-#live_search {
-    width: 30%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
 table {
-    width: 100%;
+    width: 60%;
+    margin: 0 auto; 
     border-collapse: collapse;
 }
 
-th, td {
+td {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid #ccc;
 }
 
-th {
-    background-color: #f2f2f2;
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: rgb(58, 48, 130);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+input[type="submit"]:hover {
+    background-color: #444;
 }
+
+
+.error {
+    color: red;
+}
+
 
 
 </style>
