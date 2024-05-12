@@ -33,6 +33,16 @@
     text-align: center;
 }
 
+.regmain {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 600;
+    text-align: center;
+}
+
 .homemain {
     background-color: #fff;
     border-radius: 15px;
@@ -111,6 +121,19 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.errorHolder {
+    input::placeholder {
+        color: #ff0000;
+    }
 }
 
 .customTable {
