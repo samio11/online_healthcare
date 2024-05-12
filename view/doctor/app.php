@@ -19,7 +19,7 @@ include '../../controller/doctor/chatSessionControl.php';
 <body>
 <form method="POST" action="" >
 
-<h2 >Pending Appointment List</h2>
+<h1 >Pending Appointment List</h1>
 <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
     <table border="1">
         <tr>
@@ -57,7 +57,7 @@ include '../../controller/doctor/chatSessionControl.php';
     </table>
 
 
-    <h2>Appointment Approved List</h2>
+    <h1>Appointment Approved List</h1>
     <table border="1">
         <tr>
             <th>Appointment Id</th>
