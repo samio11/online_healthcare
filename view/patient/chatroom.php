@@ -22,13 +22,18 @@ session_start();
     <div class="container">
         <div class="anyclass">
         </div>
+
+
+        <br>
+        <table width="100">
+            <tr>
+                <td><textarea cols="90" rows="3" name="usermsg" id="usermsg" placeholder="Add message"></textarea></td>
+                <td><button type="button" name="sendmsg" id="sendmsg" onclick='chat("<?php echo $_SESSION["chat_app_id"] ?>")' onkeyup="pressed()">Send</button></td>
+            </tr>
+        </table>
+
+
     </div>
-
-
-    <textarea cols="107" rows="3" name="usermsg" id="usermsg" placeholder="Add message"></textarea>
-    <input type="text" id="test">
-    <button type="button" name="sendmsg" id="sendmsg" onclick='chat("<?php echo $_SESSION["chat_app_id"] ?>")'>Send</button>
-
 </body>
 
 

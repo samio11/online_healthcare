@@ -57,15 +57,15 @@ body {
 }
 
 button {
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: none;
     color: white;
     cursor: pointer;
     background-color: #5b9aff;
-    width: 50%;
-    font-size: 16px;
+    width: 170%;
+    font-size: 24px;
 
 }
