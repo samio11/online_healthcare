@@ -10,7 +10,8 @@ session_start();
     <script type="text/javascript" src="../../js/patient_myscript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-        setInterval(runFunction, 1000, "<?php echo $_SESSION["chat_app_id"] ?>")
+        setInterval(runFunction, 1000, "<?php echo $_SESSION["chat_app_id"] ?>");
+        
     </script>
 
 </head>
@@ -19,8 +20,8 @@ session_start();
 
     <h2>Chat Messages</h2>
 
-    <div class="container">
-        <div class="anyclass">
+    <div class="container" >
+        <div class="anyclass" id="anyclass">
         </div>
 
 

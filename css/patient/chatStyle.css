@@ -52,8 +52,6 @@ body {
 .anyclass {
     height: 600px;
     overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
 button {

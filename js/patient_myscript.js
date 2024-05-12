@@ -118,14 +118,9 @@ function runFunction(app_id) {
       document.getElementsByClassName('anyclass')[0].innerHTML = data;
     }
   )
+  var objDiv = document.getElementById("anyclass");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
-let plzField = document.getElementById("usermsg");
-
-plzField.addEventListener("change", function (event) {
-  if (event.code === 13) {
-    console.log(event.target.value);
-  }
-});
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;
