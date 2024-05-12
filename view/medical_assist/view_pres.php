@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Doctor's List</title>
+    <title>Prescription List</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/medical_assist_myscript.js"></script>
     <link rel="stylesheet" href="../../css/medical_assist/prescList_page.css">
