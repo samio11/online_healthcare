@@ -2,7 +2,10 @@
 //include '../../model/patient_db.php';
 session_start();
 
-
+if ($_SESSION['flag'] == true) {
+  $_SESSION['flag'] = false;
+  header("Location: ../../view/patient/viewAppointment.php");
+}
 if (isset($_REQUEST['showProfile'])) {
   header("Location: ../../controller/patient/viewProfileControl.php");
 }

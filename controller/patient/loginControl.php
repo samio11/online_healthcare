@@ -6,8 +6,9 @@ if (isset($_REQUEST['login'])) {
     $mydb = new Model();
     $conObj = $mydb->OpenCon();
     $result = $mydb->login($conObj, $_REQUEST['email'], $_REQUEST['password']);
-    if ($result > 0) {
+    if ($result) {
         $_SESSION['p_id'] = $result['p_id'];
+        $_SESSION['flag'] = true;
         header("Location: ../../view/patient/homepage.php");
     } else echo "not valid";
 }
