@@ -28,8 +28,8 @@ foreach($result as $document)
         foreach($result as $document)
         {
        $str = $str . "<tr><td>".$document['pres_id']."</td>";
-       $str = $str . "<tr><td>".$document['app_id']."</td>";
-       $str = $str . "<tr><td>".$document['p_id']."</td>";
+       $str = $str . "<td>".$document['app_id']."</td>";
+       $str = $str . "<td>".$document['p_id']."</td>";
        $str = $str . "<td>".$document['prescribed']."</td>";
        $str = $str . "<td>".$document['test']."</td>";
        $str = $str . "<td><button type='button' id='" . $document['pres_id'] . "' onclick='demo1(this.id)' class='updateButton'>Update Prescription</button></td></tr>";
