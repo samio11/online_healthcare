@@ -12,11 +12,14 @@ if (isset($_REQUEST['showProfile'])) {
 if (isset($_REQUEST['updateProfile'])) {
   header("Location: ../controller/updateControl.php");
 }
+if (isset($_REQUEST['docList'])) {
+  header("Location: ../../view/patient/doctorList.php");
+}
 if (isset($_REQUEST['appointment'])) {
   header("Location: ../../view/patient/viewAppointment.php");
 }
-if (isset($_REQUEST['docList'])) {
-  header("Location: ../../view/patient/doctorList.php");
+if (isset($_REQUEST['assistant'])) {
+  header("Location: ../../view/patient/medAssistList.php");
 }
 if (isset($_REQUEST['billing'])) {
   header("Location: ../../view/patient/payment.php");

@@ -286,4 +286,10 @@ class Model
         ]);
         return $cursor;
     }
+    function medAssist($conn)
+    {
+        $collection = $conn->online_health->medical_assist;
+        $cursor = $collection->find();
+        return $cursor;
+    }
 }
