@@ -62,10 +62,11 @@ class Model
         ]);
         return $cursor;
     }
-    function declineApp($conn, $app_id)
+    function declineApp($conn,$d_id, $app_id)
     {
         $collection = $conn->online_health->appointment;
         $cursor=$collection->updateOne([
+            'd_id' => $d_id,
             'app_id' => $app_id],
             ['$set' => ['status'=> 'declined']]);
         return $cursor;
@@ -121,7 +122,7 @@ class Model
                  // ["p_id" => new Regex($input, "i")],
                   ["p_name" => new Regex($input, "i")],
                  // ['status' => new Regex('pending')],
-                  ['status'=> 'pending']
+                 
               ]
           ]);
           return $cursor;
@@ -138,6 +139,20 @@ class Model
           ]);
           return $cursor;
       }
+
+      function SearchApproveList($conn, $input)
+      {
+          $collection = $conn->online_health->appointment;
+          $cursor = $collection->find([
+              '$or' => [
+                  ["app_id" => new Regex($input, "i")],
+                  ["p_name" => new Regex($input, "i")]
+                
+              ]
+          ]);
+          return $cursor;
+      }
+
       function setTime($conn,$app_id,$stime){
         $collection = $conn->online_health->appointment;
         $cursor = $collection->updateOne([
