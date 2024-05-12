@@ -18,15 +18,12 @@ include '../../controller/doctor/homevalidation.php';
 
 </head>
     <body>
-    <div class="main">
-        <form method="POST" action="">
-            <table>
-   
-                <td><input type="submit" name= "showProfile" value="Profile"></td>
-
-                <td><input type="submit" name="list" value="Check Appointment List"></td>
-                <td><input type="submit" name= "documents" value="Documents"></td>
-                <td><input type="submit" name= "logout" value="Logout"></td>
+    <div class="header">
+    <form action="" enctype="multipart/form-data" method="POST">
+        
+                <td><input type="submit" name="list" value="Appointment List"></td>
+                
+              
                 <td><input type="submit" name= "assist" value="Medical Assistant"></td>
                 <td><input type="submit" name= "file" value="Documents"></td>
                 <td><input type="submit" name= "logout" value="Logout"></td>
@@ -44,12 +41,11 @@ include '../../controller/doctor/homevalidation.php';
        </div> 
   
     <div class="button-container">
-        <table><tr>
-<td>
+        
+
         <button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add picture</button> 
        <button type="button" id="remove" onclick="removePicture('<?php echo $_SESSION['email']; ?>')">Remove picture</button>
-    </td></tr>
-    </table>
+   
     </div>
     </div>
  
