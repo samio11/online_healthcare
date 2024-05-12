@@ -15,7 +15,7 @@ include '../../controller/medical_assist/homepagecontrol.php';
     </div>
     <div class="homemain">
     <div class="title-container">
-            <h1>Welcome to Homepage</h1>
+    <h1 style=" color: rgb(58, 48, 130);">Welcome To Homepage</h1>
         </div>
         <table>
             <tr>
@@ -23,9 +23,8 @@ include '../../controller/medical_assist/homepagecontrol.php';
                 <td><button type="submit" name="docList" id="docList">View Doctors</button></td>
                 <td><button type="submit" name="appoinList" id="appoinList">View Appointments</button></td>
                 <td><button type="submit" name="billing" id="billing">Create Billing</button></td>
-                <td><button type="submit" name="prescription" id="prescription">Create Prescription</button></td>
                 <td><button type="submit" name="view_presc" id="view_presc">View Prescriptions</button></td>
-                <td><button type="submit" name="edit_presc" id="edit_presc">Edit Prescription</button></td>
+                <td><button type="submit" name="view_pat_info" id="view_pat_info">View Patient Info</button></td>
                 <td><button type="submit" name="delete_presc" id="delete_presc">Delete Prescription</button></td>
             </tr>
             </form>
