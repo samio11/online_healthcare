@@ -46,7 +46,7 @@ if (isset($_REQUEST['confirm'])) {
             $haserror = 1;}
     
 
-        if ($hasError != 1) {
+        if ($haserror != 1) {
             $result = $mydb->UpdateProfile($conObj, $_SESSION['email'], $updatedName, $updatedPhone, $updatedPassword,$updatedAddress);
         if ($result) {
             echo "Successfully Updated";

@@ -13,16 +13,13 @@ if(isset($_REQUEST['appoinList'])){
     header("Location: ../../view/medical_assist/appointment_List.php");
 }
 if(isset($_REQUEST['billing'])){
-    header("Location: ../../view/medical_assist/appointment.php");
-}
-if(isset($_REQUEST['prescription'])){
-    header("Location: ../../view/medical_assist/prescription.php");
+    header("Location: ../../view/medical_assist/create_billing.php");
 }
 if(isset($_REQUEST['view_presc'])){
     header("Location: ../../view/medical_assist/view_pres.php");
 }
-if(isset($_REQUEST['edit_presc'])){
-    header("Location: ../../view/medical_assist/update_pres.php");
+if(isset($_REQUEST['view_pat_info'])){
+    header("Location: ../../view/medical_assist/view_patientInfo.php");
 }
 if(isset($_REQUEST['delete_presc'])){
     header("Location: ../../view/medical_assist/login.php");

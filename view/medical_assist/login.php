@@ -12,7 +12,8 @@ include '../../controller/medical_assist/logincontrol.php';
 <body>
     
     <div class="main">
-        <h1>Medical Assist Portal</h1>
+        
+        <h1 style=" color: rgb(58, 48, 130);">Medical Assist Portal</h1>
         <form action=""  mathod="POST">
             <label for="email">Email: </label>
             <input type="text" id="email" name="email" placeholder="Enter your Email" required>

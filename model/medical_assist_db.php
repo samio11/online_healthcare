@@ -124,37 +124,34 @@ function View_appointments($conn) {
   return $cursor;
 }
 
-function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$dia,$appdate,$d_name,$med,$tests)
-    {
-        $collection = $conn->online_health->counter;
-        $cursor = $collection->find();
-        foreach($cursor as $document){
-            $count= (int)$document["pres_id"];
-        }
-        $collection->updateOne([
-            'pres_id'=>$count],
-            ['$set' => ["pres_id" => $count+1]]
-        );
-        $count++;
-
-        $collection = $conn->online_health->prescription;
-        $cursor = $collection->insertOne([
-            'pres_id' => (string) $count,
-            'p_name'=>$p_name,
-            "p_email"=>$p_email,
-            'p_gender' => $p_gender,
-            'height' => $height,
-            'weight'=> $weight,
-            'bg' => $bg,
-            'dia' => $dia,
-            'appdate' => $appdate,
-            'd_name' => $d_name,
-            'med' => $med,
-            'tests' => $tests
-           
-        ]); 
-        return $cursor->getInsertedCount();
-      }
+function ViewPresList($conn, $pres_id){
+    $collection = $conn->online_health->doctor_prescribed;
+    $cursor = $collection->findOne([
+        'pres_id' => $pres_id,
+    ]);
+    return $cursor;
+} 
+function updatePresc($conn,$pres_id,$app_id,$p_id,$p_name,$p_email,$p_gender, $height,$weight,$bg,$dia,$appdate,$stime,$d_name,$prescribed,$test)
+  {
+      $collection = $conn->online_health->doctor_prescribed;
+      $cursor = $collection->updateOne(
+          [
+              'pres_id' => $pres_id
+          ],
+          ['$set' => ['p_name' => $p_name,
+                       'p_email' => $p_email,
+                       'p_gender' => $p_gender,
+                       'height' => $height,
+                       'weight' => $weight,
+                       'bg' => $bg,
+                       'dia'=> $dia,
+                       'appdate'=> $appdate,
+                       'stime'=> $stime,
+                       'd_name'=> $d_name
+                     ]]
+      );
+      return $cursor->getModifiedCount();
+  }
       function docList($conn)
     {
         $collection = $conn->online_health->doctor;
@@ -188,27 +185,84 @@ function AddPrescription($conn,$p_name,$p_email,$p_gender,$height,$weight,$bg,$d
     */
     function prescription_List($conn)
     {
-        $collection = $conn->online_health->prescription;
+        $collection = $conn->online_health->doctor_prescribed;
         $cursor = $collection->find();
         return $cursor;
     }
     function liveSearch1($conn, $input)
     {
-        $collection = $conn->online_health->prescription;
+        $collection = $conn->online_health->doctor_prescribed;
         $cursor = $collection->find([
             '$or' => [
                 ["pres_id" => new Regex($input, "i")],
+                ["app_id" => new Regex($input, "i")],
+                ["p_id" => new Regex($input, "i")],
+                ["prescribed" => new Regex($input, "i")],
+                ["tests" => new Regex($input, "i")]
+            ]
+        ]);
+        return $cursor;
+    }
+    /*
+    function prescription($conn, $pres_id)
+    {
+        $collection = $conn->online_health->doctor_prescribed;
+        $cursor = $collection->findOne([
+            'pres_id' => $pres_id,
+        ]);
+        return $cursor;
+    }
+    */
+function billing($conn)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+function liveSearch2($conn, $input)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->find([
+            '$or' => [
+                ["app_id" => new Regex($input, "i")],
+                ["p_id" => new Regex($input, "i")],
                 ["p_name" => new Regex($input, "i")],
-                ["p_email" => new Regex($input, "i")],
-                ["p_gender" => new Regex($input, "i")],
+                ["status" => new Regex($input, "i")],
+                ["payment" => new Regex($input, "i")]
+            ]
+        ]);
+        return $cursor;
+    }
+    function updateAppointment($conn, $app_id,$amount)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->updateOne(
+            [
+                'app_id' => $app_id
+            ],
+            ['$set' => ['amount' => $amount]]
+        );
+        return $cursor->getModifiedCount();
+    }
+    function patList($conn)
+    {
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    function liveSearch3($conn, $input)
+    {
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->find([
+            '$or' => [
+                ["p_id" => new Regex($input, "i")],
+                ["name" => new Regex($input, "i")],
+                ["email" => new Regex($input, "i")],
+                ["gender" => new Regex($input, "i")],
                 ["height" => new Regex($input, "i")],
                 ["weight" => new Regex($input, "i")],
-                ["bg" => new Regex($input, "i")],
-                ["dia" => new Regex($input, "i")],
-                ["appdate" => new Regex($input, "i")],
-                ["d_name" => new Regex($input, "i")],
-                ["med" => new Regex($input, "i")],
-                ["tests" => new Regex($input, "i")]
+                ["blood" => new Regex($input, "i")],
+                ["diabetes" => new Regex($input, "i")]
             ]
         ]);
         return $cursor;

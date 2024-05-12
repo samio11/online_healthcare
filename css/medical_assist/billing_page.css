@@ -23,10 +23,11 @@ body {
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: rgb(58, 48, 130);
 }
 
 #live_search {
-    width: 30%;
+    width: 20%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -50,7 +51,7 @@ th {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #347ca3;
     color: #fff;
     border: none;
     border-radius: 5px;

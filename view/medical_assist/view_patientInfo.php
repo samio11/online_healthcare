@@ -1,27 +1,28 @@
-
-<?php include "../../controller/medical_assist/doc_Listcontrol.php" ?>
+<?php include "../../controller/medical_assist/pat_infocontrol.php" ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Doctor's List</title>
+    <title>Patient Additional Info</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/medical_assist_myscript.js"></script>
-    <link rel="stylesheet" href="../../css/medical_assist/docList_page.css">
+    <link rel="stylesheet" href="../../css/medical_assist/prescription_page.css">
 </head>
 <body>
     <div class="docmain">
-    <h1 style=" color: rgb(58, 48, 130);">Doctor's List</h1>
-        <input type="text" id="live_search" placeholder="Search here..." onkeyup="liveSearch(this.value)">
+    <h1 style=" color: rgb(58, 48, 130);">Patient's Additional Info</h1>
+        <input type="text" id="live_search" placeholder="Search here..." onkeyup="liveSearch3(this.value)">
         
         <table class="text">       
         <tr>
-            <th>Name</th>
-            <th>Email</th>
+            <th>P_ID</th>
+            <th>P_Name</th>
+            <th>P_Email</th>
             <th>Gender</th>
-            <th>Speciality</th>
-            <th>Phone Number</th>
-            <th>Valid License</th>
-            <th>Address</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Blood group</th>
+            <th>Diabetes</th>
+            
             </tr>
            <tbody id="searchresult">
            <?php echo $str ?>
@@ -34,4 +35,3 @@
     </div>
     
 </body>
-
