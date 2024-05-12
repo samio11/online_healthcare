@@ -3,7 +3,7 @@ include '../../model/doctor_db.php';
 
 session_start();
 
-
+if(!isset($_POST['input'])){
 $mydb = new Model();
 $conObj = $mydb->OpenCon();
 $approved = $mydb->approvedApp($conObj, $_SESSION['d_id']);
@@ -22,7 +22,7 @@ $approved = $mydb->approvedApp($conObj, $_SESSION['d_id']);
         }
     } else {
         $approvedData = []; }
-
+    }
         
 
 $str="";
