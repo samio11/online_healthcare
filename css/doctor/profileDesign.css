@@ -55,6 +55,7 @@ body {
     min-height: 100vh;
     background: #f3f3f3;
     flex-direction: column;
+    transition: transform 0.2s;
     margin: 0;
 }
 
@@ -81,9 +82,13 @@ body {
 }
 
 .content {
-    display: flex;
+   /* display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 20px;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Change from align-items: flex-start; to align-items: center; */
     padding: 20px;
 }
 

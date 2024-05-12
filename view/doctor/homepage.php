@@ -17,6 +17,7 @@ include '../../controller/doctor/homevalidation.php';
 
 
 </head>
+
     <body>
     <div class="header">
     <form action="" enctype="multipart/form-data" method="POST">
@@ -107,6 +108,7 @@ include '../../controller/doctor/homevalidation.php';
 
 
     </body>
+   
 </html>
 
 

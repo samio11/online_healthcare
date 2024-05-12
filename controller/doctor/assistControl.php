@@ -37,7 +37,7 @@ if ($assist) {
         {
            $str = $str . "<tr><td>".$document['ma_id']."</td>";
            $str = $str . "<td>".$document['name']."</td>";
-           $str = $str . "<td><button type='submit'  >Send documents</button></td></tr>";
+           $str = $str . "<td><button type='submit'  id='".$document['ma_id']."' onclick='demo(this.id)' >Send documents</button></td></tr>";
           // $str = $str . "<td><button type="submit" name="doc" id="doc"' onclick='demo(this.id)' >send document</button></td></tr>";
           // $str = $str . "<td><button type='button' id='".$document['d_id']."' onclick='demo(this.id)' >Take Appointment</button></td></tr>";
         }

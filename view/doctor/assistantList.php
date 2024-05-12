@@ -36,7 +36,7 @@ include '../../controller/doctor/assistControl.php';
         <tr>
             <td><?php echo $assist['ma_id']; ?></td>
             <td><?php echo $assist['name']; ?></td>
-            <td><button type="submit" name="doc" id="doc">Send documents</button></td>
+            <td><button type="submit" name="doc" id="doc" value="<?php echo $assist['ma_id'];?>">Send documents</button></td>
          </tr>
         <?php endforeach; ?>
     </table>    
