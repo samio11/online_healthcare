@@ -39,23 +39,20 @@ function validateForm() {
         }
       }
 
-    function openDiag(){
+function openDiag(){
         document.getElementById('uploadphoto').click();
       }
-      function random(){
-        alert("hello");
-      }
-      function photoUpload(){
-      
-      }
-      function removePicture(email){
+     
+ function removePicture(email) {
       const xhttp = new XMLHttpRequest();
-      xhttp.onload = function () {
-        document.getElementById('imgsrc').getAttribute('src').innerHTML = this.responseText;
-      }
-      xhttp.open("GET", "http://localhost/online_healthcare/controller/medical_assist/test.php?email=" + email, true);
+      xhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+              document.getElementById('imgsrc').src = this.responseText;
+          }
+      };
+      xhttp.open("GET", "http://localhost/online_healthcare/controller/medical_assist/removephoto.php?email=" + email, true);
       xhttp.send();
-      }
+    }
 
     function liveSearch(value) {
         $(document).ready(function () {

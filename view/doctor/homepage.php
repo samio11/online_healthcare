@@ -18,13 +18,15 @@ include '../../controller/doctor/homevalidation.php';
 
 </head>
     <body>
-    
-    <form action="" enctype="multipart/form-data" method="POST" >
-    <div class="header">
-                
-               
-                <td><input type="submit" name="list" value="Appointment List"></td>
-                <td><input type="submit" name= "approved" value="Approved Appointments"></td>
+    <div class="main">
+        <form method="POST" action="">
+            <table>
+   
+                <td><input type="submit" name= "showProfile" value="Profile"></td>
+
+                <td><input type="submit" name="list" value="Check Appointment List"></td>
+                <td><input type="submit" name= "documents" value="Documents"></td>
+                <td><input type="submit" name= "logout" value="Logout"></td>
                 <td><input type="submit" name= "assist" value="Medical Assistant"></td>
                 <td><input type="submit" name= "file" value="Documents"></td>
                 <td><input type="submit" name= "logout" value="Logout"></td>

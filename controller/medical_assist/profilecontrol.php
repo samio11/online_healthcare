@@ -26,16 +26,19 @@ if(!empty($_FILES['uploadphoto']['name']))
 
     move_uploaded_file($_FILES['uploadphoto']['tmp_name'],$profilePic);
 }
-
+else{
+    echo"Please Upload Photo!";
+}
 
 if($hasError==1)
 {
     $mydb= new Model();
     $conobj= $mydb->OpenCon();
-    $result=$mydb->UploadPhoto($conobj,$_SESSION['email'], $profilePic);
+    $result=$mydb->UploadPic($conobj,$_SESSION['email'], $profilePic);
     if($result)
     {
-        header("Location: ../../view/medical_assist/homepage.php");
+        header("Location: ../../view/medical_assist/profile.php");
+        echo"Added Successfully";
     }
     else{
         echo "Error Occurred";

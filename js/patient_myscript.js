@@ -118,6 +118,9 @@ function runFunction(app_id) {
     }
   )
 }
+function regConfrim(){
+  
+}
 /*
 function loadDoc() {
   var str = document.getElementById("name").value;

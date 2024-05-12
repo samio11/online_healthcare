@@ -21,6 +21,12 @@ if(isset($_REQUEST['prescription'])){
 if(isset($_REQUEST['view_presc'])){
     header("Location: ../../view/medical_assist/view_pres.php");
 }
+if(isset($_REQUEST['edit_presc'])){
+    header("Location: ../../view/medical_assist/update_pres.php");
+}
+if(isset($_REQUEST['delete_presc'])){
+    header("Location: ../../view/medical_assist/login.php");
+}
 if(isset($_REQUEST['logout'])){
     header("Location: ../../view/medical_assist/login.php");
 }

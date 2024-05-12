@@ -14,7 +14,7 @@ class Model
         $conn = new MongoDB\Client($uri, [], ['serverApi' => $apiVersion]);
         return $conn;
     }
-    function autoIncrement($conn)
+    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address)
     {
         $collection = $conn->online_health->counter;
         $cursor = $collection->find();
@@ -22,14 +22,11 @@ class Model
             $count = (int)$document["p_id"];
         }
         $collection->updateOne(
-            ['p_id' => (string)$count],
+            ['p_id' => $count],
             ['$set' => ["p_id" => $count + 1]]
         );
-        return $count + 1;
-    }
-    function AddPatient($conn, $name, $email, $password, $gender, $phone, $dob, $martial, $address)
-    {
-        $count = $this->autoIncrement($conn);
+        $count++;
+
         $collection = $conn->online_health->patient;
         $cursor = $collection->insertOne([
             'p_id' => (string) $count,
@@ -40,9 +37,29 @@ class Model
             'phone' => $phone,
             'dob' => $dob,
             'marital' => $martial,
-            'address' => $address
+            'address' => $address,
+            'weight' => '',
+            'height' => '',
+            'blood' => '',
+            'diabetes' => ''
         ]);
         return $cursor->getInsertedCount();
+    }
+    function addInfo($conn, $email, $height, $weight, $blood, $diabetes)
+    {
+        $collection = $conn->online_health->patient;
+        $cursor = $collection->updateOne(
+            [
+                'email' => $email
+            ],
+            ['$set' => [
+                'weight' => $weight,
+                'height' => $height,
+                'blood' => $blood,
+                'diabetes' => $diabetes
+            ]]
+        );
+        return $cursor->getModifiedCount();
     }
     function login($conn, $email, $password)
     {
@@ -223,7 +240,8 @@ class Model
         ]);
         return $cursor;
     }
-    function viewReceipt($conn, $app_id){
+    function viewReceipt($conn, $app_id)
+    {
         $collection = $conn->online_health->appointment;
         $cursor = $collection->findOne([
             'app_id' => $app_id
@@ -266,6 +284,18 @@ class Model
         $cursor = $collection->findOne([
             'app_id' => $app_id
         ]);
+        return $cursor;
+    }
+    function medAssist($conn)
+    {
+        $collection = $conn->online_health->medical_assist;
+        $cursor = $collection->find();
+        return $cursor;
+    }
+    function viewPrescription($conn)
+    {
+        $collection = $conn->online_health->prescription;
+        $cursor = $collection->find();
         return $cursor;
     }
 }

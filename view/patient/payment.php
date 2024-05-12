@@ -15,35 +15,32 @@ include '../../controller/patient/paymentControl.php'
 <body>
 	<form action="" method="POST">
 		<div class="docmain">
-			<table width="100%" class="text" cellpadding="10" align="center" border="1">
+			<table class="customTable">
 
-				<thead>
-					<h3>Due Payments</h3>
+				<tr class="pendingApp">
+					<h3 style="color:orange">Due Payments</h3>
 					<th>ID</th>
 					<th>Doctor's Name</th>
 					<th>Speciality</th>
 					<th>Time</th>
 					<th>Pay</th>
-				</thead>
-				<tbody>
-					<?php foreach ($dueApp as $appointment) : ?>
-						<tr>
-							<td><?php echo $appointment['app_id'] ?></td>
-							<td><?php echo $appointment['d_name']; ?></td>
-							<td><?php echo $appointment['d_cat']; ?></td>
-							<td><?php echo $appointment['stime']; ?></td>
-							<td><button type="submit" name="pay" value="<?php echo $appointment['app_id'] ?>">Pay</button></td>
+				</tr>
+				<?php foreach ($dueApp as $appointment) : ?>
+					<tr>
+						<td><?php echo $appointment['app_id'] ?></td>
+						<td><?php echo $appointment['d_name']; ?></td>
+						<td><?php echo $appointment['d_cat']; ?></td>
+						<td><?php echo $appointment['stime']; ?></td>
+						<td><button type="submit" name="pay" value="<?php echo $appointment['app_id'] ?>" class="penButton">Pay</button></td>
 
-						<?php endforeach; ?>
-						</tr>
+					<?php endforeach; ?>
+					</tr>
 
-				</tbody>
-				
 			</table>
 			<br>
-			<table width="100%" border="1" class="text" cellpadding="10" align="center">
-				<tr>
-					<h3>Paid</h3>
+			<table class="customTable">
+				<tr class="approvedApp">
+					<h3 style="color:green">Paid</h3>
 					<th>ID</th>
 					<th>Doctor's Name</th>
 					<th>Speciality</th>

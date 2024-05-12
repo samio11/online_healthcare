@@ -1,10 +1,10 @@
-<?php include "../../controller/patient/doctorListControl.php";
- include "homepage.php"  ?>
+<?php include "../../controller/patient/medAssistListControl.php";
+include "homepage.php"  ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Doctor's List</title>
+    <title>Medical Assistants</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/patient_myscript.js"></script>
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
@@ -12,22 +12,19 @@
 
 
 <body class="body">
-    
-<br>
+
+    <br>
     <div class="docmain">
-        <h1 style="color:#5b9aff">Doctor's List</h1>
-        <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
-
+        <h1 style="color:#5b9aff">Medical Assistants</h1>
         <table class="customTable">
-
             <thead class="doctor">
                 <th>Name</th>
-                <th>Speciality</th>
                 <th>Gender</th>
-                <th>Workplace</th>
-                <th>Action</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
             </thead>
-            <tbody id="searchresult">
+            <tbody id="">
                 <?php echo $str ?>
             </tbody>
         </table>
