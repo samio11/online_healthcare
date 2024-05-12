@@ -60,32 +60,13 @@ if ($appointments) {
     $appointmentData = []; }
 
 
-  $approved = $mydb->approvedApp($conObj, $_SESSION['d_id']);
-  $approvedData = []; 
+    if(isset($_REQUEST['set_time'])){
+        header("Location: ../../view/doctor/approve_app.php");
     
-    if ($approved) {
-        foreach ($approved as $approve) {
-            $approvedData[] = [
-                'app_id' => $approve['app_id'],
-                'p_id' => $approve['p_id'],
-                'p_name' => $approve['p_name'],
-                'p_gender' => $approve['p_gender'],
-                'stime' => $approve['stime'],
-                'note' => $approve['note']
-            ];
-        }
-    } else {
-        $approvedData = []; }
+     
+    }
 
 
-
-
-
-if(isset($_REQUEST['set_time'])){
-    header("Location: ../../view/doctor/approve_app.php");
-
- 
-}
 
 if(isset($_REQUEST['decline'])){
   
@@ -115,7 +96,7 @@ if(isset($_POST['input'])){
        $str = $str . "<td>". $document['p_gender']. "</td>";
        $str = $str . "<td>". $document['time']. "</td>";
        $str = $str .  "<td>". $document['note']. "</td>";
-       $str = $str . "<td><button type='submit' onclick='demo(this.id)'  >Set Time</button>
+       $str = $str . "<td><button type='submit'  >Set Time</button>
        <button type='submit' id='".$document['app_id']."' onclick='demo(this.id)' >Decline</button></td>
       </tr>";
      
@@ -126,7 +107,23 @@ if(isset($_POST['input'])){
 
 
 
-
+ /* $approved = $mydb->approvedApp($conObj, $_SESSION['d_id']);
+  $approvedData = []; 
+    
+    if ($approved) {
+        foreach ($approved as $approve) {
+            $approvedData[] = [
+                'app_id' => $approve['app_id'],
+                'p_id' => $approve['p_id'],
+                'p_name' => $approve['p_name'],
+                'p_gender' => $approve['p_gender'],
+                'stime' => $approve['stime'],
+                'note' => $approve['note']
+            ];
+        }
+    } else {
+        $approvedData = []; }
+*/
 
 
 

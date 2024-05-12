@@ -98,6 +98,9 @@ if(isset($_REQUEST['updateProfile'])){
       if(isset($_REQUEST['list'])){
         header("Location: ../../view/doctor/app.php");
       }
+      if(isset($_REQUEST['approved'])){
+        header("Location: ../../view/doctor/approveList.php");
+      }
       if(isset($_REQUEST['assist'])){
         header("Location: ../../view/doctor/assistantList.php");
       }

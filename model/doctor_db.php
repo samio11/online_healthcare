@@ -118,7 +118,7 @@ class Model
           $cursor = $collection->find([
               '$or' => [
                   ["app_id" => new Regex($input, "i")],
-                  ["p_id" => new Regex($input, "i")],
+                 // ["p_id" => new Regex($input, "i")],
                   ["p_name" => new Regex($input, "i")],
                  // ['status' => new Regex('pending')],
                   ['status'=> 'pending']

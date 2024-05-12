@@ -35,7 +35,7 @@ include '../../controller/doctor/chatSessionControl.php';
       
         <tbody id="searchresult">
            <?php echo $str ?>
-           </tbody> 
+        </tbody> 
 
         <?php foreach ($appointmentData as $appointment): ?>
         <tr>
@@ -57,34 +57,7 @@ include '../../controller/doctor/chatSessionControl.php';
     </table>
 
 
-    <h1>Appointment Approved List</h1>
-    <table border="1">
-        <tr>
-            <th>Appointment Id</th>
-            <th>Patient Id</th>
-            <th>Patient Name</th>
-            <th>Patient Gender</th>
-            <th>Appointed Time </th>
-            <th>Patient Note</th>
-
-           
-        </tr>
-        
-        <?php foreach ($approvedData as $approve): ?>
-        <tr>
-            <td><?php echo $approve['app_id']; ?></td>
-            <td><?php echo $approve['p_id']; ?></td>
-            <td><?php echo $approve['p_name']; ?></td>
-            <td><?php echo $approve['p_gender']; ?></td>
-            <td><?php echo $approve['stime']; ?></td>
-            <td><?php echo $approve['note']; ?></td>
-            <td><button type="submit" name="message" value="<?php echo $approve['app_id'] ?>">Message</button></td>
-            
-             
-           
-      </tr>
-        <?php endforeach; ?>
-    </table>    
+  
 
 </form>
    
