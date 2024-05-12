@@ -29,7 +29,7 @@ if(!empty($_FILES['uploadphoto']['name']))
     move_uploaded_file($_FILES['uploadphoto']['tmp_name'],$photo);
 }
 else{
- echo"Enter your photo!";
+ echo"";
 }
 
 if($hasError==1)

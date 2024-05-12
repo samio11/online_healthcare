@@ -3,10 +3,15 @@
 include '../../controller/doctor/updatecontrol.php';
 //session_start(); 
 ?>
-
+<head>
+   
+   
+    <link rel="stylesheet" href="../../css/doctor/style.css">
+</head>
 <html>
     <body>
-        <h2>Update Profile Information</h2>
+        <h1>Update Profile Information</h1>
+        <div class="main">
         <form method="POST" action=''>
             <table>
                 <tr>
@@ -27,6 +32,7 @@ include '../../controller/doctor/updatecontrol.php';
                 </tr>
             </table>
         </form>
+        </div>
     </body>
 </html>
 

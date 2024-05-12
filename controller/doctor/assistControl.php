@@ -43,7 +43,11 @@ if ($assist) {
         }
       echo $str;  
     }
- 
+    if(isset($_POST['doc'])){
+
+        header("Location: ../../view/doctor/document.php");
+
+    }
 
 
 

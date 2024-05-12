@@ -61,6 +61,7 @@ body {
 
 h1 {
     color: #5b9aff;
+   
 }
 
 label {
@@ -83,9 +84,27 @@ input {
     border: 1px solid #ddd;
     border-radius: 5px;
    
+   
 }
 
+button#uploadbutton, 
+button#remove {
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Space between buttons */
+    font-size: 14px; /* Adjust font size as needed */
+}
+button#uploadbutton:hover, 
+button#remove:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 button {
+   
     padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
@@ -103,11 +122,33 @@ button {
     justify-content: center;
     align-items: center;
 }
+input[type="submit"] {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #5b9aff;
+    width: 100%;
+    font-size: 16px;
+}
+
 input[type="submit"]:hover {
     background-color: #0056b3;
+
 }
 
 
 button[type="submit"]:hover {
     background-color: #0056b3;
+}
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
