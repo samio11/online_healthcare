@@ -21,6 +21,9 @@ if (isset($_REQUEST['appointment'])) {
 if (isset($_REQUEST['assistant'])) {
   header("Location: ../../view/patient/medAssistList.php");
 }
+if (isset($_REQUEST['prescription'])) {
+  header("Location: ../../view/patient/prescription.php");
+}
 if (isset($_REQUEST['billing'])) {
   header("Location: ../../view/patient/payment.php");
 }

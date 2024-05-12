@@ -292,4 +292,10 @@ class Model
         $cursor = $collection->find();
         return $cursor;
     }
+    function viewPrescription($conn)
+    {
+        $collection = $conn->online_health->prescription;
+        $cursor = $collection->find();
+        return $cursor;
+    }
 }
