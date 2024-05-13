@@ -20,9 +20,12 @@ include '../../controller/doctor/chatSessionControl.php';
 <form method="POST" action="" >
 
 
+<div class="header">
+<h1>Approved Appointment List</h1>
+       <a href="homepage.php">Back to dashboard</a>
+    </div>
 
-
-    <h1>Appointment Approved List</h1>
+   
     <table border="1">
     <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
         <tr>
