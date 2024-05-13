@@ -294,8 +294,10 @@ class Model
     }
     function viewPrescription($conn)
     {
-        $collection = $conn->online_health->prescription;
-        $cursor = $collection->find();
+        $collection = $conn->online_health->doctor_prescribed;
+        $cursor = $collection->find([
+            'status' => 'ready'
+        ]);
         return $cursor;
     }
     function cancelApp($conn, $appid)
