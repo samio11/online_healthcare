@@ -8,12 +8,14 @@
 
 <body>
 
-    <div class="header">
+<div class="header">
         <a href="index.php" class="logo"><img src="../upload/logo.png" alt="HTML tutorial" style="width:60px;height:60px;"></a>
         <a href="#default" class="logo">Online Healthcare</a>
 
         <div class="header-right">
-            <a href="index.php">Home</a>
+            <a  href="index.php">Home</a>
+            <a href="findDoctors.php">Find Doctors</a>
+            <a href="http://localhost/online_healthcare/view/patient/login.php">Need Appoitment?</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
@@ -21,10 +23,10 @@
                 <div class="dropdown-content">
                     <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
                     <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
-                    <a href="#">Medical <br>Assistant</a>
+                    <a href="http://localhost/online_healthcare/view/medical_assist/login.php">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="findDoctors.php">Find Doctors</a>
+
 
         </div>
 

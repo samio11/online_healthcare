@@ -14,6 +14,8 @@
 
         <div class="header-right">
             <a class="active" href="index.php">Home</a>
+            <a href="findDoctors.php">Find Doctors</a>
+            <a href="http://localhost/online_healthcare/view/patient/login.php">Need Appoitment?</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
@@ -21,10 +23,10 @@
                 <div class="dropdown-content">
                     <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
                     <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
-                    <a href="#">Medical <br>Assistant</a>
+                    <a href="http://localhost/online_healthcare/view/medical_assist/login.php">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="findDoctors.php">Find Doctors</a>
+
 
         </div>
 
@@ -88,23 +90,24 @@
                 setTimeout(showSlides, 3000); // Change image every 2 seconds
             }
         </script>
+
     </div>
 
-    <body>
-        <a href="http://localhost/online_healthcare/view/patient/login.php">Need Appoitment?</a>
-    </body>
+</body>
 
 
 
 
 
 
-    <footer class="footer">
-        <div class="">
-            <a href="about_us.php">About Us</a>
-            <a href="contact.php">Contact Us</a>
-        </div>
-    </footer>
+
+
+<footer class="footer">
+    <div class="">
+        <a href="about_us.php">About Us</a>
+        <a href="contact.php">Contact Us</a>
+    </div>
+</footer>
 
 
 </html>
