@@ -19,8 +19,8 @@ table {
 }
 
 .header a {
-    color: blue; /* Link color */
-    text-decoration: none; /* Remove underline from links */
+    color: blue; 
+    text-decoration: none; 
 }
 /*h1 {
     color: #5b9aff;
@@ -32,18 +32,18 @@ table td {
     border-bottom: 1px solid #ddd;
 }
 
-/* Style for table headers */
+
 table th {
     background-color: #5b9aff;
     font-weight: bold;
 }
 
-/* Style for table cells */
+
 table td {
     text-align: center;
 }
 
-/* Style for buttons */
+
 button {
     padding: 10px 10px;
     background-color: #007bff;

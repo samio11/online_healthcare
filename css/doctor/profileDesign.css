@@ -89,7 +89,7 @@ body {
     padding: 20px;*/
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Change from align-items: flex-start; to align-items: center; */
+    align-items: center; 
     padding: 20px;
 }
 

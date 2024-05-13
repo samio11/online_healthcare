@@ -1,17 +1,17 @@
-/* Style for the main container */
+
 .main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Style for the headings */
+
 h1, h2 {
     color: #333;
     font-family: Arial, sans-serif;
 }
 
-/* Style for the upload section */
+
 .upload-section {
     margin-top: 20px;
     float:left;
@@ -21,7 +21,7 @@ h1, h2 {
     float:right;
 }
 
-/* Style for form elements */
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -52,7 +52,7 @@ button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-/* Style for the document list */
+
 
 
 ul {

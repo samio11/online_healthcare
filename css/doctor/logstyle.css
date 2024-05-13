@@ -17,12 +17,12 @@ form {
 input[type="email"],
 input[type="password"],
 input[type="submit"] {
-    width: calc(100% - 22px); /* Adjusted width to account for padding and border */
+    width: calc(100% - 22px);
    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in the total width */
+    box-sizing: border-box; 
 }
 
 .error {
