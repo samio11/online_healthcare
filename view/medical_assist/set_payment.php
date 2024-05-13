@@ -19,6 +19,7 @@ include '../../controller/medical_assist/set_paymentcontrol.php';
         <tr>
                 <td>Amount:</td>
                 <td><input type="text" id="amount" name="amount" />
+                <?php echo $amount; ?>
                 </td>
             </tr>
         <tr>

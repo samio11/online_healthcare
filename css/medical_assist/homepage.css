@@ -6,7 +6,11 @@
     margin: 0;
     padding: 0;
 }
-
+h1 {
+    text-align: center;
+    color: rgb(58, 48, 130);
+    margin-top: 20px; 
+}
 
 .homemain {
     margin: 20px auto;

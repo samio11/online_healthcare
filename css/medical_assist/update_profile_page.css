@@ -7,8 +7,10 @@ body {
     background-color: #f2f2f2;
 }
 
-h2 {
+h1 {
     text-align: center;
+    color: rgb(58, 48, 130);
+    margin-top: 20px; 
 }
 
 table {
