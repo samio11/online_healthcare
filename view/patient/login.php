@@ -1,7 +1,6 @@
 <?php include '../../controller/patient/loginControl.php'; ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Patient Portal Login</title>
     <link rel="stylesheet" href="../../css/patient/myStyle.css">
@@ -18,6 +17,7 @@
             <label for="password"> Password: </label>
             <input type="password" id="password" name="password" placeholder="Enter your Password" required>
             <div class="wrap"> <button type="submit" name="login" id="login">Login</button></div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
         </form>
         <a href="forgetPassword.php" style="text-decoration: none;"> Forgot password? </a>
         <p>Not registered?<a href="PatientReg.php" style="text-decoration: none;"> Create an account </a></p>
