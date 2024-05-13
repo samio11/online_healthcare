@@ -10,12 +10,12 @@
 </head>
 
 <body>
-<div class="header">
-        <a href="index.php" class="logo"><img src="../upload/logo.png" alt="HTML tutorial" style="width:60px;height:60px;"></a>
-        <a href="#default" class="logo">Online Healthcare</a>
+    <div class="header">
+        
+        <a href="index.php" class="logo">Online Healthcare</a>
 
         <div class="header-right">
-            <a  href="index.php">Home</a>
+            <a href="index.php">Home</a>
             <a class="active" href="findDoctors.php">Find Doctors</a>
             <a href="http://localhost/online_healthcare/view/patient/login.php">Need Appoitment?</a>
             <div class="dropdown">
@@ -33,14 +33,14 @@
         </div>
 
     </div>
-        
+
 
     </div>
 
 
     <br>
     <div>
-        <h1 style="color:#5b9aff; text-align :center;">Doctor's List</h1>
+        <h1 style="color:black; text-align :center;">Doctor's List</h1>
 
         <table class="customTable">
 
