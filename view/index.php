@@ -13,47 +13,47 @@
         <a href="#default" class="logo">Online Healthcare</a>
 
         <div class="header-right">
-            <a class="active" href="#home">Home</a>
-            <a href="findDoctors.php">Find Doctors</a>
-            <a href="#contact">Contact</a>
+            <a class="active" href="index.php">Home</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
                 </button>
-
                 <div class="dropdown-content">
                     <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
                     <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
                     <a href="#">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="#about">About</a>
+            <a href="findDoctors.php">Find Doctors</a>
+
         </div>
 
     </div>
+</body>
+<br><br>
 
-    <div style="padding-left:20px">
-        <h2>Automatic Slideshow</h2>
-        <p>Change image every 2 seconds:</p>
+<body>
+    <div style="padding-left:00px">
+
 
         <div class="slideshow-container">
 
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="../upload/logo.png" style="width:500px;height:500px;">
-                <div class="text">Caption Text</div>
+                <img src="../upload/1.jpg">
+
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="../upload/doctorphotohasna@gmail.comdownload.jpg" style="width:500px;height:500px;">
-                <div class="text">Caption Two</div>
+                <img src="../upload/2.jpg">
+
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">3 / 3</div>
-                <img src="../upload/doctorphotohasna@gmail.comdownload.jpg" style="width:500px;height:500px;">
-                <div class="text">Caption Three</div>
+                <img src="../upload/3.jpg">
+
             </div>
 
         </div>
@@ -85,21 +85,26 @@
                 }
                 slides[slideIndex - 1].style.display = "block";
                 dots[slideIndex - 1].className += " active";
-                setTimeout(showSlides, 2000); // Change image every 2 seconds
+                setTimeout(showSlides, 3000); // Change image every 2 seconds
             }
         </script>
     </div>
 
+    <body>
+        <a href="http://localhost/online_healthcare/view/patient/login.php">Need Appoitment?</a>
+    </body>
 
-</body>
 
 
-<footer class="footer">
-    <div class="">
-        <a href="about_us.php">About Us</a>
-        <a href="contact.php">Contact Us</a>
-    </div>
-</footer>
+
+
+
+    <footer class="footer">
+        <div class="">
+            <a href="about_us.php">About Us</a>
+            <a href="contact.php">Contact Us</a>
+        </div>
+    </footer>
 
 
 </html>

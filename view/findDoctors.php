@@ -16,8 +16,6 @@
 
         <div class="header-right">
             <a href="index.php">Home</a>
-            <a class="active" href="findDoctors.php">Find Doctors</a>
-            <a href="#contact">Contact</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
@@ -28,7 +26,8 @@
                     <a href="#">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="#about">About</a>
+            <a href="findDoctors.php" class="active">Find Doctors</a>
+
         </div>
 
     </div>
@@ -37,7 +36,7 @@
     <br>
     <div>
         <h1 style="color:#5b9aff; text-align :center;">Doctor's List</h1>
-        
+
         <table class="customTable">
 
             <thead class="doctor">
@@ -51,7 +50,7 @@
                 <?php echo $str ?>
             </tbody>
         </table>
-        
+
     </div>
 
 
@@ -62,4 +61,5 @@
         <a href="contact.php">Contact Us</a>
     </div>
 </footer>
+
 </html>

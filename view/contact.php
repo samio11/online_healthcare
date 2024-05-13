@@ -6,55 +6,47 @@
     <link rel="stylesheet" href="../css/indexStyle.css">
 </head>
 
-<body >
+<body>
 
     <div class="header">
         <a href="index.php" class="logo"><img src="../upload/logo.png" alt="HTML tutorial" style="width:60px;height:60px;"></a>
         <a href="#default" class="logo">Online Healthcare</a>
 
         <div class="header-right">
-            <a href="#home">Home</a>
-            <a href="#contact">Find Doctors</a>
-            <a href="#contact">Contact</a>
+            <a href="index.php">Home</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
                 </button>
-
                 <div class="dropdown-content">
                     <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
                     <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
                     <a href="#">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="#about">About</a>
+            <a href="findDoctors.php">Find Doctors</a>
+
         </div>
 
     </div>
 </body>
+<br><br>
 
-<body class="contactbody" >
+<body class="contactbody">
 
 
-<h3>Contact Form</h3>
+
     <div class="container">
+        <h3>Contact Form</h3>
         <form action="/action_page.php">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your name..">
-
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-            <label for="country">Country</label>
-            <select id="country" name="country">
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-            </select>
-
-            <label for="subject">Subject</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
+            <label> Full Name</label>
+            <input type="text" id="fname" name="name">
+            <label>Email</label>
+            <input type="text" id="lname" name="lastname">
+            <label>Contact Number</label>
+            <input type="text" id="lname" name="lastname">
+            <label>Your queries</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:150px"></textarea>
             <input type="submit" value="Submit">
         </form>
     </div>
