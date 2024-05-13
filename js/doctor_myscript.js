@@ -54,6 +54,8 @@ function removePicture(email) {
   xhttp.open("GET", "http://localhost/online_healthcare/controller/doctor/removephoto.php?email=" + email, true);
   xhttp.send();
 }
+
+
 function liveSearch(value) {
   $(document).ready(function () {
     var input = value;

@@ -275,48 +275,10 @@ class Model
         return $cursor;
     }
     
-function UploadDocument($conn,$table, $email, $photo, $nid, $medical)
-{
-    $sql= "INSERT INTO $table (email, photo, nid, medical) VALUES ('$email', '$photo', '$nid', '$medical')";
-    $result= $conn->query($sql);
-    return $result;
-}
-
-function appointmentCheck($conn,$table, $name,$age, $gender,$email){
-  $sql="INSERT INTO $table (name,age,gender,email) VALUES 
-  ('$name','$age', '$gender', '$email')";
- $result= $conn->query($sql);
- return $result;
-} 
 
 
-/*function autoIncrement($conn)
-{
-    $collection = $conn->online_health->counter;
-    $cursor = $collection->find();
-    foreach ($cursor as $document) {
-        $count = (int)$document["pres_id"];
-    }
-    $collection->updateOne(
-        ['pres_id' => (string)$count],
-        ['$set' => ["pres_id" => $count + 1]]
-    );
-    return $count + 1;
-}
-function AddDoc($conn, $app_id, $p_id,$prescribed)
-{
-    $count = $this->autoIncrement($conn);
-    $collection = $conn->online_health->doctor_prescribed;
-    $cursor = $collection->insertOne([
-        'pres_id' => (string) $count,
-      
-        "app_id"=>$app_id,
-       
-        "p_id"=>$p_id,
-        "prescribed" => $prescribed,
-    ]);
-    return $cursor->getInsertedCount();
-}*/
+
+
 function AddDoc($conn,$app_id, $p_id,$prescribed,$test){
      
     $collection = $conn->online_health->counter;
@@ -346,6 +308,26 @@ function AddDoc($conn,$app_id, $p_id,$prescribed,$test){
 
 //"INSERT INTO appointment (name, age, gender, email) VALUES ('rahim', 20, 'male', 'rahim@gmail.com')";
 
+
+
+
+
+/*
+
+
+function UploadDocument($conn,$table, $email, $photo, $nid, $medical)
+{
+    $sql= "INSERT INTO $table (email, photo, nid, medical) VALUES ('$email', '$photo', '$nid', '$medical')";
+    $result= $conn->query($sql);
+    return $result;
+}
+
+function appointmentCheck($conn,$table, $name,$age, $gender,$email){
+  $sql="INSERT INTO $table (name,age,gender,email) VALUES 
+  ('$name','$age', '$gender', '$email')";
+ $result= $conn->query($sql);
+ return $result;
+} */
 
 }
 

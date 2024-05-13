@@ -27,7 +27,7 @@ include '../../controller/doctor/chatSessionControl.php';
 
    
     <table border="1">
-    <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
+    <input type="text" id="live_search" placeholder="Search here" onkeyup="SearchApproveList(this.value)">
         <tr>
             <th>Appointment Id</th>
             <th>Patient Id</th>
