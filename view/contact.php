@@ -13,30 +13,48 @@
         <a href="#default" class="logo">Online Healthcare</a>
 
         <div class="header-right">
-            <a  href="#home">Home</a>
-            <a href="#contact">Find Doctors</a>
-            <a href="#contact">Contact</a>
+            <a href="index.php">Home</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
                     <i class="fa fa-caret-down"></i>
                 </button>
-
                 <div class="dropdown-content">
                     <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
                     <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
                     <a href="#">Medical <br>Assistant</a>
                 </div>
             </div>
-            <a href="#about">About</a>
+            <a href="findDoctors.php">Find Doctors</a>
+
         </div>
-        
+
     </div>
-    <p>hello</p>
+</body>
+<br><br>
+
+<body class="contactbody">
+
+
+
+    <div class="container">
+        <h3>Contact Form</h3>
+        <form action="/action_page.php">
+            <label> Full Name</label>
+            <input type="text" id="fname" name="name">
+            <label>Email</label>
+            <input type="text" id="lname" name="lastname">
+            <label>Contact Number</label>
+            <input type="text" id="lname" name="lastname">
+            <label>Your queries</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:150px"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 <footer class="footer">
     <div class="">
         <a href="about_us.php">About Us</a>
-        <a  class="active" href="contact.php">Contact Us</a>
+        <a class="active" href="contact.php">Contact Us</a>
     </div>
 </footer>
 
