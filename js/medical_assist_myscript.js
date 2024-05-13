@@ -2,34 +2,35 @@
 function validateForm() {
     var name = document.getElementById("Name").value;
     if (name == "") {
-        document.getElementById("nameError").innerHTML = "Name must be filled";
+        document.getElementById("nameError").innerHTML = "Name should be atleast 4 characters";
         return false;
 
     }
     var phone = document.getElementById("Phone").value;
     if (isNaN(phone)) {
-        document.getElementById("phoneError").innerHTML = "Phone number must be filled";
+        document.getElementById("phoneError").innerHTML = "Phone Number invalid";
         return false;
 
     }
 
     var gender = document.getElementById("Gender").value;
     if (!gender) {
-        document.getElementById("genderError").innerHTML = "Gender must be selected";
+        document.getElementById("genderError").innerHTML = "Select gender";
         return false;
     }
 
     var dob = document.getElementById("dob").value;
     if (!dob) {
-        document.getElementById("dobError").innerHTML = "Date of Birth must be selected";
+        document.getElementById("dobError").innerHTML = "Select Date of Birth";
         return false;
     }
-    var postal = document.getElementById("license").value;
+    var license = document.getElementById("license").value;
     if (license == "") {
-        document.getElementById("licenseError").innerHTML = "License must be included";
+        document.getElementById("licenseError").innerHTML = "Enter a License address";
         return false;
-    }
-  }
+    
+  } 
+}
     function validateEmail(){
         var email = document.getElementById('submit_email').value;
         var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

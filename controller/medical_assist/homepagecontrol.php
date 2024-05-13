@@ -21,9 +21,7 @@ if(isset($_REQUEST['view_presc'])){
 if(isset($_REQUEST['view_pat_info'])){
     header("Location: ../../view/medical_assist/view_patientInfo.php");
 }
-if(isset($_REQUEST['delete_presc'])){
-    header("Location: ../../view/medical_assist/login.php");
-}
+
 if(isset($_REQUEST['logout'])){
     header("Location: ../../view/medical_assist/login.php");
 }

@@ -5,7 +5,7 @@ include '../../controller/medical_assist/update_prescontrol.php';
 <html lang="en">
 
 <head>
-    <title>Update Prescription</title>
+    <title>Prescription</title>
     <link rel="stylesheet" href="../../css/medical_assist/prescription_page.css">
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script src="../../js/medical_assist_myscript.js"></script>
@@ -18,7 +18,7 @@ include '../../controller/medical_assist/update_prescontrol.php';
     <div class="main">
         <div id="receipt">
             <form method="POST" action="">
-                <h1 style=" color: rgb(58, 48, 130);">Update Prescription</h1>
+                <h1 style=" color: rgb(58, 48, 130);">Prescription</h1>
 
                 <table>
                     <tr>
