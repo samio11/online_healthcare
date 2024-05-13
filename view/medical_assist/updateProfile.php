@@ -5,7 +5,7 @@ include '../../controller/medical_assist/updatecontrol.php';
 <html>
     <body>
         <link rel="stylesheet" href="../../css/medical_assist/update_profile_page.css">
-        <h2>Profile Update</h2>
+        <h1>Profile Update</h1>
         <form method="POST" action=''>
             <table>
                 <tr>

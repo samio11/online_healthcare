@@ -98,25 +98,25 @@ class Model
       return $cursor->getModifiedCount();
   }
 
-  function UploadPic($conn, $email, $profilePic){
+  function UploadPic($conn, $email, $photo){
         
 
     $collection = $conn->online_health->medical_assist;
     $cursor = $collection->updateOne([
         'email' => $email],
         
-        ['$set' => ['profilePic' => $profilePic]]
+        ['$set' => ['photo' => $photo]]
     );
     return $cursor;
 }
-  function removePicture($conn, $email){
-      $collection = $conn->online_health->medical_assist;
-      $cursor = $collection->updateOne([
-          'email' => $email],
-          ['$set' => ['profilePic' => ""]]
-      );
-      return $cursor;
-  }
+function removePicture($conn, $email){
+    $collection = $conn->online_health->medical_assist;
+    $cursor = $collection->updateOne([
+        'email' => $email],
+        ['$set' => ['photo' => ""]]
+    );
+    return $cursor;
+}
   
 function View_appointments($conn) {
   $collection = $conn->online_health->appointment;
@@ -147,7 +147,8 @@ function updatePresc($conn,$pres_id,$app_id,$p_id,$p_name,$p_email,$p_gender, $h
                        'dia'=> $dia,
                        'appdate'=> $appdate,
                        'stime'=> $stime,
-                       'd_name'=> $d_name
+                       'd_name'=> $d_name,
+                       'status'=> 'ready'
                      ]]
       );
       return $cursor;
@@ -174,15 +175,7 @@ function updatePresc($conn,$pres_id,$app_id,$p_id,$p_name,$p_email,$p_gender, $h
         ]);
         return $cursor;
     }
-    /*function doctor($conn, $d_id)
-    {
-        $collection = $conn->online_health->doctor;
-        $cursor = $collection->findOne([
-            'd_id' => $d_id,
-        ]);
-        return $cursor;
-    }
-    */
+
     function prescription_List($conn)
     {
         $collection = $conn->online_health->doctor_prescribed;
@@ -233,6 +226,14 @@ function liveSearch2($conn, $input)
         ]);
         return $cursor;
     }
+
+    function ViewAppo($conn, $app_id){
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->findOne([
+            'app_id' => $app_id,
+        ]);
+        return $cursor;
+    } 
     function updateAppointment($conn, $app_id,$amount)
     {
         $collection = $conn->online_health->appointment;
@@ -242,7 +243,7 @@ function liveSearch2($conn, $input)
             ],
             ['$set' => ['amount' => $amount]]
         );
-        return $cursor->getModifiedCount();
+        return $cursor;
     }
     function patList($conn)
     {

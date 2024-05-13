@@ -8,10 +8,11 @@ include '../../controller/medical_assist/appoin_Listcontrol.php';
     <link rel="stylesheet" href="../../css/medical_assist/appoin_page.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments:</title>
+    <title>Appointments</title>
 </head>
 
 <body>
+<h1 style=" color: rgb(58, 48, 130);">Appointments</h1>
     <form action="" method="post">
         <input type="text" name="search" placeholder="Search...">
         <input type="submit" value="Search">

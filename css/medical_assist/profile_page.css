@@ -9,7 +9,11 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
-
+h1 {
+    text-align: center;
+    color: rgb(58, 48, 130);
+    margin-top: 20px; 
+}
 td {
     padding: 10px;
     border-bottom: 1px solid #ccc;
@@ -27,7 +31,7 @@ input[type="file"] {
 button {
     padding: 10px 20px;
     margin-right: 10px;
-    background-color: #007bff;
+    background-color: #4472a4;
     color: #fff;
     border: none;
     border-radius: 5px;

@@ -1,70 +1,83 @@
 <style>
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-.docmain {
-    background-color: #fff;
-    width: 60%;
-    margin: 20px auto;
+.main {
+    max-width: 600px;
+    width: 100%;
     padding: 20px;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
 }
 
 
 h1 {
-    text-align: left;
+    text-align: center;
     color: rgb(58, 48, 130);
-    margin-top: 20px; 
 }
 
-
 table {
-    width: 60%;
-    margin: 0 auto; 
+    width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 
-td {
-    padding: 10px;
-    border: 1px solid #ccc;
+table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
 }
 
+table td:first-child {
+    width: 30%;
+    font-weight: bold;
+}
 
 input[type="text"],
-input[type="date"],
 select {
-    width: 100%;
-    padding: 8px;
+    width: calc(100% - 20px);
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
+.wrap {
+    text-align: center;
+    margin-top: 20px;
+}
 
+button,
 input[type="submit"] {
-    padding: 10px;
-    background-color: rgb(58, 48, 130);
-    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
     border: none;
     border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
     cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
+button:hover,
 input[type="submit"]:hover {
-    background-color: #444;
+    background-color: #45a049;
 }
-
-
-.error {
-    color: red;
-}
-
 
 
 </style>

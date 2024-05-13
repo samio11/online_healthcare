@@ -39,11 +39,12 @@ function validateForm() {
         }
       }
 
-function openDiag(){
+      function openDiag(){
         document.getElementById('uploadphoto').click();
       }
      
- function removePicture(email) {
+     
+    function removePicture(email) {
       const xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
           if (this.readyState === 4 && this.status === 200) {
@@ -119,6 +120,13 @@ function liveSearch3(value) {
             }
           });
         });
+       
+      }
+      function downloadPrescription(){
+        const element = document.getElementById('receipt');
+      
+        html2pdf().from(element).save();
+      
       }
 
 
