@@ -8,7 +8,7 @@ include '../../controller/doctor/fileControl.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Document Section</title>
-    <!-- Link to your CSS file -->
+   
     <link rel="stylesheet" href="../../css/doctor/uploadDoc.css">
 </head>
 <body>
@@ -17,7 +17,7 @@ include '../../controller/doctor/fileControl.php';
             <td>
             <h1 >Doctor Document Section</h1>
      
-        <!-- Form to upload a new document -->
+     
         <form action="doctor_files.php" method="post" enctype="multipart/form-data">
        
         <div class="upload-section">
@@ -34,7 +34,7 @@ include '../../controller/doctor/fileControl.php';
             <td>
      <div class="main">
        
-       <!-- Display the list of uploaded documents -->
+    
      
        <div class="document-list">
            <h2>Uploaded Documents</h2>
