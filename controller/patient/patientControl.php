@@ -1,5 +1,9 @@
 <?php
 include '../../model/patient_db.php';
+if (!isset($_COOKIE['first_visit'])) {
+    setcookie('first_visit', 'welcome', time() + 1800);
+    echo "<script>alert('PLEASE PROVIDE YOUR INFOMRATION CORRECTLY!')</script>";
+}
 $name = $email = $phone  = $dob = $password = $address = $city = $postal = "";
 $nameError = $emailError = $phoneError = $dobError = $passwordError = $hasError = "";
 if (isset($_REQUEST['login'])) {

@@ -24,8 +24,9 @@ include '../../controller/medical_assist/homepagecontrol.php';
                 <td><button type="submit" name="appoinList" id="appoinList">View Appointments</button></td>
                 <td><button type="submit" name="billing" id="billing">Create Billing</button></td>
                 <td><button type="submit" name="view_presc" id="view_presc">View Prescriptions</button></td>
-                <td><button type="submit" name="view_pat_info" id="view_pat_info">View Patient Info</button></td>
-                <td><button type="submit" name="delete_presc" id="delete_presc">Delete Prescription</button></td>
+                <td><button type="submit" name="view_pat_info" id="view_pat_info">View P.Info</button></td>
+                <td><button type="submit" name="upload_presc" id="upload_presc">Upload Prescription</button></td>
+                
             </tr>
             </form>
         

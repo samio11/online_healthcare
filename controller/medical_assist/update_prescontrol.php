@@ -22,18 +22,7 @@ if (isset($_REQUEST['return'])) {
 }
 
 if (isset($_REQUEST['submitPrescription'])) {
-    /*
-        $p_name = $_REQUEST['p_name'];
-        $p_email= $_REQUEST['p_email'];
-        $p_gender = $_REQUEST['p_gender'];
-        $height= $_REQUEST['height'];
-        $weight= $_REQUEST['weight'];
-        $bg= $_REQUEST['bg'];
-        $dia= $_REQUEST['dia'];
-        $appdate= $_REQUEST['appdate'];
-        $stime= $_REQUEST['stime'];
-        $d_name= $_REQUEST['d_name'];
-    */
+   
 
     if (!empty($_REQUEST["patientName"])) {
         $p_name = $_REQUEST['patientName'];

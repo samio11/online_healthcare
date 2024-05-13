@@ -11,7 +11,11 @@ table {
     border-collapse: collapse;
     width: 90%;
 }
-
+h1 {
+    text-align: center;
+    color: rgb(58, 48, 130);
+    margin-top: 20px; 
+}
 table th,
 table td {
     padding: 10px;

@@ -1,7 +1,14 @@
 <?php
 include '../../model/patient_db.php';
 //session_start();
-
+if (isset($_REQUEST['cancel'])) {
+    $mydb = new Model();
+    $conObj = $mydb->OpenCon();
+    $result = $mydb->cancelApp($conObj, $_REQUEST['cancel']);
+    if ($result) {
+        header("Location: viewAppointment.php");
+    }
+}
 $pid = $_SESSION['p_id'];
 $astr = $pstr = $dstr = '';
 $mydb = new Model();
