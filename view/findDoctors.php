@@ -37,8 +37,7 @@
     <br>
     <div>
         <h1 style="color:#5b9aff; text-align :center;">Doctor's List</h1>
-
-
+        
         <table class="customTable">
 
             <thead class="doctor">
