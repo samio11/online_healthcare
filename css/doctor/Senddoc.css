@@ -12,8 +12,13 @@ body {
 
 
 
-h1 {
-    color: #5b9aff;
+.header h1 {
+    margin: 0; /* Remove default margin for h1 */
+    text-align: center;
+}
+.header a {
+    color: blue; /* Link color */
+    text-decoration: none; /* Remove underline from links */
 }
 
 label {
