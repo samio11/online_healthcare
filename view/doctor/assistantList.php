@@ -13,11 +13,19 @@ include '../../controller/doctor/assistControl.php';
     <script type="text/javascript" src="../../js/doctor_myscript.js"></script>
 </head>
 <body>
+
+
+
+
+
 <div class="wrap">
 
 <form method="POST" action="" >
+<div class="header">
+    <h2 >Assistant List</h2>
+       <a href="homepage.php">Back to dashboard</a>
+    </div>
 
-<h2 >Assistant List</h2>
 <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearchAssist(this.value)">
     <table border="1">
         <tr>

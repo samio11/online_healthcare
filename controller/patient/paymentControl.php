@@ -17,7 +17,7 @@ if (isset($_REQUEST['pay'])) {
     $post_data = array();
     $post_data['store_id'] = "onlin663c67129cd1e";
     $post_data['store_passwd'] = "onlin663c67129cd1e@ssl";
-    $post_data['total_amount'] = "40000";
+    $post_data['total_amount'] = $app_result['amount'];
     $post_data['currency'] = "BDT";
     $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
     $post_data['success_url'] = "http://localhost/online_healthcare/view/patient/receipt.php";
