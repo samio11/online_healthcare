@@ -33,9 +33,6 @@ include '../../controller/doctor/fileControl.php';
             <br>
             <td>
      <div class="main">
-       
-    
-     
        <div class="document-list">
            <h2>Uploaded Documents</h2>
            <ul>
