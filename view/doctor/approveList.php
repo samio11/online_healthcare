@@ -24,6 +24,7 @@ include '../../controller/doctor/chatSessionControl.php';
 
     <h1>Appointment Approved List</h1>
     <table border="1">
+    <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
         <tr>
             <th>Appointment Id</th>
             <th>Patient Id</th>
@@ -34,6 +35,9 @@ include '../../controller/doctor/chatSessionControl.php';
 
            
         </tr>
+        <tbody id="searchresult">
+           <?php echo $str ?>
+        </tbody> 
         
         <?php foreach ($approvedData as $approve): ?>
         <tr>

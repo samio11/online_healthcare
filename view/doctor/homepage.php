@@ -68,27 +68,27 @@ include '../../controller/doctor/homevalidation.php';
         </tr>
         
         <tr>
-            <td>cat:</td>
+            <td>Category:</td>
             <td><?php echo $result['cat']; ?></td>
         </tr>
        
         <tr>
-            <td>pnumber:</td>
+            <td>Phone Number:</td>
             <td><?php echo $result['pnumber']; ?></td>
         </tr>
        
         <tr>
-            <td>lnumber:</td>
+            <td>Licence Number:</td>
             <td><?php echo $result['lnumber']; ?></td>
         </tr>
        
         <tr>
-            <td>place:</td>
+            <td>working Place :</td>
             <td><?php echo $result['place']; ?></td>
         </tr>
        
         <tr>
-            <td>pass:</td>
+            <td>Password:</td>
             <td><?php echo $result['pass']; ?></td>
         </tr>
        

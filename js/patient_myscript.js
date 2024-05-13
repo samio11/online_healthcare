@@ -104,6 +104,7 @@ function donwloadReceipt() {
 }
 function chat(app_id) {
   var clientmsg = $("#usermsg").val();
+  $("#usermsg").val("");
   $.post("../../controller/patient/chatroomControl.php", { text: clientmsg, room: app_id },
     function (data, status) {
       document.getElementsByClassName('anyclass')[0].innerHTML = data;
@@ -117,9 +118,8 @@ function runFunction(app_id) {
       document.getElementsByClassName('anyclass')[0].innerHTML = data;
     }
   )
-}
-function regConfrim(){
-  
+  var objDiv = document.getElementById("anyclass");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
 /*
 function loadDoc() {

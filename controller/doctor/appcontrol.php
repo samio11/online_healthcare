@@ -74,7 +74,7 @@ if(isset($_REQUEST['decline'])){
     $mydb = new Model();
     $conObj = $mydb->OpenCon();
   
-    $declined = $mydb->declineApp($conObj, $_REQUEST['decline']);
+    $declined = $mydb->declineApp($conObj, $_SESSION['d_id'], $_REQUEST['decline']);
     header("Location: ../../view/doctor/app.php");
 
 

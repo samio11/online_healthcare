@@ -130,11 +130,6 @@ button {
     display: block;
 }
 
-.errorHolder {
-    input::placeholder {
-        color: #ff0000;
-    }
-}
 
 .customTable {
     font-family: Arial, Helvetica, sans-serif;
