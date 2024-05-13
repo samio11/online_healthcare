@@ -68,7 +68,8 @@ function openDiag(){
           });
         });
       }
-      function liveSearch1(value) {
+
+ function liveSearch1(value) {
         $(document).ready(function () {
           var input = value;
       
@@ -82,8 +83,42 @@ function openDiag(){
           });
         });
       }
+function demo1(pres_id) {
+        document.location.href = 'prescription.php?pres_id=' + pres_id;
+      }
 
 
+function liveSearch2(value) {
+        $(document).ready(function () {
+          var input = value;
+      
+          $.ajax({
+            url: "http://localhost/online_healthcare/controller/medical_assist/billingcontrol.php",
+            method: "POST",
+            data: { input: input },
+            success: function (data) {
+              $("#searchresult").html(data);
+            }
+          });
+        });
+      }
+function demo(app_id) {
+        document.location.href = 'set_payment.php?app_id=' + app_id;
+      }
 
+function liveSearch3(value) {
+        $(document).ready(function () {
+          var input = value;
+      
+          $.ajax({
+            url: "http://localhost/online_healthcare/controller/medical_assist/pat_infocontrol.php",
+            method: "POST",
+            data: { input: input },
+            success: function (data) {
+              $("#searchresult").html(data);
+            }
+          });
+        });
+      }
 
 

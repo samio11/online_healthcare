@@ -1,5 +1,6 @@
 <?php
-include '../model/db.php';
+include '../../model/doctor_db.php';
+/*include '../model/db.php';
 include '../form_code/document.php';
 session_start();
 $hasError = "";
@@ -36,5 +37,21 @@ if(isset($_REQUEST['cancel'])){
       else{
         echo "Error Occurred".$conobj->error;
     }
-}
+}*/
+
+if(isset($_REQUEST['submit'])){
+    $mydb = new Model();
+    $conObj = $mydb->OpenCon();
+    $Result = $mydb->AddDoc($conObj,$_REQUEST['app_id'],$_REQUEST['p_id'],$_REQUEST['prescribed'],$_REQUEST['test']);
+    if($Result==1)
+    {
+        echo "submit";
+        header("Location: ../../view/doctor/document.php");
+    }
+    
+    else echo "failed";
+    
+    }
+
+
 ?>

@@ -20,7 +20,7 @@ if($result)
 
 
 if(isset($_REQUEST['cancel'])){
-  header('Location: ../../view/doctor/myprofile.php');
+  header('Location: ../../view/doctor/homepage.php');
 }
 
 if(isset($_REQUEST['confirm'])){
@@ -51,7 +51,7 @@ if ($hasError != 1) {
   } else {
       echo "Error updating profile";
   }
-  header('Location: ../../view/doctor/myprofile.php');
+  header('Location: ../../view/doctor/homepage.php');
   exit; // Stop further execution
 } else {
   echo "Please correct the validation errors.";

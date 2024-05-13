@@ -62,10 +62,11 @@ class Model
         ]);
         return $cursor;
     }
-    function declineApp($conn, $app_id)
+    function declineApp($conn,$d_id, $app_id)
     {
         $collection = $conn->online_health->appointment;
         $cursor=$collection->updateOne([
+            'd_id' => $d_id,
             'app_id' => $app_id],
             ['$set' => ['status'=> 'declined']]);
         return $cursor;
@@ -118,10 +119,10 @@ class Model
           $cursor = $collection->find([
               '$or' => [
                   ["app_id" => new Regex($input, "i")],
-                  ["p_id" => new Regex($input, "i")],
+                 // ["p_id" => new Regex($input, "i")],
                   ["p_name" => new Regex($input, "i")],
                  // ['status' => new Regex('pending')],
-                  ['status'=> 'pending']
+                 
               ]
           ]);
           return $cursor;
@@ -138,6 +139,20 @@ class Model
           ]);
           return $cursor;
       }
+
+      function SearchApproveList($conn, $input)
+      {
+          $collection = $conn->online_health->appointment;
+          $cursor = $collection->find([
+              '$or' => [
+                  ["app_id" => new Regex($input, "i")],
+                  ["p_name" => new Regex($input, "i")]
+                
+              ]
+          ]);
+          return $cursor;
+      }
+
       function setTime($conn,$app_id,$stime){
         $collection = $conn->online_health->appointment;
         $cursor = $collection->updateOne([
@@ -274,7 +289,60 @@ function appointmentCheck($conn,$table, $name,$age, $gender,$email){
  return $result;
 } 
 
- 
+
+/*function autoIncrement($conn)
+{
+    $collection = $conn->online_health->counter;
+    $cursor = $collection->find();
+    foreach ($cursor as $document) {
+        $count = (int)$document["pres_id"];
+    }
+    $collection->updateOne(
+        ['pres_id' => (string)$count],
+        ['$set' => ["pres_id" => $count + 1]]
+    );
+    return $count + 1;
+}
+function AddDoc($conn, $app_id, $p_id,$prescribed)
+{
+    $count = $this->autoIncrement($conn);
+    $collection = $conn->online_health->doctor_prescribed;
+    $cursor = $collection->insertOne([
+        'pres_id' => (string) $count,
+      
+        "app_id"=>$app_id,
+       
+        "p_id"=>$p_id,
+        "prescribed" => $prescribed,
+    ]);
+    return $cursor->getInsertedCount();
+}*/
+function AddDoc($conn,$app_id, $p_id,$prescribed,$test){
+     
+    $collection = $conn->online_health->counter;
+    $cursor = $collection->find();
+    foreach($cursor as $document){
+        $count= (Int)$document["pres_id"];
+    }
+    $collection->updateOne([
+        'pres_id'=>$count],
+        ['$set' => ["pres_id" => $count+1]]
+    );
+    $count++;
+    $collection = $conn->online_health->doctor_prescribed;
+    
+    $result=$collection->insertOne([
+        'pres_id' => (string)$count,
+        "app_id"=>$app_id,
+       
+        "p_id"=>$p_id,
+        "prescribed" => $prescribed,
+        "test" => $test,
+       
+       
+    ]); 
+    return $result->getInsertedCount();
+}
 
 //"INSERT INTO appointment (name, age, gender, email) VALUES ('rahim', 20, 'male', 'rahim@gmail.com')";
 

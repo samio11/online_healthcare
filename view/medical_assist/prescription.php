@@ -1,5 +1,5 @@
 <?php
-include '../../controller/medical_assist/prescriptioncontrol.php';
+include '../../controller/medical_assist/update_prescontrol.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,22 +13,37 @@ include '../../controller/medical_assist/prescriptioncontrol.php';
 
 <body>
     <form method="POST" action="">
-        <h1> Prescription Data Entry:</h1><br>
+    <h1 style=" color: rgb(58, 48, 130);">Update Prescription</h1>
 
         <table>
+        <tr>
+                <td colspan="2">Presc. ID:</td>
+                <td><input type="text" name="presID" value="<?php echo $_SESSION['pres_id']; ?>"></td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Appoint. ID:</td>
+                <td><input type="text" name="appoID" value="<?php echo $_SESSION['app_id']; ?>"></td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">Patient. ID:</td>
+                <td><input type="text" name="patID" value="<?php echo $_SESSION['p_id']; ?>"></td>
+                </td>
+            </tr>
             <tr>
                 <td colspan="2">Patient Name:</td>
-                <td><input type="text" name="PatientName" />
-                    <?php echo $p_nameError; ?>
-                    <?php echo $p_name; ?>
+                <td><input type="text" name="patientName" />
+                <?php echo $p_nameError; ?>
+                <?php echo $p_name; ?>
                 </td>
             </tr>
 
             <tr>
                 <td colspan="2">Patient Email:</td>
                 <td><input type="text" name="PatientEmail" />
-                    <?php echo $p_emailError; ?>
-                    <?php echo $p_email; ?>
+                <?php echo $p_emailError; ?>
+                <?php echo $p_email; ?>
                 </td>
             </tr>
 
@@ -48,8 +63,8 @@ include '../../controller/medical_assist/prescriptioncontrol.php';
             <tr>
                 <td colspan="2">Height:</td>
                 <td><input type="text" name="Height" />
-                    <?php echo $heightError; ?>
-                    <?php echo $height; ?>
+                <?php echo $heightError; ?>
+                <?php echo $height; ?>
                 </td>
 
             </tr>
@@ -57,8 +72,8 @@ include '../../controller/medical_assist/prescriptioncontrol.php';
             <tr>
                 <td colspan="2">Weight:</td>
                 <td><input type="text" name="Weight" />
-                    <?php echo $weightError; ?>
-                    <?php echo $weight; ?>
+                <?php echo $weightError; ?>
+                <?php echo $weight; ?>
                 </td>
 
             </tr>
@@ -75,48 +90,51 @@ include '../../controller/medical_assist/prescriptioncontrol.php';
             <tr>
                 <td colspan="2">Diabetes:</td>
                 <td><select name="Diabetes">
-                        <option value="Yes">Yes</option>
                         <option value="No">No</option>
-                        <option value="NotSure">Not Sure</option>
+                        <option value="Type A ">Type A </option>
+                        <option value="Type B">Type B</option>
                     </select>
-                    <?php echo $diaError; ?>
-                    <?php echo $dia; ?>
+                <?php echo $diaError; ?>
+                <?php echo $dia; ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">Date Of Appointment:</td>
                 <td><input type="date" name="appointment">
-                    <?php echo $appdateError; ?>
-                    <?php echo $appdate; ?>
+                <?php echo $appdateError; ?>
+                <?php echo $appdate; ?>
                 </td>
+            </tr>
+            <tr>
+            <td colspan="2">Time slot:</td>
+            <td><input type="text" name="Timeslot" /> 
+            <?php echo $stimeError; ?>
+            <?php echo $stime; ?>       
+             </td>
             </tr>
             <tr>
                 <td colspan="2">Appointed Doctor:</td>
                 <td><input type="text" name="appointedDoc" />
-                    <?php echo $d_nameError; ?>
-                    <?php echo $d_name; ?>
+                <?php echo $d_nameError; ?>
+                <?php echo $d_name; ?>
             </td>
             </tr>
 
             <tr>
                 <td colspan="2">Prescribed Medicines:</td>
-                <td><textarea id="PrescribedMed" name="PrescribedMed" rows="4" cols="50"></textarea>
-                    <?php echo $medError; ?>
-                    <?php echo $med; ?>
+                <td><input type="text" name="presMed" value="<?php echo $_SESSION['prescribed']; ?>"></td>
             </td>
             </tr>
 
             <tr>
                 <td colspan="2">Tests for Disease:</td>
-               
-                  <td><textarea id="diseaseTest" name="diseaseTest" rows="4" cols="50"></textarea>
-                    <?php echo $testsError; ?>
-                    <?php echo $tests; ?>
+                <td><input type="text" name="Tests" value="<?php echo $_SESSION['test']; ?>"></td>
                 </td>
             </tr>
 
             <tr>
-                <td><input type="submit" name="submitPrescription" value="Submit Prescription" /></td>
+                <td><input type="submit" name="submitPrescription" value="Submit Prescription" /> <br><br>
+                <input type="submit" name="return" value="Homepage" /></td>
             </tr>
         </table>
     </form>

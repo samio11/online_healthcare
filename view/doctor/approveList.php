@@ -1,5 +1,5 @@
 <?php
-include '../../controller/doctor/appcontrol.php';
+include '../../controller/doctor/approveList_control.php';
 include '../../controller/doctor/chatSessionControl.php';
 
 ?>
@@ -19,45 +19,41 @@ include '../../controller/doctor/chatSessionControl.php';
 <body>
 <form method="POST" action="" >
 
-<h1 >Pending Appointment List</h1>
-<input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
+
+
+
+    <h1>Appointment Approved List</h1>
     <table border="1">
+    <input type="text" id="live_search" placeholder="Search here" onkeyup="liveSearch(this.value)">
         <tr>
             <th>Appointment Id</th>
             <th>Patient Id</th>
             <th>Patient Name</th>
             <th>Patient Gender</th>
-            <th>Request Time Slot</th>
+            <th>Appointed Time </th>
             <th>Patient Note</th>
+
            
-            <th>Action</th>
         </tr>
-      
         <tbody id="searchresult">
            <?php echo $str ?>
         </tbody> 
-
-        <?php foreach ($appointmentData as $appointment): ?>
+        
+        <?php foreach ($approvedData as $approve): ?>
         <tr>
-            <td><?php echo $appointment['app_id']; ?></td>
-            <td><?php echo $appointment['p_id']; ?></td>
-            <td><?php echo $appointment['p_name']; ?></td>
-            <td><?php echo $appointment['p_gender']; ?></td>
-            <td><?php echo $appointment['time']; ?></td>
-            <td><?php echo $appointment['note']; ?></td>
-            <td>
+            <td><?php echo $approve['app_id']; ?></td>
+            <td><?php echo $approve['p_id']; ?></td>
+            <td><?php echo $approve['p_name']; ?></td>
+            <td><?php echo $approve['p_gender']; ?></td>
+            <td><?php echo $approve['stime']; ?></td>
+            <td><?php echo $approve['note']; ?></td>
+            <td><button type="submit" name="message" value="<?php echo $approve['app_id'] ?>">Message</button></td>
+            
              
-            <button type="submit" name="set_time" id="set_time">Set Time</button>
            
-          
-            <button type="submit" name="decline" value="<?php echo $appointment['app_id'];?>">Decline</button>
-            </td>
       </tr>
         <?php endforeach; ?>
-    </table>
-
-
-  
+    </table>    
 
 </form>
    

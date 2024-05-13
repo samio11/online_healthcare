@@ -83,6 +83,23 @@ function liveSearchAssist(value) {
     });
   });
 }
+function SearchApproveList(value) {
+  $(document).ready(function () {
+    var input = value;
+   
+
+    $.ajax({
+      url: "http://localhost/online_healthcare/controller/doctor/approveList_control.php",
+      method: "POST",
+      data: { input: input },
+      success: function (data) {
+        $("#searchresult").html(data);
+      }
+    });
+  });
+}
+
+
 function chat(app_id) {
   var clientmsg = $("#usermsg").val();
   $.post("../../controller/doctor/chatroomControl.php", { text: clientmsg, room: app_id },

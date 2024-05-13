@@ -4,7 +4,10 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
 }
-
+h1 {
+    color: #5b9aff;
+  text-align: center;
+}
 table th,
 table td {
     padding: 10px;
@@ -13,7 +16,7 @@ table td {
 
 /* Style for table headers */
 table th {
-    background-color: #f2f2f2;
+    background-color: #5b9aff;
     font-weight: bold;
 }
 
@@ -36,21 +39,14 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-#live_search {
-    width: 300px; /* Adjust the width as needed */
-    padding: 10px; /* Add padding for better spacing */
-    border: 1px solid #ccc; /* Add a border for visual distinction */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Adjust the font size */
-    outline: none; /* Remove the default focus outline */
-  }
-  
-  #live_search::placeholder {
-    color: #999; /* Change the placeholder text color */
-  }
-  
-  #live_search:focus {
-    border-color: #5b9aff; /* Change border color on focus */
-  }
+input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
   
 
