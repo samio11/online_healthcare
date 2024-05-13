@@ -298,4 +298,17 @@ class Model
         $cursor = $collection->find();
         return $cursor;
     }
+    function cancelApp($conn, $appid)
+    {
+        $collection = $conn->online_health->appointment;
+        $cursor = $collection->updateOne(
+            [
+                'app_id' => $appid
+            ],
+            ['$set' => [
+                'status' => 'declined'
+            ]]
+        );
+        return $cursor->getModifiedCount();
+    }
 }
