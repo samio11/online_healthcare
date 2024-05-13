@@ -5,15 +5,18 @@ table {
     margin-bottom: 20px;
 }
 .header {
-    background-color: #f2f2f2; /* Light background color */
-    padding: 10px; /* Padding of 10 pixels */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center align items vertically */
+    background-color: #f2f2f2; 
+    padding: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    color: #5b9aff;
+    
 }
 
 .header h1 {
     margin: 0; /* Remove default margin for h1 */
+    text-align: center;
 }
 
 .header a {
