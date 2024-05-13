@@ -42,8 +42,6 @@ include '../../controller/doctor/homevalidation.php';
        </div> 
   
     <div class="button-container">
-        
-
         <button type="button" id="uploadbutton" name="uploadbutton" onclick="openDiag()">Add picture</button> 
        <button type="button" id="remove" onclick="removePicture('<?php echo $_SESSION['email']; ?>')">Remove picture</button>
    

@@ -38,6 +38,9 @@ function validateEmail(){
       document.getElementById('email_error').innerHTML = "Please Enter a valid email address";
       return false;
     }
+
+
+    
   }
   function openDiag(){
     document.getElementById('uploadphoto').click();
