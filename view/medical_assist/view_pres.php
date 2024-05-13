@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Prescription List</title>
+    <title>Update Prescription</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/medical_assist_myscript.js"></script>
     <link rel="stylesheet" href="../../css/medical_assist/prescList_page.css">
@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="docmain">
-        <h1>Prescription List</h1>
+        <h1>Update Prescription</h1>
         <input type="text" id="live_search" placeholder="Search here..." onkeyup="liveSearch1(this.value)">
         
         <table class="text">       

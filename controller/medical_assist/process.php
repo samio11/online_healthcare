@@ -7,7 +7,7 @@ if (isset($_REQUEST['Submit'])) {
     $password = $_REQUEST['Password'];
 
     if (strlen($_REQUEST['Name']) < 4) {
-        $nameError = " Name should be atleast 4 characeters";
+        $nameError = " Name should be atleast 4 characters";
         $haserror = 1;
     } else {
         $name = $_REQUEST['Name'];

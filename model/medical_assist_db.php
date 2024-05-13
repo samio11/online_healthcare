@@ -1,6 +1,7 @@
 <?php
-set_include_path(dirname(__FILE__) . "/..//../");
-require 'mongo\vendor/autoload.php';
+//set_include_path(dirname(__FILE__) . "/..//../");
+//require 'mongo\vendor/autoload.php';
+require '../../mongodbphp/vendor/autoload.php';
 
 use MongoDB\Driver\ServerApi;
 use MongoDB\BSON\Regex;
@@ -88,7 +89,7 @@ class Model
   }
   function updatePassword($conn, $email, $password)
   {
-      $collection = $conn->online_health->patient;
+      $collection = $conn->online_health->medical_assist;
       $cursor = $collection->updateOne(
           [
               'email' => $email
