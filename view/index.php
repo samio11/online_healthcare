@@ -14,7 +14,7 @@
 
         <div class="header-right">
             <a class="active" href="#home">Home</a>
-            <a href="#contact">Find Doctors</a>
+            <a href="findDoctors.php">Find Doctors</a>
             <a href="#contact">Contact</a>
             <div class="dropdown">
                 <button class="dropbtn">Login
@@ -40,19 +40,19 @@
 
             <div class="mySlides fade">
                 <div class="numbertext">1 / 3</div>
-                <img src="../upload/logo.png" style="width:150px;height:150px;">
+                <img src="../upload/logo.png" style="width:500px;height:500px;">
                 <div class="text">Caption Text</div>
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">2 / 3</div>
-                <img src="../upload/doctorphotohasna@gmail.comdownload.jpg" style="width:150px;height:150px;">
+                <img src="../upload/doctorphotohasna@gmail.comdownload.jpg" style="width:500px;height:500px;">
                 <div class="text">Caption Two</div>
             </div>
 
             <div class="mySlides fade">
                 <div class="numbertext">3 / 3</div>
-                <img src="img_mountains_wide.jpg" style="width:100%">
+                <img src="../upload/doctorphotohasna@gmail.comdownload.jpg" style="width:500px;height:500px;">
                 <div class="text">Caption Three</div>
             </div>
 
@@ -89,39 +89,17 @@
             }
         </script>
     </div>
-   
 
 
-    <style>
-       
-        .footer {
-            background-color: #333; 
-            color: #fff; 
-            padding: 40px; 
-            text-align: center; 
-        }
-
-        .footer a {
-            color: #fff; 
-            text-decoration: none; 
-            margin: 0 20px;
-        }
-    </style>
-</head>
+</body>
 
 
-    <footer class="footer">
-        <div>
+<footer class="footer">
+    <div class="">
         <a href="about_us.php">About Us</a>
-            <a href="#">Contact Us</a> 
-        </div>
-    </footer>
-    
-</body>
-</html>
+        <a href="contact.php">Contact Us</a>
+    </div>
+</footer>
 
-
-
-</body>
 
 </html>
