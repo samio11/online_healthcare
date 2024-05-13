@@ -89,28 +89,38 @@
             }
         </script>
     </div>
-    <div class="header">
+   
 
-        <a href="index.php" class="logo"><img src="../upload/logo.png" alt="HTML tutorial" style="width:60px;height:60px;"></a>
-        <div class="header-right">
-            <a class="active" href="#home">Home</a>
-            <a href="#contact">Find Doctors</a>
-            <a href="#contact">Contact</a>
-            <div class="dropdown">
-                <button class="dropbtn">Login
-                    <i class="fa fa-caret-down"></i>
-                </button>
 
-                <div class="dropdown-content">
-                    <a href="http://localhost/online_healthcare/view/patient/login.php">Patient</a>
-                    <a href="http://localhost/online_healthcare/view/doctor/login.php">Doctor</a>
-                    <a href="#">Medical <br>Assistant</a>
-                </div>
-            </div>
-            <a href="#about">About</a>
+    <style>
+       
+        .footer {
+            background-color: #333; 
+            color: #fff; 
+            padding: 40px; 
+            text-align: center; 
+        }
+
+        .footer a {
+            color: #fff; 
+            text-decoration: none; 
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+
+    <footer class="footer">
+        <div>
+        <a href="about_us.php">About Us</a>
+            <a href="#">Contact Us</a> 
         </div>
+    </footer>
+    
+</body>
+</html>
 
-    </div>
+
 
 </body>
 
