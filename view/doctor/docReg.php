@@ -136,6 +136,11 @@ include '../../controller/doctor/validation.php';
                 <td></td>
                 <td><input type="submit" value="Submit" name="SUBMIT"></td>
             </tr>
+            <tr>
+                <td></td>
+                <td><a href="login.php" color: grren;> Login? </a></td>
+            </tr>
+           
         </table>
     </form>
 </body>
