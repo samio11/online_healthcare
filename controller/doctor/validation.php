@@ -1,6 +1,10 @@
 <?php
 include '../../model/doctor_db.php';
 
+if (!isset($_COOKIE['first_visit'])) {
+    setcookie('first_visit', 'welcome', time() + 1800);
+    echo "<script>alert('Register to login later!')</script>";
+}
 $fname=$lname=$email=$gender=$cat=$pnumber =$lnumber= $place=$pass=$hasError="";
 $fnameError=$lnameError=$emailError=$genderError=$catError=$pnumberError =$lnumberError= $placeError =$passError="";
 
