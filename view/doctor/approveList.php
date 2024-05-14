@@ -35,6 +35,7 @@ include '../../controller/doctor/chatSessionControl.php';
             <th>Patient Gender</th>
             <th>Appointed Time </th>
             <th>Patient Note</th>
+            <th>Message</th>
 
            
         </tr>
